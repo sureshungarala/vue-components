@@ -79,7 +79,7 @@
 
 import SvgIcon from './shared/SvgIcon.js';
 
-const Dropdown = {
+const VsDropdown = {
  template,
  components: {
   SvgIcon,
@@ -314,4 +314,6 @@ const Dropdown = {
  @import url('./index.css')
 </style>
 
-export default Dropdown;
+if(typeof window !== 'undefined' && window.Vue){
+  window.Vue.use(VsDropdown);
+}
