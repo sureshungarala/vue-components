@@ -8,7 +8,7 @@ export default defineConfig({
   plugins: [createVuePlugin(), cssInjectedByJsPlugin()],
   build: {
     lib: {
-      entry: path.resolve(__dirname,'src/Dropdown.js'),
+      entry: path.resolve(__dirname,'src/Dropdown.vue'),
       name: 'VsDropdown',
       fileName: (format) => `vs-dropdown.${format}.js`,
     },
