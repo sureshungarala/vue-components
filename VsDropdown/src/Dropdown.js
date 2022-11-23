@@ -311,12 +311,12 @@ const VsDropdown = {
  },
 };
 
-// if(typeof window !== 'undefined' && window.Vue){
-//   window.Vue.use(VsDropdown);
-// }
-
 export default {
   install: (app, _options) => {
     app.component('VsDropdown', VsDropdown);
   }
+}
+
+if(typeof window !== 'undefined' && window.Vue){
+  window.Vue.use(VsDropdown);
 }

@@ -7,12 +7,12 @@ import path from 'path'
 export default defineConfig({
   plugins: [createVuePlugin(), cssInjectedByJsPlugin()],
   build: {
-    minify: 'esbuild',
     lib: {
       entry: path.resolve(__dirname,'src/Dropdown.js'),
       name: 'VsDropdown',
       fileName: (format) => `vs-dropdown.${format}.js`,
     },
+    minify: 'esbuild',
     rollupOptions: {
       // make sure to externalize deps that shouldn't be bundled
       // into your library
