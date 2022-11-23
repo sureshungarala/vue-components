@@ -78,6 +78,7 @@
  </div>`;
 
 import SvgIcon from './shared/SvgIcon.js';
+import './Dropdown.css';
 
 const VsDropdown = {
  template,
@@ -310,10 +311,12 @@ const VsDropdown = {
  },
 };
 
-<style scoped>
- @import url('./index.css')
-</style>
+// if(typeof window !== 'undefined' && window.Vue){
+//   window.Vue.use(VsDropdown);
+// }
 
-if(typeof window !== 'undefined' && window.Vue){
-  window.Vue.use(VsDropdown);
+export default {
+  install: (app, _options) => {
+    app.component('VsDropdown', VsDropdown);
+  }
 }

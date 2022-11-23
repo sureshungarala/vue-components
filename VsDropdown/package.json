@@ -1,0 +1,30 @@
+{
+  "name": "vs-dropdown",
+  "private": true,
+  "version": "0.0.1",
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/vs-dropdown.umd.js",
+  "module": "./dist/vs-dropdown.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/vs-dropdown.es.js",
+      "require": "./dist/vs-dropdown.umd.js"
+    }
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "vite-plugin-css-injected-by-js": "^2.1.1",
+    "vue": "^2.6.12"
+  },
+  "devDependencies": {
+    "vite": "^3.2.3",
+    "vite-plugin-vue2": "^2.0.2"
+  }
+}
