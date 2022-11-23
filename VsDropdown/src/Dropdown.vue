@@ -80,10 +80,8 @@
 
 <script>
   import SvgIcon from './shared/SvgIcon.vue';
-  import './Dropdown.css';
 
-  const VsDropdown = {
-  template,
+  export default {
   components: {
     SvgIcon,
   },
@@ -312,14 +310,6 @@
     },
   },
   };
-
-  export default {
-    install(vueApp, _options) {
-      vueApp.component('VsDropdown', VsDropdown);
-    }
-  }
-
-  if(typeof window !== 'undefined' && window.Vue){
-    window.Vue.use(VsDropdown);
-  }
 </script>
+
+<style src="./Dropdown.css" scoped></style>

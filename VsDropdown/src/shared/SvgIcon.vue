@@ -15,7 +15,6 @@
 
 <script>
   const SvgIcon = {
-    template,
     props: {
       icon: {
         type: String,
