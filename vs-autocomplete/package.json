@@ -1,17 +1,17 @@
 {
-  "name": "vs-dropdown",
+  "name": "vs-autocomplete",
   "private": false,
   "version": "0.0.5",
   "type": "module",
   "files": [
     "dist"
   ],
-  "main": "./dist/vs-dropdown.umd.js",
-  "module": "./dist/vs-dropdown.es.js",
+  "main": "./dist/vs-autocomplete.umd.js",
+  "module": "./dist/vs-autocomplete.es.js",
   "exports": {
     ".": {
-      "import": "./dist/vs-dropdown.es.js",
-      "require": "./dist/vs-dropdown.umd.js"
+      "import": "./dist/vs-autocomplete.es.js",
+      "require": "./dist/vs-autocomplete.umd.js"
     }
   },
   "scripts": {

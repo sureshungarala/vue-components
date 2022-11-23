@@ -26,13 +26,13 @@ var O = function() {
     }
   })]);
 }, I = [];
-function _(t, e, i, s, n, r, d, a) {
+function _(t, e, i, s, n, r, a, d) {
   var o = typeof t == "function" ? t.options : t;
   e && (o.render = e, o.staticRenderFns = i, o._compiled = !0), s && (o.functional = !0), r && (o._scopeId = "data-v-" + r);
   var l;
-  if (d ? (l = function(c) {
-    c = c || this.$vnode && this.$vnode.ssrContext || this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext, !c && typeof __VUE_SSR_CONTEXT__ < "u" && (c = __VUE_SSR_CONTEXT__), n && n.call(this, c), c && c._registeredComponents && c._registeredComponents.add(d);
-  }, o._ssrRegister = l) : n && (l = a ? function() {
+  if (a ? (l = function(c) {
+    c = c || this.$vnode && this.$vnode.ssrContext || this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext, !c && typeof __VUE_SSR_CONTEXT__ < "u" && (c = __VUE_SSR_CONTEXT__), n && n.call(this, c), c && c._registeredComponents && c._registeredComponents.add(a);
+  }, o._ssrRegister = l) : n && (l = d ? function() {
     n.call(
       this,
       (o.functional ? this.parent : this).$root.$options.shadowRoot
@@ -220,7 +220,7 @@ var y = function() {
   }), s("span", {
     staticClass: "u-truncate label"
   }, [e._v(e._s(e.selectedParent.label))])], 1) : e._e(), e._l(e.currentOptions, function(n, r) {
-    var d, a, o;
+    var a, d, o;
     return s("li", {
       key: n.label,
       class: "v-dd-option" + (e.selectedIndex === (e.selectedParent ? r + 1 : r) ? " active" : ""),
@@ -234,13 +234,13 @@ var y = function() {
           return e.selectOption(r);
         }
       }
-    }, [(d = n.children) !== null && d !== void 0 && d.length && e.hasSelectedOptions(n.children, n) ? s("svg-icon", {
+    }, [(a = n.children) !== null && a !== void 0 && a.length && e.hasSelectedOptions(n.children, n) ? s("svg-icon", {
       attrs: {
         icon: "zd-contains",
         name: "Contains",
         color: "#1f73b7"
       }
-    }) : e._e(), !((a = n.children) !== null && a !== void 0 && a.length) && e.isOptionSelected(n) ? s("svg-icon", {
+    }) : e._e(), !((d = n.children) !== null && d !== void 0 && d.length) && e.isOptionSelected(n) ? s("svg-icon", {
       attrs: {
         icon: "zd-check",
         name: "Selected",
@@ -437,7 +437,7 @@ const $ = /* @__PURE__ */ function() {
   return S.exports;
 }(), D = {
   install(t, e) {
-    t.component("VsDropdown", $);
+    t.component("VsAutocomplete", $);
   }
 };
 typeof window < "u" && window.Vue && window.Vue.use(D);

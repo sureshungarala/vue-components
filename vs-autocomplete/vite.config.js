@@ -9,8 +9,8 @@ export default defineConfig({
   build: {
     lib: {
       entry: path.resolve(__dirname,'src/index.js'),
-      name: 'VsDropdown',
-      fileName: (format) => `vs-dropdown.${format}.js`,
+      name: 'vs-autocomplete',
+      fileName: (format) => `vs-autocomplete.${format}.js`,
     },
     minify: 'esbuild',
     rollupOptions: {
