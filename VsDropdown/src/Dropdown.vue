@@ -82,233 +82,235 @@
   import SvgIcon from './shared/SvgIcon.vue';
 
   export default {
-  components: {
-    SvgIcon,
-  },
-  props: {
-    label: {
-      type: String,
-      required: false,
+    components: {
+      SvgIcon,
     },
-    options: {
-      type: Array,
-      default: [],
-      required: true,
-    },
-    value: {
-      type: Array,
-      default: [],
-      required: true,
-    },
-    multiple: {
-      type: Boolean,
-      default: false,
-      required: false,
-    },
-    delimiter: {
-      type: String,
-      default: ', ',
-      required: false,
-    },
-  },
-  data() {
-    return {
-      searchInput: '', // The value of the search input
-      menuIsOpen: false, // true if the dropdown menu is open
-      selectedParent: null, // Parent option of the current displayed options
-      selectedOptions: [], // All selected options
-      currentOptions: this.options, // Current options to display
-      filteredOptions: this.options, // All options filtered by the search input
-
-      /* A11y */
-      selectedIndex: -1, // Index of the selected option
-      selectedIndices: [],
-      currentIndex: -1, // Index of the current prog focussed option
-    };
-  },
-
-  watch: {
-    menuIsOpen() {
-      if (this.menuIsOpen) {
-        document.addEventListener('click', this.closeDropdownMenuOnBlur);
-      } else {
-        document.removeEventListener('click', this.closeDropdownMenuOnBlur);
-      }
+    
+    props: {
+      label: {
+        type: String,
+        required: false,
+      },
+      options: {
+        type: Array,
+        default: [],
+        required: true,
+      },
+      value: {
+        type: Array,
+        default: [],
+        required: true,
+      },
+      multiple: {
+        type: Boolean,
+        default: false,
+        required: false,
+      },
+      delimiter: {
+        type: String,
+        default: ', ',
+        required: false,
+      },
     },
 
-    searchInput() {
-      if (this.searchInput) {
-        this.currentOptions = this.filterMatchingOptions(this.searchInput, this.options);
-      } else {
-        this.currentOptions = this.options;
-      }
-      this.filteredOptions = this.currentOptions;
-      this.selectedParent = null;
+    data() {
+      return {
+        searchInput: '', // The value of the search input
+        menuIsOpen: false, // true if the dropdown menu is open
+        selectedParent: null, // Parent option of the current displayed options
+        selectedOptions: [], // All selected options
+        currentOptions: this.options, // Current options to display
+        filteredOptions: this.options, // All options filtered by the search input
+
+        /* A11y */
+        selectedIndex: -1, // Index of the selected option
+        selectedIndices: [],
+        currentIndex: -1, // Index of the current prog focussed option
+      };
     },
 
-    selectedOptions() {
-      this.$emit('input', this.selectedOptions);
-    },
-  },
-
-  methods: {
-    focusSearchInput() {
-      this.$refs.searchInput.focus();
-    },
-
-    toggleDropdownMenu(event) {
-      event.stopPropagation();
-      this.menuIsOpen = !this.menuIsOpen;
-      this.focusSearchInput();
-    },
-
-    closeDropdownMenu() {
-      this.menuIsOpen = false;
-      if (!this.searchInput?.trim().length) {
-        this.searchInput = '';
-        this.selectedParent = null;
-        this.filteredOptions = this.options;
-        this.currentOptions = this.options;
-        this.selectedIndex = -1;
-      }
-    },
-
-    keepMenuOpen(event) {
-      event.stopPropagation();
-      if (!this.menuIsOpen) {
-        this.menuIsOpen = true;
-      }
-      this.focusSearchInput();
-    },
-
-    closeDropdownMenuOnBlur(event) {
-      if (!event.path.includes(this.$refs.dropdown)) this.closeDropdownMenu();
-    },
-
-    optionIdentifer(option, parent = this.selectedParent) {
-      return [parent?.value, option.label, option.value].join('__');
-    },
-
-    isOptionSelected(option, parent) {
-      const identifier = this.optionIdentifer(option, parent);
-      return this.selectedOptions.findIndex(selectedOption => selectedOption.__identifier === identifier) > -1;
-    },
-
-    hasSelectedOptions(options, parent) {
-      return options.some(option =>
-        option.children?.length
-          ? this.hasSelectedOptions(option.children, option)
-          : this.isOptionSelected(option, parent),
-      );
-    },
-
-    goToPreviousOptions(parent = null, options = this.filteredOptions) {
-      for (const option of options) {
-        if (option.children?.length) {
-          if (option.label === this.selectedParent.label && option.children.length === this.currentOptions.length) {
-            this.currentOptions = options;
-            this.selectedParent = parent;
-            return;
-          }
-          this.goToPreviousOptions(option, option.children);
-        }
-      }
-    },
-
-    filterMatchingOptions(searchInput, options) {
-      let matchedOptions = [];
-      for (const option of options) {
-        if (option.label.toLowerCase().includes(searchInput.toLowerCase())) {
-          matchedOptions.push(option);
-        } else if (option.children?.length) {
-          const matchedSubOptions = this.filterMatchingOptions(searchInput, option.children);
-          if (matchedSubOptions.length) {
-            matchedOptions.push({ ...option, children: matchedSubOptions });
-          }
-        }
-      }
-      return matchedOptions;
-    },
-
-    selectOption(index) {
-      const option = this.currentOptions[index];
-      if (option.children?.length) {
-        this.selectedParent = option;
-        this.currentOptions = option.children;
-      } else {
-        const identifier = this.optionIdentifer(option);
-        if (option.selected) {
-          // .selected is transient for current displayed options(`currentOptions`). Hence not used in `selected(Checked icon)` check in template.
-          if (this.multiple) {
-            const matchedIndex = this.selectedOptions.findIndex(
-              selectedOption => selectedOption.__identifier === identifier,
-            );
-            this.selectedOptions.splice(matchedIndex, 1);
-          } else {
-            this.selectedOptions = [];
-          }
-          this.currentOptions[index].selected = false;
+    watch: {
+      menuIsOpen() {
+        if (this.menuIsOpen) {
+          document.addEventListener('click', this.closeDropdownMenuOnBlur);
         } else {
-          const selectedOption = { ...option, __identifier: identifier };
-          if (this.multiple) {
-            this.selectedOptions.push(selectedOption);
-          } else {
-            this.selectedOptions = [selectedOption];
-            this.closeDropdownMenu();
-          }
-          this.currentOptions[index].selected = true;
+          document.removeEventListener('click', this.closeDropdownMenuOnBlur);
         }
-      }
+      },
+
+      searchInput() {
+        if (this.searchInput) {
+          this.currentOptions = this.filterMatchingOptions(this.searchInput, this.options);
+        } else {
+          this.currentOptions = this.options;
+        }
+        this.filteredOptions = this.currentOptions;
+        this.selectedParent = null;
+      },
+
+      selectedOptions() {
+        this.$emit('input', this.selectedOptions);
+      },
     },
 
-    handleKeyUp(event) {
-      // event.preventDefault();
-      const { key } = event;
-      console.log('key ', key);
-      if (key === 'Escape') {
-        this.closeDropdownMenu();
-      } else if (key === 'Enter' || key.length === 1) {
-        if (!this.menuIsOpen) this.keepMenuOpen(event);
-        if (key === 'Enter') {
-          if (this.selectedParent && this.selectedIndex === 0) {
-            this.goToPreviousOptions();
-            this.selectedIndex = 0;
-          } else if (this.selectedIndex !== -1) {
-            // initial dropdown open state
-            const index = this.selectedParent ? this.selectedIndex - 1 : this.selectedIndex;
+    methods: {
+      focusSearchInput() {
+        this.$refs.searchInput.focus();
+      },
+
+      toggleDropdownMenu(event) {
+        event.stopPropagation();
+        this.menuIsOpen = !this.menuIsOpen;
+        this.focusSearchInput();
+      },
+
+      closeDropdownMenu() {
+        this.menuIsOpen = false;
+        if (!this.searchInput?.trim().length) {
+          this.searchInput = '';
+          this.selectedParent = null;
+          this.filteredOptions = this.options;
+          this.currentOptions = this.options;
+          this.selectedIndex = -1;
+        }
+      },
+
+      keepMenuOpen(event) {
+        event.stopPropagation();
+        if (!this.menuIsOpen) {
+          this.menuIsOpen = true;
+        }
+        this.focusSearchInput();
+      },
+
+      closeDropdownMenuOnBlur(event) {
+        if (!event.path.includes(this.$refs.dropdown)) this.closeDropdownMenu();
+      },
+
+      optionIdentifer(option, parent = this.selectedParent) {
+        return [parent?.value, option.label, option.value].join('__');
+      },
+
+      isOptionSelected(option, parent) {
+        const identifier = this.optionIdentifer(option, parent);
+        return this.selectedOptions.findIndex(selectedOption => selectedOption.__identifier === identifier) > -1;
+      },
+
+      hasSelectedOptions(options, parent) {
+        return options.some(option =>
+          option.children?.length
+            ? this.hasSelectedOptions(option.children, option)
+            : this.isOptionSelected(option, parent),
+        );
+      },
+
+      goToPreviousOptions(parent = null, options = this.filteredOptions) {
+        for (const option of options) {
+          if (option.children?.length) {
+            if (option.label === this.selectedParent.label && option.children.length === this.currentOptions.length) {
+              this.currentOptions = options;
+              this.selectedParent = parent;
+              return;
+            }
+            this.goToPreviousOptions(option, option.children);
+          }
+        }
+      },
+
+      filterMatchingOptions(searchInput, options) {
+        let matchedOptions = [];
+        for (const option of options) {
+          if (option.label.toLowerCase().includes(searchInput.toLowerCase())) {
+            matchedOptions.push(option);
+          } else if (option.children?.length) {
+            const matchedSubOptions = this.filterMatchingOptions(searchInput, option.children);
+            if (matchedSubOptions.length) {
+              matchedOptions.push({ ...option, children: matchedSubOptions });
+            }
+          }
+        }
+        return matchedOptions;
+      },
+
+      selectOption(index) {
+        const option = this.currentOptions[index];
+        if (option.children?.length) {
+          this.selectedParent = option;
+          this.currentOptions = option.children;
+        } else {
+          const identifier = this.optionIdentifer(option);
+          if (option.selected) {
+            // .selected is transient for current displayed options(`currentOptions`). Hence not used in `selected(Checked icon)` check in template.
+            if (this.multiple) {
+              const matchedIndex = this.selectedOptions.findIndex(
+                selectedOption => selectedOption.__identifier === identifier,
+              );
+              this.selectedOptions.splice(matchedIndex, 1);
+            } else {
+              this.selectedOptions = [];
+            }
+            this.currentOptions[index].selected = false;
+          } else {
+            const selectedOption = { ...option, __identifier: identifier };
+            if (this.multiple) {
+              this.selectedOptions.push(selectedOption);
+            } else {
+              this.selectedOptions = [selectedOption];
+              this.closeDropdownMenu();
+            }
+            this.currentOptions[index].selected = true;
+          }
+        }
+      },
+
+      handleKeyUp(event) {
+        // event.preventDefault();
+        const { key } = event;
+        console.log('key ', key);
+        if (key === 'Escape') {
+          this.closeDropdownMenu();
+        } else if (key === 'Enter' || key.length === 1) {
+          if (!this.menuIsOpen) this.keepMenuOpen(event);
+          if (key === 'Enter') {
+            if (this.selectedParent && this.selectedIndex === 0) {
+              this.goToPreviousOptions();
+              this.selectedIndex = 0;
+            } else if (this.selectedIndex !== -1) {
+              // initial dropdown open state
+              const index = this.selectedParent ? this.selectedIndex - 1 : this.selectedIndex;
+              this.selectOption(index);
+              if (this.selectedParent) this.selectedIndex = 1;
+              else this.selectedIndex = 0;
+            }
+          }
+        } else if (key === 'ArrowUp') {
+          if (this.selectedIndex === 0) {
+            const totalOptions = this.currentOptions.length;
+            this.selectedIndex = this.selectedParent ? totalOptions : totalOptions - 1;
+          } else {
+            this.selectedIndex--;
+          }
+        } else if (key === 'ArrowRight') {
+          const index = this.selectedParent ? this.selectedIndex - 1 : this.selectedIndex;
+          if (this.currentOptions[index]?.children?.length) {
             this.selectOption(index);
             if (this.selectedParent) this.selectedIndex = 1;
-            else this.selectedIndex = 0;
+          }
+        } else if (key === 'ArrowDown') {
+          const totalOptions = this.currentOptions.length;
+          if (this.selectedIndex === (this.selectedParent ? totalOptions : totalOptions - 1)) {
+            this.selectedIndex = 0;
+          } else {
+            this.selectedIndex++;
+          }
+        } else if (key === 'ArrowLeft') {
+          if (this.selectedParent) {
+            this.goToPreviousOptions();
+            this.selectedIndex = 0;
           }
         }
-      } else if (key === 'ArrowUp') {
-        if (this.selectedIndex === 0) {
-          const totalOptions = this.currentOptions.length;
-          this.selectedIndex = this.selectedParent ? totalOptions : totalOptions - 1;
-        } else {
-          this.selectedIndex--;
-        }
-      } else if (key === 'ArrowRight') {
-        const index = this.selectedParent ? this.selectedIndex - 1 : this.selectedIndex;
-        if (this.currentOptions[index]?.children?.length) {
-          this.selectOption(index);
-          if (this.selectedParent) this.selectedIndex = 1;
-        }
-      } else if (key === 'ArrowDown') {
-        const totalOptions = this.currentOptions.length;
-        if (this.selectedIndex === (this.selectedParent ? totalOptions : totalOptions - 1)) {
-          this.selectedIndex = 0;
-        } else {
-          this.selectedIndex++;
-        }
-      } else if (key === 'ArrowLeft') {
-        if (this.selectedParent) {
-          this.goToPreviousOptions();
-          this.selectedIndex = 0;
-        }
-      }
+      },
     },
-  },
   };
 </script>
 
