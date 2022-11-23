@@ -6,8 +6,8 @@ const VsDropdownPlugin = {
   },
 };
 
-export default VsDropdownPlugin;
-
 if (typeof window !== 'undefined' && window.Vue) {
-  window.Vue.use(VsDropdownPlugin);
+ window.Vue.use(VsDropdownPlugin);
 }
+
+export default VsDropdownPlugin;
