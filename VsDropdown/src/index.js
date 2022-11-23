@@ -1,11 +1,13 @@
 import VsDropdown from './Dropdown.vue'
 
-export default {
+const VsDropdownPlugin = {
   install(vueApp, _options) {
     vueApp.component('VsDropdown', VsDropdown);
   },
 };
 
+export default VsDropdownPlugin;
+
 if (typeof window !== 'undefined' && window.Vue) {
-  window.Vue.use(VsDropdown);
+  window.Vue.use(VsDropdownPlugin);
 }
