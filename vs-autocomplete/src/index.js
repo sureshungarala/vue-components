@@ -6,8 +6,14 @@ const VsAutocompletePlugin = {
   },
 };
 
-if (typeof window !== 'undefined' && window.Vue) {
- window.Vue.use(VsAutocompletePlugin);
+let GlobalVue = null;
+if (typeof window !== 'undefined') {
+	GlobalVue = window.Vue;
+} else if (typeof global !== 'undefined') {
+	GlobalVue = global.Vue;
+}
+if (GlobalVue) {
+	GlobalVue.use(VsAutocompletePlugin);
 }
 
-export default VsAutocompletePlugin;
+export default VsAutocomplete;

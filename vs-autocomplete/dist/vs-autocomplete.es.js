@@ -1,5 +1,5 @@
 (function(){"use strict";try{if(typeof document!="undefined"){var d=document.createElement("style");d.appendChild(document.createTextNode(".v-tree-dropdown[data-v-ddc53010]{--primary-color: #1f73b7;--background-color: #1f73b714;--border: 1px solid #d8dcde;--max-width: 10000000px;--box-shadow: rgb(31 115 183 / 35%) 0px 0px 0px 3px;--bezier-curve: .1s cubic-bezier(0, 0, .95, 1.03);--animation-delay: .2s;position:relative;width:300px;max-width:var(--max-width);outline:none}.v-dd[data-v-ddc53010]{display:flex;flex-direction:column;row-gap:.5rem}.v-tree-dropdown #v-dd-label[data-v-ddc53010],.v-dd-option>.label[data-v-ddc53010]{font-weight:600;text-align:left}.v-dd:hover .v-dd-search[data-v-ddc53010]{border-color:var(--primary-color)}.margin-0-auto[data-v-ddc53010]{margin:0 auto}.c-btn__icon[data-v-ddc53010]{width:16px;height:16px;margin-top:-2px;vertical-align:middle}.u-truncate[data-v-ddc53010]{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.v-dd-search[data-v-ddc53010]{position:relative;display:flex;align-items:center;justify-content:space-between;border:var(--border);padding:.8rem .75rem;border-radius:4px;cursor:pointer;outline:none;z-index:1}.v-dd-search[data-v-ddc53010]:active,.v-dd-search[data-v-ddc53010]:focus,.v-dd-search[data-v-ddc53010]:focus-within{border-color:var(--primary-color);box-shadow:var(--box-shadow);transition:border-color .2s ease-in-out,box-shadow .2s ease-in-out}.v-dd-search>svg[data-v-ddc53010]{position:absolute}.v-dd-search>svg[aria-labelledby=zd-search][data-v-ddc53010]{left:1rem}.v-dd-search>svg[aria-labelledby=zd-down-pointer][data-v-ddc53010]{right:1rem}.v-dd-search>svg[aria-labelledby=zd-down-pointer].open[data-v-ddc53010]{transform:rotate(180deg);transition:transform .2s ease-in-out}.v-dd-search>svg[aria-labelledby=zd-down-pointer].close[data-v-ddc53010]{transform:rotate(0);transition:transform .2s ease-in-out}.v-dd-search>input[data-v-ddc53010],.v-dd-search>div[data-v-ddc53010]{height:1.25rem;line-height:1.25rem;flex-grow:1;padding:0 2rem}.v-dd-input[data-v-ddc53010]{border:none;outline:none}.v-dd-input.hide[data-v-ddc53010]{position:absolute;width:0px;height:1px;padding:0}ul#v-dd-options-menu[data-v-ddc53010]{position:absolute;display:flex;flex-direction:column;top:calc(100% + 5px);left:0;width:100%;max-height:500px;border:var(--border);border-radius:4px;background-color:#fff;z-index:1;padding:.25rem 0;margin:0;max-height:350px;overflow-y:auto;box-shadow:#17494d26 0 20px 30px;animation:v-dd-menu-open-data-v-ddc53010 var(--bezier-curve) 0s 1 normal;transition:display var(--bezier-curve)}#v-dd-options-menu>li[data-v-ddc53010]{position:relative;display:flex;align-items:center;justify-content:space-between;cursor:pointer;padding:.5rem 1.25rem}li.v-dd-option>svg[aria-labelledby=zd-check][data-v-ddc53010],li.v-dd-option>svg[aria-labelledby=zd-contains][data-v-ddc53010]{position:absolute}.v-dd-option>span[data-v-ddc53010]{padding:0 2rem;flex-grow:1;text-align:left}.v-dd-option.no-data[data-v-ddc53010]{user-select:none;-webkit-user-select:none;pointer-events:none}.v-dd-option>svg[aria-labelledby=zd-down-pointer][data-v-ddc53010]{position:absolute;right:1rem;transform:rotate(-90deg)}.v-dd-option[data-v-ddc53010]:hover,.v-dd-option[data-v-ddc53010]:focus,.v-dd-option.active[data-v-ddc53010]{background-color:var(--background-color)}.v-dd-option.parent-option[data-v-ddc53010]{border-bottom:var(--border);padding:.5rem .75rem}.v-dd-option.parent-option>svg[data-v-ddc53010]{left:.75rem;transform:rotate(90deg)}@keyframes v-dd-menu-open-data-v-ddc53010{0%{transform:translateY(2px)}to{transform:translateY(0)}}")),document.head.appendChild(d)}}catch(e){console.error("vite-plugin-css-injected-by-js",e)}})();
-var O = function() {
+var I = function() {
   var t = this, e = t.$createElement, i = t._self._c || e;
   return i("svg", {
     staticClass: "c-btn__icon",
@@ -25,8 +25,8 @@ var O = function() {
       innerHTML: t._s(t.paths[t.icon])
     }
   })]);
-}, I = [];
-function _(t, e, i, s, n, r, a, d) {
+}, g = [];
+function v(t, e, i, s, n, r, a, d) {
   var o = typeof t == "function" ? t.options : t;
   e && (o.render = e, o.staticRenderFns = i, o._compiled = !0), s && (o.functional = !0), r && (o._scopeId = "data-v-" + r);
   var l;
@@ -40,20 +40,20 @@ function _(t, e, i, s, n, r, a, d) {
   } : n), l)
     if (o.functional) {
       o._injectStyles = l;
-      var v = o.render;
-      o.render = function(m, u) {
-        return l.call(u), v(m, u);
+      var m = o.render;
+      o.render = function(O, h) {
+        return l.call(h), m(O, h);
       };
     } else {
-      var p = o.beforeCreate;
-      o.beforeCreate = p ? [].concat(p, l) : [l];
+      var u = o.beforeCreate;
+      o.beforeCreate = u ? [].concat(u, l) : [l];
     }
   return {
     exports: t,
     options: o
   };
 }
-const g = {
+const w = {
   props: {
     icon: {
       type: String,
@@ -85,25 +85,25 @@ const g = {
       }
     };
   }
-}, w = g, h = {};
-var b = /* @__PURE__ */ _(
-  w,
-  O,
+}, b = w, f = {};
+var x = /* @__PURE__ */ v(
+  b,
   I,
+  g,
   !1,
-  x,
+  y,
   null,
   null,
   null
 );
-function x(t) {
-  for (let e in h)
-    this[e] = h[e];
+function y(t) {
+  for (let e in f)
+    this[e] = f[e];
 }
 const P = /* @__PURE__ */ function() {
-  return b.exports;
+  return x.exports;
 }();
-var y = function() {
+var k = function() {
   var t, e = this, i = e.$createElement, s = e._self._c || i;
   return s("div", {
     ref: "dropdown",
@@ -256,8 +256,8 @@ var y = function() {
       }
     }) : e._e()], 1);
   })], 2)]);
-}, k = [];
-const C = {
+}, C = [];
+const S = {
   components: {
     SvgIcon: P
   },
@@ -418,29 +418,31 @@ const C = {
         e === "ArrowLeft" && this.selectedParent && (this.goToPreviousOptions(), this.selectedIndex = 0);
     }
   }
-}, f = {};
-var S = /* @__PURE__ */ _(
-  C,
-  y,
+}, _ = {};
+var M = /* @__PURE__ */ v(
+  S,
   k,
+  C,
   !1,
-  M,
+  $,
   "ddc53010",
   null,
   null
 );
-function M(t) {
-  for (let e in f)
-    this[e] = f[e];
+function $(t) {
+  for (let e in _)
+    this[e] = _[e];
 }
-const $ = /* @__PURE__ */ function() {
-  return S.exports;
-}(), D = {
+const D = /* @__PURE__ */ function() {
+  return M.exports;
+}(), z = {
   install(t, e) {
-    t.component("VsAutocomplete", $);
+    t.component("VsAutocomplete", D);
   }
 };
-typeof window < "u" && window.Vue && window.Vue.use(D);
+let p = null;
+typeof window < "u" ? p = window.Vue : typeof global < "u" && (p = global.Vue);
+p && p.use(z);
 export {
   D as default
 };
