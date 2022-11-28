@@ -184,7 +184,8 @@
       },
 
       closeDropdownMenuOnBlur(event) {
-        if (!event.path.includes(this.$refs.dropdown)) this.closeDropdownMenu();
+        const path = event.path || (event.composedPath && event.composedPath());
+        if (!path.includes(this.$refs.dropdown)) this.closeDropdownMenu();
       },
 
       optionIdentifer(option, parent = this.selectedParent) {
@@ -266,7 +267,6 @@
       handleKeyUp(event) {
         // event.preventDefault();
         const { key } = event;
-        console.log('key ', key);
         if (key === 'Escape') {
           this.closeDropdownMenu();
         } else if (key === 'Enter' || key.length === 1) {
