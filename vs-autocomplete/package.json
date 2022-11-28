@@ -1,7 +1,7 @@
 {
   "name": "vs-autocomplete",
   "private": false,
-  "version": "0.0.8",
+  "version": "0.0.9",
   "type": "module",
   "files": [
     "dist"
@@ -26,5 +26,18 @@
   "devDependencies": {
     "vite": "^3.2.3",
     "vite-plugin-vue2": "^2.0.2"
+  },
+  "keywords": [
+    "vue",
+    "autocomplete",
+    "dropdown",
+    "select",
+    "input",
+    "vs-autocomplete"
+  ],
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sureshUngarala/vue-components/tree/main/vs-autocomplete"
   }
 }
