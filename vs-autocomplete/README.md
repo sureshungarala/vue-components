@@ -48,6 +48,7 @@ Nested-Autocomplete-Multiselect-Dropdown for Vue.js(2.6.12)
 | `multiple` | Boolean | `false` | Whether to allow multiple selection |
 
 <br>
+
 #### :link: Events
 
 | Name | Type | Description |
@@ -55,6 +56,7 @@ Nested-Autocomplete-Multiselect-Dropdown for Vue.js(2.6.12)
 |`v-model` | Array<`option`> |  Emits the selected option(s) |
 
 <br>
+
 ##### :nut_and_bolt: Type `option`
 | Name | Type | Required | Description |
 | --- | --- | --- | --- |
@@ -64,6 +66,7 @@ Nested-Autocomplete-Multiselect-Dropdown for Vue.js(2.6.12)
 | `children` | Array<`option`> | `false` | Nested options |
 
 <br>
+
 ##### :clipboard: `options` prop example
 ```js
 [
