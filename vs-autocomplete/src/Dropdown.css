@@ -150,10 +150,12 @@ li.v-dd-option > svg[aria-labelledby='zd-contains'] {
  text-align: left;
 }
 
-.v-dd-option.no-data {
- user-select: none;
- -webkit-user-select: none;
- pointer-events: none;
+.v-dd-option.no-data,
+.v-dd-option[disabled='disabled'] {
+  user-select: none;
+  -webkit-user-select: none;
+  pointer-events: none;
+  opacity: 0.7;
 }
 
 .v-dd-option > svg[aria-labelledby='zd-down-pointer'] {

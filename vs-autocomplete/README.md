@@ -60,9 +60,11 @@ Nested-Autocomplete-Multiselect-Dropdown for Vue.js(2.6.12)
 ##### :nut_and_bolt: Type `option`
 | Name | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | Any | `false` | Unique identifier for the option |
 | `label` | String | `true` | Label of the option |
-| `value` | Any | `true` | Value of the option |
+| `id` | Any | `false` | Unique identifier for the option |
+| `value` | Any | `false` | Value of the option |
+| `disabled` | Boolean | `false` | Whether the option is disabled |
+| `selected` | Boolean | `false` | Whether the option is selected |
 | `children` | Array<`option`> | `false` | Nested options |
 
 <br>

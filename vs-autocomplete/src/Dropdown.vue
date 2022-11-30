@@ -19,7 +19,7 @@
        <input
          ref="searchInput"
          type="text"
-         autocomplete="off"
+         autocomplete="new-password"
          id="v-dd-search__input"
          :class="'c-txt v-dd-input'+(!menuIsOpen ? ' hide': '')"
          v-model="searchInput"
@@ -57,7 +57,7 @@
        @click="goToPreviousOptions()"
        role="option"
      >
-       <svg-icon icon="zd-down-pointer" name="Left arrow" iconDescription="Click to go back to previous menu" :focusable="true" color="#1f73b7" />
+       <svg-icon icon="zd-down-pointer" name="Left arrow" iconDescription="Click to go back to previous menu" color="#1f73b7" />
        <span class="u-truncate label">{{ selectedParent.label }}</span>
      </li>
      <li 
@@ -68,6 +68,7 @@
        @click="selectOption(index)"
        role="option"
        :aria-selected="selectedIndex === (selectedParent ? index+1 : index) ? true : false"
+       :disabled="option.disabled"
      >
        <svg-icon icon="zd-contains" name="Contains" color="#1f73b7" v-if="option.children?.length && hasSelectedOptions(option.children, option)" />
        <svg-icon icon="zd-check" name="Selected" color="#1f73b7" v-if="!option.children?.length && isOptionSelected(option)" />
@@ -118,14 +119,14 @@
         searchInput: '', // The value of the search input
         menuIsOpen: false, // true if the dropdown menu is open
         selectedParent: null, // Parent option of the current displayed options
-        selectedOptions: [], // All selected options
+        selectedOptions: this.setInitialSelectedOptions(this.options, null, []), // All selected options
         currentOptions: this.options, // Current options to display
         filteredOptions: this.options, // All options filtered by the search input
 
         /* A11y */
         selectedIndex: -1, // Index of the selected option
         selectedIndices: [],
-        currentIndex: -1, // Index of the current prog focussed option
+        currentIndex: -1, // Index of the current keyboard focussed option
       };
     },
 
@@ -149,7 +150,10 @@
       },
 
       selectedOptions() {
-        this.$emit('input', this.selectedOptions);
+        this.$emit(
+          'input',
+          this.selectedOptions.map(({ __identifier, __selected, ...option }) => option),
+        );
       },
     },
 
@@ -189,7 +193,7 @@
       },
 
       optionIdentifer(option, parent = this.selectedParent) {
-        return [parent?.value, option.label, option.value].join('__');
+        return [parent?.label, option.label, option.value].join('__');
       },
 
       isOptionSelected(option, parent) {
@@ -233,6 +237,18 @@
         return matchedOptions;
       },
 
+      setInitialSelectedOptions(options, parent, selectedOptions) {
+        for (const option of options) {
+          if (option.children?.length) {
+            this.setInitialSelectedOptions(option.children, option, selectedOptions);
+          } else if (option.selected) {
+            option.__identifier = this.optionIdentifer(option, parent);
+            selectedOptions.push(option);
+          }
+        }
+        return selectedOptions;
+      },
+
       selectOption(index) {
         const option = this.currentOptions[index];
         if (option.children?.length) {
@@ -240,17 +256,17 @@
           this.currentOptions = option.children;
         } else {
           const identifier = this.optionIdentifer(option);
-          if (option.selected) {
-            // .selected is transient for current displayed options(`currentOptions`). Hence not used in `selected(Checked icon)` check in template.
+          if (option.__selected || this.isOptionSelected(option, this.selectedParent)) {
+            // this __selected is transient for current displayed options(`currentOptions`). Not to be confused with `selected` prop for `option` type.
             if (this.multiple) {
               const matchedIndex = this.selectedOptions.findIndex(
                 selectedOption => selectedOption.__identifier === identifier,
               );
-              this.selectedOptions.splice(matchedIndex, 1);
+              if (matchedIndex > -1) this.selectedOptions.splice(matchedIndex, 1);
             } else {
               this.selectedOptions = [];
             }
-            this.currentOptions[index].selected = false;
+            this.currentOptions[index].__selected = false;
           } else {
             const selectedOption = { ...option, __identifier: identifier };
             if (this.multiple) {
@@ -259,7 +275,7 @@
               this.selectedOptions = [selectedOption];
               this.closeDropdownMenu();
             }
-            this.currentOptions[index].selected = true;
+            this.currentOptions[index].__selected = true;
           }
         }
       },
@@ -278,9 +294,11 @@
             } else if (this.selectedIndex !== -1) {
               // initial dropdown open state
               const index = this.selectedParent ? this.selectedIndex - 1 : this.selectedIndex;
-              this.selectOption(index);
-              if (this.selectedParent) this.selectedIndex = 1;
-              else this.selectedIndex = 0;
+              if (!this.currentOptions[index]?.disabled) {
+                this.selectOption(index);
+                if (this.selectedParent) this.selectedIndex = 1;
+                else this.selectedIndex = 0;
+              }
             }
           }
         } else if (key === 'ArrowUp') {
@@ -292,7 +310,7 @@
           }
         } else if (key === 'ArrowRight') {
           const index = this.selectedParent ? this.selectedIndex - 1 : this.selectedIndex;
-          if (this.currentOptions[index]?.children?.length) {
+          if (!this.currentOptions[index]?.disabled && this.currentOptions[index]?.children?.length) {
             this.selectOption(index);
             if (this.selectedParent) this.selectedIndex = 1;
           }
