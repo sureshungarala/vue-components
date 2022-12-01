@@ -5,7 +5,7 @@ import path from 'path'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [createVuePlugin(), cssInjectedByJsPlugin()],
+  plugins: [createVuePlugin(), cssInjectedByJsPlugin({ styleId: 'vs-autocomplete', topExecutionPriority: true })],
   build: {
     lib: {
       entry: path.resolve(__dirname,'src/index.js'),
