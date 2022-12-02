@@ -41,12 +41,13 @@ Nested-Autocomplete-Multiselect-Dropdown for Vue.js(2.6.12)
 
 #### :gear: Props
 
-| Name | Type | Default | Description |
-| --- | --- | --- | --- |
-| `label` | String | - | Label of the option |
-| `options` | Array<`option`> | `[]` | Options to be displayed in the dropdown |
-| `multiple` | Boolean | `false` | Whether to allow multiple selection |
-
+| Name | Type | Default | Required | Description |
+| --- | --- | --- | --- | --- |
+| `options` | Array<`option`> | `[]` | `true` | Options to be displayed in the dropdown |
+| `label` | String | - | `false` | Label of the option |
+| `multiple` | Boolean | `false` | `false` | Whether to allow multiple selection |
+| `searchInputText` | String | `''` | `false` | Search input text to filter options |
+| `keepMenuOpenOnRender` | Boolean | `false` | `false` | Whether to keep the menu open on render |
 <br>
 
 #### :link: Events
@@ -81,6 +82,7 @@ Nested-Autocomplete-Multiselect-Dropdown for Vue.js(2.6.12)
         id: 1.1,
         label: 'Option 1.1',
         value: 'option1.1',
+        selected: true,
       },
       {
         id: 1.2,
@@ -115,11 +117,14 @@ Nested-Autocomplete-Multiselect-Dropdown for Vue.js(2.6.12)
     id: 2,
     label: 'A long label. Should be truncated. Check in demo.(Option 2)',
     value: 'option2',
+    selected: true,
+    disabled: true,
   },
   {
     id: 3,
     label: 'A long label. Should be truncated. Check in demo.(Option 3)',
     value: 'option3',
+    disabled: true,
     children: [
       {
         id: 3.1,

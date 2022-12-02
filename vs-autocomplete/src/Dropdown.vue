@@ -129,9 +129,14 @@ export default {
       default: false,
       required: false,
     },
-    delimiter: {
+    searchInputText: {
       type: String,
-      default: ', ',
+      default: '',
+      required: false,
+    },
+    keepMenuOpenOnRender: {
+      type: Boolean,
+      default: false,
       required: false,
     },
   },
@@ -139,7 +144,7 @@ export default {
   data() {
     return {
       ddOptions: [], // options(from prop) with identifier to be everywhere in the component
-      searchInput: '', // The value of the search input
+      searchInput: this.searchInputText, // The value of the search input
       menuIsOpen: false, // true if the dropdown menu is open
       selectedParent: null, // Parent option of the current displayed options
       selectedOptions: [], // All selected options
@@ -163,13 +168,7 @@ export default {
     },
 
     searchInput() {
-      if (this.searchInput) {
-        this.currentOptions = this.filterMatchingOptions(this.searchInput, this.ddOptions);
-      } else {
-        this.currentOptions = this.ddOptions;
-      }
-      this.filteredOptions = this.currentOptions;
-      this.selectedParent = null;
+      this.handleSearchInputChange();
     },
 
     selectedOptions() {
@@ -179,14 +178,24 @@ export default {
       );
     },
 
-    options() {
-      console.log('options changed');
-      this.constructCompData();
+    options: {
+      handler() {
+        this.constructCompData();
+      },
+      deep: true,
+    },
+
+    searchInputText() {
+      this.searchInput = this.searchInputText;
+      this.keepMenuOpen();
     },
   },
 
   created() {
     this.constructCompData();
+    if (this.keepMenuOpenOnRender) {
+      this.keepMenuOpen();
+    }
   },
 
   methods: {
@@ -199,15 +208,31 @@ export default {
         const { formattedOptions, selectedOptions } = this.parseInputOptions(options);
         this.ddOptions = formattedOptions;
         this.selectedOptions = selectedOptions;
-        this.currentOptions = this.ddOptions;
-        this.filteredOptions = this.ddOptions;
+        if (this.searchInput) {
+          const filteredOptions = this.filterMatchingOptions(this.searchInput, this.ddOptions);
+          this.currentOptions = filteredOptions;
+          this.filteredOptions = filteredOptions;
+        } else {
+          this.currentOptions = formattedOptions;
+          this.filteredOptions = formattedOptions;
+        }
       } catch (_e) {
         console.error('[vs-autocomplete]: Options must be a valid JSON Array');
       }
     },
 
+    handleSearchInputChange() {
+      if (this.searchInput) {
+        this.currentOptions = this.filterMatchingOptions(this.searchInput, this.ddOptions);
+      } else {
+        this.currentOptions = this.ddOptions;
+      }
+      this.filteredOptions = this.currentOptions;
+      this.selectedParent = null;
+    },
+
     focusSearchInput() {
-      this.$refs.searchInput.focus();
+      this.$refs.searchInput?.focus();
     },
 
     toggleDropdownMenu(event) {
@@ -228,7 +253,7 @@ export default {
     },
 
     keepMenuOpen(event) {
-      event.stopPropagation();
+      event?.stopPropagation();
       if (!this.menuIsOpen) {
         this.menuIsOpen = true;
       }
