@@ -1,6 +1,6 @@
 ## Vs Autocomplete Dropdown
 
-Nested-Autocomplete-Multiselect-Dropdown for Vue.js(2.6.12)
+Nested-Autocomplete-Multiselect-Dropdown for Vue.js(v2)
 <img src="https://img.shields.io/npm/dt/vs-autocomplete" /> <img src="https://img.shields.io/jsdelivr/npm/hy/vs-autocomplete" />
 
 - Ability to single/multi-select
@@ -16,6 +16,8 @@ Nested-Autocomplete-Multiselect-Dropdown for Vue.js(2.6.12)
     label="Select option(s)"
     :options="options"
     :multiple="true"
+    :searchInputText="searchInputText"
+    :keepMenuOpenOnRender="false"
     v-model="selectedOptions"
   />
 ```
@@ -162,3 +164,6 @@ Nested-Autocomplete-Multiselect-Dropdown for Vue.js(2.6.12)
   },
 ]
 ```
+<br>
+#### Feedback
+If you find any issues, please create an issue [here](https://github.com/sureshUngarala/vue-components/issues/new).
