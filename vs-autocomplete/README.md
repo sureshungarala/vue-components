@@ -165,5 +165,6 @@ Nested-Autocomplete-Multiselect-Dropdown for Vue.js(v2)
 ]
 ```
 <br>
-#### Feedback
+
+#### :bug: Feedback
 If you find any issues, please create an issue [here](https://github.com/sureshUngarala/vue-components/issues/new).
