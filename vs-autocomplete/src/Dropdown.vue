@@ -261,7 +261,7 @@ export default {
     },
 
     closeDropdownMenuOnBlur(event) {
-      if (!event.path.includes(this.$refs.dropdown)) this.closeDropdownMenu();
+      if (!event.path?.includes(this.$refs.dropdown)) this.closeDropdownMenu();
     },
 
     parseInputOptions(options = [], keys = [], selectedOptions = []) {
