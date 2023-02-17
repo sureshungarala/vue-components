@@ -1,3 +1,5 @@
+This branch is for component in Vue 2. For Vue 3, please use the [main branch](https://github.com/sureshUngarala/vue-components/tree/main/vs-autocomplete).
+
 ## Vs Autocomplete Dropdown
 
 Nested-Autocomplete-Multiselect-Dropdown for Vue.js(v2)
