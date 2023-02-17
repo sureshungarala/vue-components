@@ -2,13 +2,14 @@
   --primary-color: #1f73b7;
   --background-color: #1f73b714;
   --border: 1px solid #d8dcde;
+  --v-dropdown-width: 300px;
   --max-width: 10000000px;
   --box-shadow: rgb(31 115 183 / 35%) 0px 0px 0px 3px;
   --bezier-curve: 0.1s cubic-bezier(0, 0, 0.95, 1.03);
   --animation-delay: 0.2s;
  
   position: relative;
-  width: 300px;
+  width: var(--v-dropdown-width);
   max-width: var(--max-width);
   outline: none;
 }
@@ -52,11 +53,15 @@
  align-items: center;
  justify-content: space-between;
  border: var(--border);
- padding: 0.8rem 0.75rem;
+ padding: 0.75rem;
  border-radius: 4px;
  cursor: pointer;
  outline: none;
  z-index: 1;
+}
+
+.v-dd-search.compact {
+  padding: 0.5rem 0.75rem;
 }
 
 .v-dd-search:active,
@@ -139,6 +144,19 @@ ul#v-dd-options-menu {
  padding: 0.5rem 1.25rem;
 }
 
+#v-dd-options-menu.compact > li {
+  padding: 0.5rem 1.25rem;
+}
+
+#v-dd-options-menu > li.parent-option {
+  border-bottom: var(--border);
+  padding: 0.5rem 0.75rem;
+}
+
+#v-dd-options-menu.compact > li.parent-option {
+  padding: 0.35rem 0.75rem;
+}
+
 li.v-dd-option > svg[aria-labelledby='zd-check'],
 li.v-dd-option > svg[aria-labelledby='zd-contains'] {
  position: absolute;
@@ -168,11 +186,6 @@ li.v-dd-option > svg[aria-labelledby='zd-contains'] {
 .v-dd-option:focus,
 .v-dd-option.active {
  background-color: var(--background-color);
-}
-
-.v-dd-option.parent-option {
- border-bottom: var(--border);
- padding: 0.5rem 0.75rem;
 }
 
 .v-dd-option.parent-option > svg {

@@ -8,7 +8,7 @@
     <div class="v-dd">
       <label for="v-dd-search__input" id="v-dd-label">{{ label }}</label>
       <div
-        :class="'v-dd-search' + (menuIsOpen ? ' active' : '')"
+        :class="'v-dd-search' + (menuIsOpen ? ' active' : '')+(compact ? ' compact' : '')"
         @click="toggleDropdownMenu" aria-haspopup="listbox"
         :aria-expanded="'' + menuIsOpen"
         aria-owns="v-dd-options-menu"
@@ -45,6 +45,7 @@
     <ul
       ref="menu"
       id="v-dd-options-menu"
+      :class="compact ? 'compact' : ''"
       v-show="menuIsOpen"
       role="listbox"
       aria-labelledby="v-dd-label"
@@ -135,6 +136,11 @@ export default {
       required: false,
     },
     keepMenuOpenOnRender: {
+      type: Boolean,
+      default: false,
+      required: false,
+    },
+    compact: {
       type: Boolean,
       default: false,
       required: false,

@@ -18,6 +18,7 @@ Nested-Autocomplete-Multiselect-Dropdown for Vue.js(v2)
     :multiple="true"
     :searchInputText="searchInputText"
     :keepMenuOpenOnRender="false"
+    :compact="false"
     v-model="selectedOptions"
   />
 ```
@@ -50,6 +51,7 @@ Nested-Autocomplete-Multiselect-Dropdown for Vue.js(v2)
 | `multiple` | Boolean | `false` | `false` | Whether to allow multiple selection |
 | `searchInputText` | String | `''` | `false` | Search input text to filter options |
 | `keepMenuOpenOnRender` | Boolean | `false` | `false` | Whether to keep the menu open on render |
+| `compact` | Boolean | `false` | `false` | Whether to render the dropdown in compact mode |
 <br>
 
 #### :link: Events
