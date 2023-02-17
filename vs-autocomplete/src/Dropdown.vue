@@ -367,9 +367,12 @@ export default {
             // initial dropdown open state
             const index = this.selectedParent ? this.selectedIndex - 1 : this.selectedIndex;
             if (!this.currentOptions[index]?.disabled) {
+              const previousParentLabel = this.selectedParent?.label;
               this.selectOption(index);
-              if (this.selectedParent) this.selectedIndex = 1;
-              else this.selectedIndex = 0;
+              if (previousParentLabel !== this.selectedParent?.label) {
+                if (this.selectedParent) this.selectedIndex = 1;
+                else this.selectedIndex = 0;
+              }
             }
           }
         }
