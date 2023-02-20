@@ -1,14 +1,20 @@
-import { defineConfig } from 'vite'
-import { createVuePlugin } from 'vite-plugin-vue2'
-import cssInjectedByJsPlugin from 'vite-plugin-css-injected-by-js'
-import path from 'path'
+import { defineConfig } from 'vite';
+import vue from '@vitejs/plugin-vue';
+import cssInjectedByJsPlugin from 'vite-plugin-css-injected-by-js';
+import path from 'path';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [createVuePlugin(), cssInjectedByJsPlugin({ styleId: 'vs-autocomplete', topExecutionPriority: true })],
+  plugins: [
+    vue(),
+    cssInjectedByJsPlugin({
+      styleId: 'vs-autocomplete',
+      topExecutionPriority: true,
+    }),
+  ],
   build: {
     lib: {
-      entry: path.resolve(__dirname,'src/index.js'),
+      entry: path.resolve(__dirname, 'src/index.js'),
       name: 'vs-autocomplete',
       fileName: (format) => `vs-autocomplete.${format}.js`,
     },
@@ -21,10 +27,10 @@ export default defineConfig({
         // Provide global variables to use in the UMD build
         // for externalized deps
         globals: {
-          vue: 'Vue'
-        }
-      }
+          vue: 'Vue',
+        },
+      },
     },
     // sourcemap: 'inline'
-  }
-})
+  },
+});
