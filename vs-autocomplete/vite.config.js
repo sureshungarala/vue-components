@@ -15,7 +15,7 @@ export default defineConfig({
   build: {
     lib: {
       entry: path.resolve(__dirname, 'src/index.js'),
-      name: 'vs-autocomplete',
+      name: 'VsAutocomplete',
       fileName: (format) => `vs-autocomplete.${format}.js`,
     },
     minify: 'esbuild',
@@ -24,6 +24,7 @@ export default defineConfig({
       // into your library
       external: ['vue'],
       output: {
+        // exports: 'named',
         // Provide global variables to use in the UMD build
         // for externalized deps
         globals: {

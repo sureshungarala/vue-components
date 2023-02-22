@@ -1,6 +1,6 @@
 ## Vs Autocomplete Dropdown
 
-Nested-Autocomplete-Multiselect-Dropdown for Vue.js(v3)
+Nested-Autocomplete-Multiselect-Dropdown for Vue.js(v2 & v3)
 <img src="https://img.shields.io/npm/dt/vs-autocomplete" /> <img src="https://img.shields.io/jsdelivr/npm/hy/vs-autocomplete" />
 
 - Ability to single/multi-select
@@ -44,6 +44,28 @@ Nested-Autocomplete-Multiselect-Dropdown for Vue.js(v3)
 OR
 <script src="https://unpkg.com/vs-autocomplete@latest/dist/vs-autocomplete.umd.js"></script>
 ```
+
+In Vue 2, component is auto-registered globally.
+
+In Vue 3, you need to either register the component globally by calling
+
+```js
+app.component('vs-autocomplete', window.VsAutocomplete);
+
+/* app is the Vue application instance(<App>). */
+```
+
+or
+
+use it locally by [registering](https://vuejs.org/api/options-misc.html#components) it in the component.
+
+```js
+components: {
+  VsAutocomplete: window.VsAutocomplete,
+}
+```
+
+<br>
 
 #### :gear: Props
 
