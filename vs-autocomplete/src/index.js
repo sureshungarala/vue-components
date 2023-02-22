@@ -1,4 +1,4 @@
-import VsAutocomplete from './Dropdown.vue'
+import VsAutocomplete from './Dropdown.vue';
 
 const VsAutocompletePlugin = {
   install(vueApp, _options) {
@@ -8,12 +8,12 @@ const VsAutocompletePlugin = {
 
 let GlobalVue = null;
 if (typeof window !== 'undefined') {
-	GlobalVue = window.Vue;
+  GlobalVue = window.Vue;
 } else if (typeof global !== 'undefined') {
-	GlobalVue = global.Vue;
+  GlobalVue = global.Vue;
 }
-if (GlobalVue) {
-	GlobalVue.use(VsAutocompletePlugin);
+if (GlobalVue && GlobalVue.use) {
+  GlobalVue.use(VsAutocompletePlugin);
 }
 
 export default VsAutocomplete;
