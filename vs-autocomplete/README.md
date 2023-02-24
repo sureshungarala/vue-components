@@ -1,13 +1,13 @@
 ## Vs Autocomplete Dropdown
 
-Nested-Autocomplete-Multiselect-Dropdown for Vue.js(v2 & v3)
+Nested-Autocomplete-Multiselect-Dropdown for Vue 3, refer GitHub branch `v2` for Vue 2
 <img src="https://img.shields.io/npm/dt/vs-autocomplete" /> <img src="https://img.shields.io/jsdelivr/npm/hy/vs-autocomplete" />
 
 - Ability to single/multi-select
 - Ability to select same option from different groups/parents
 - A11y compliant
 
-#### :film_projector: [Demo](https://codesandbox.io/s/vs-autocomplete-9zfyf1?file=/src/App.vue)
+#### :film_projector: [Demo](https://codesandbox.io/s/vs-autocomplete-vue3-4v1bkr)
 
 #### :rocket: Usage
 
