@@ -9,7 +9,7 @@ Nested-Autocomplete-Multiselect-Dropdown for Vue.js(v2)
 - Ability to select same option from different groups/parents
 - A11y compliant
 
-#### :film_projector: [Demo](https://codesandbox.io/s/vs-autocomplete-9zfyf1?file=/src/App.vue)
+#### :film_projector: [Demo](https://codesandbox.io/s/vs-autocomplete-vue2-9zfyf1)
 
 #### :rocket: Usage
 
@@ -30,13 +30,13 @@ Nested-Autocomplete-Multiselect-Dropdown for Vue.js(v2)
 ##### npm
 
 ```bash
- npm install vs-autocomplete
+ npm install vs-autocomplete@1.5.1
 ```
 
 ##### yarn
 
 ```bash
- yarn add vs-autocomplete
+ yarn add vs-autocomplete@1.5.1
 ```
 
 ##### UMD
