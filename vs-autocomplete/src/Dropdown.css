@@ -1,13 +1,14 @@
 .v-tree-dropdown {
   --primary-color: #1f73b7;
   --background-color: #1f73b714;
+  --hint-color: #828485;
   --border: 1px solid #d8dcde;
   --v-dropdown-width: 300px;
   --max-width: 10000000px;
   --box-shadow: rgb(31 115 183 / 35%) 0px 0px 0px 3px;
   --bezier-curve: 0.1s cubic-bezier(0, 0, 0.95, 1.03);
   --animation-delay: 0.2s;
- 
+
   position: relative;
   width: var(--v-dropdown-width);
   max-width: var(--max-width);
@@ -15,133 +16,143 @@
 }
 
 .v-dd {
- display: flex;
- flex-direction: column;
- row-gap: 0.5rem;
+  display: flex;
+  flex-direction: column;
 }
 
-.v-tree-dropdown #v-dd-label,
+#v-dd-label,
 .v-dd-option > .label {
- font-weight: 600;
- text-align: left;
+  font-weight: 600;
+  text-align: left;
+}
+
+#v-dd-label,
+#v-dd-label + .v-dd-label-hint {
+  line-height: 1.45;
+}
+
+.v-tree-dropdown #v-dd-label + .v-dd-label-hint {
+  color: var(--hint-color);
 }
 
 .v-dd:hover .v-dd-search {
- border-color: var(--primary-color);
+  border-color: var(--primary-color);
 }
 
 .margin-0-auto {
   margin: 0 auto;
- }
+}
 
-.c-btn__icon{
+.c-btn__icon {
   width: 16px;
   height: 16px;
   margin-top: -2px;
   vertical-align: middle;
 }
 
-.u-truncate{
+.u-truncate {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
 .v-dd-search {
- position: relative;
- display: flex;
- align-items: center;
- justify-content: space-between;
- border: var(--border);
- padding: 0.75rem;
- border-radius: 4px;
- cursor: pointer;
- outline: none;
- z-index: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: var(--border);
+  padding: 0.75rem;
+  margin-top: 0.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  outline: none;
+  z-index: 1;
 }
 
 .v-dd-search.compact {
   padding: 0.5rem 0.75rem;
+  margin-top: 0.25rem;
 }
 
 .v-dd-search:active,
 .v-dd-search:focus,
 .v-dd-search:focus-within {
- border-color: var(--primary-color);
- box-shadow: var(--box-shadow);
- transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  border-color: var(--primary-color);
+  box-shadow: var(--box-shadow);
+  transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
 .v-dd-search > svg {
- position: absolute;
+  position: absolute;
 }
 .v-dd-search > svg[aria-labelledby='zd-search'] {
- left: 1rem;
+  left: 1rem;
 }
 
 .v-dd-search > svg[aria-labelledby='zd-down-pointer'] {
- right: 1rem;
+  right: 1rem;
 }
 
 .v-dd-search > svg[aria-labelledby='zd-down-pointer'].open {
- transform: rotate(180deg);
- transition: transform 0.2s ease-in-out;
+  transform: rotate(180deg);
+  transition: transform 0.2s ease-in-out;
 }
 
 .v-dd-search > svg[aria-labelledby='zd-down-pointer'].close {
- transform: rotate(0deg);
- transition: transform 0.2s ease-in-out;
+  transform: rotate(0deg);
+  transition: transform 0.2s ease-in-out;
 }
 
 .v-dd-search > input,
 .v-dd-search > div {
- height: 1.25rem;
- line-height: 1.25rem;
- flex-grow: 1;
- padding: 0 2rem;
+  height: 1.25rem;
+  line-height: 1.25rem;
+  flex-grow: 1;
+  padding: 0 2rem;
 }
 
 .v-dd-input {
- border: none;
- outline: none;
+  border: none;
+  outline: none;
 }
 
 .v-dd-input.hide {
- position: absolute;
- width: 0px;
- height: 1px;
- padding: 0;
+  position: absolute;
+  width: 0px;
+  height: 1px;
+  padding: 0;
 }
 
 ul#v-dd-options-menu {
- position: absolute;
- display: flex;
- flex-direction: column;
- top: calc(100% + 5px);
- left: 0;
- width: 100%;
- max-height: 500px;
- overflow-y: auto;
- border: var(--border);
- border-radius: 4px;
- background-color: #fff;
- z-index: 1;
- padding: 0.25rem 0;
- margin: 0;
- max-height: 350px;
- overflow-y: auto;
- box-shadow: #17494d26 0px 20px 30px 0px;
- animation: v-dd-menu-open var(--bezier-curve) 0s 1 normal;
- transition: display var(--bezier-curve);
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  top: calc(100% + 5px);
+  left: 0;
+  width: 100%;
+  max-height: 500px;
+  overflow-y: auto;
+  border: var(--border);
+  border-radius: 4px;
+  background-color: #fff;
+  z-index: 1;
+  padding: 0.25rem 0;
+  margin: 0;
+  max-height: 350px;
+  overflow-y: auto;
+  box-shadow: #17494d26 0px 20px 30px 0px;
+  animation: v-dd-menu-open var(--bezier-curve) 0s 1 normal;
+  transition: display var(--bezier-curve);
 }
 
-#v-dd-options-menu > li {
- position: relative;
- display: flex;
- align-items: center;
- justify-content: space-between;
- cursor: pointer;
- padding: 0.5rem 1.25rem;
+.v-dd-option {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  padding: 0.5rem 1.25rem;
 }
 
 #v-dd-options-menu.compact > li {
@@ -159,45 +170,46 @@ ul#v-dd-options-menu {
 
 li.v-dd-option > svg[aria-labelledby='zd-check'],
 li.v-dd-option > svg[aria-labelledby='zd-contains'] {
- position: absolute;
+  position: absolute;
 }
 
 .v-dd-option > span {
- padding: 0 2rem;
- flex-grow: 1;
- text-align: left;
+  padding: 0 2rem;
+  flex-grow: 1;
+  text-align: left;
 }
 
 .v-dd-option.no-data,
 .v-dd-option[disabled='disabled'] {
-  user-select: none;
   -webkit-user-select: none;
+  user-select: none;
   pointer-events: none;
   opacity: 0.7;
+  cursor: not-allowed;
 }
 
 .v-dd-option > svg[aria-labelledby='zd-down-pointer'] {
- position: absolute;
- right: 1rem;
- transform: rotate(-90deg);
+  position: absolute;
+  right: 1rem;
+  transform: rotate(-90deg);
 }
 
 .v-dd-option:hover,
 .v-dd-option:focus,
 .v-dd-option.active {
- background-color: var(--background-color);
+  background-color: var(--background-color);
 }
 
 .v-dd-option.parent-option > svg {
- left: 0.75rem;
- transform: rotate(90deg);
+  left: 0.75rem;
+  transform: rotate(90deg);
 }
 
 @keyframes v-dd-menu-open {
- 0% {
-   transform: translateY(2px);
- }
- 100% {
-   transform: translateY(0);
- }
+  0% {
+    transform: translateY(2px);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }

@@ -16,10 +16,15 @@ Nested-Autocomplete-Multiselect-Dropdown for Vue 3, refer GitHub branch `v2` for
   label="Select option(s)"
   :options="options"
   :multiple="true"
+  :maxSelectableCount="4"
   :searchInputText="searchInputText"
   :keepMenuOpenOnRender="false"
   :compact="false"
+  noSearchResultsText="No results found"
+  labelHint="Select up to 4 options"
   v-model="selectedOptions"
+  @open="onOpen"
+  @close="onClose"
 />
 ```
 
@@ -69,22 +74,27 @@ components: {
 
 #### :gear: Props
 
-| Name                   | Type            | Default | Required | Description                                    |
-| ---------------------- | --------------- | ------- | -------- | ---------------------------------------------- |
-| `options`              | Array<`option`> | `[]`    | `true`   | Options to be displayed in the dropdown        |
-| `label`                | String          | -       | `false`  | Label of the option                            |
-| `multiple`             | Boolean         | `false` | `false`  | Whether to allow multiple selection            |
-| `searchInputText`      | String          | `''`    | `false`  | Search input text to filter options            |
-| `keepMenuOpenOnRender` | Boolean         | `false` | `false`  | Whether to keep the menu open on render        |
-| `compact`              | Boolean         | `false` | `false`  | Whether to render the dropdown in compact mode |
+| Name                   | Type            | Default            | Required | Description                                      |
+| ---------------------- | --------------- | ------------------ | -------- | ------------------------------------------------ |
+| `options`              | Array<`option`> | `[]`               | `true`   | Options to be displayed in the dropdown          |
+| `label`                | String          | -                  | `false`  | Label of the option                              |
+| `multiple`             | Boolean         | `false`            | `false`  | Whether to allow multiple selection              |
+| `searchInputText`      | String          | `''`               | `false`  | Search input text to filter options              |
+| `keepMenuOpenOnRender` | Boolean         | `false`            | `false`  | Whether to keep the menu open on render          |
+| `compact`              | Boolean         | `false`            | `false`  | Whether to render the dropdown in compact mode   |
+| `maxSelectableCount`   | Number          | `0`                | `false`  | Maximum number of options that can be selected   |
+| `noSearchResultsText`  | String          | `No results found` | `false`  | Text to display when no search results are found |
+| `labelHint`            | String          | -                  | `false`  | Hint text to display below the label             |
 
 <br>
 
 #### :link: Events
 
-| Name      | Type            | Description                  |
-| --------- | --------------- | ---------------------------- |
-| `v-model` | Array<`option`> | Emits the selected option(s) |
+| Name      | Type                                     | Description                         | Payload                         |
+| --------- | ---------------------------------------- | ----------------------------------- | ------------------------------- |
+| `v-model` | Array<`option`>                          | Emits the selected option(s)        | Selected options                |
+| `open`    | (HTMLDivElement, HTMLUListElement) => {} | Emits when the dropdown-menu opens  | Dropdown element & Menu element |
+| `close`   | (HTMLDivElement, HTMLUListElement) => {} | Emits when the dropdown-menu closes | Dropdown element & Menu element |
 
 <br>
 

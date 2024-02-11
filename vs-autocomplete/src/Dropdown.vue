@@ -6,97 +6,49 @@
 <template>
   <div class="v-tree-dropdown" ref="dropdown">
     <div class="v-dd">
-      <label for="v-dd-search__input" id="v-dd-label">{{ label }}</label>
-      <div
-        :class="'v-dd-search' + (menuIsOpen ? ' active' : '')+(compact ? ' compact' : '')"
-        @click="toggleDropdownMenu" aria-haspopup="listbox"
-        :aria-expanded="'' + menuIsOpen"
-        aria-owns="v-dd-options-menu"
-        aria-labelledby="v-dd-label"
-      >
+      <label for="v-dd-search__input" id="v-dd-label">
+        {{ label }}
+      </label>
+      <div :class="'v-dd-search' + (menuIsOpen ? ' active' : '') + (compact ? ' compact' : '')"
+        @click="toggleDropdownMenu" aria-haspopup="listbox" :aria-expanded="'' + menuIsOpen" aria-owns="v-dd-options-menu"
+        aria-labelledby="v-dd-label">
         <svg-icon icon="zd-search" name="Search" />
-        <input
-          ref="searchInput"
-          type="text"
-          autocomplete="new-password"
-          id="v-dd-search__input"
-          :class="'c-txt v-dd-input' + (!menuIsOpen ? ' hide' : '')"
-          v-model="searchInput"
-          @click="keepMenuOpen"
-          @keyup="handleKeyUp"
-          role="combobox"
-          aria-labelledby="v-dd-label"
-          aria-autocomplete="list"
+        <input ref="searchInput" type="text" autocomplete="new-password" id="v-dd-search__input"
+          :class="'c-txt v-dd-input' + (!menuIsOpen ? ' hide' : '')" v-model="searchInput" @click="keepMenuOpen"
+          @keydown="handleKeyDown" role="combobox" aria-labelledby="v-dd-label" aria-autocomplete="list"
           :aria-controls="menuIsOpen ? 'v-dd-options-menu' : false"
-          :aria-activedescendant="menuIsOpen ? ('v-dd-option-' + selectedIndex) : false"
-        />
-        <div
-          v-show="!menuIsOpen"
-          class="c-txt u-truncate"
-          v-html="selectedOptions.map(option => option.label).join(', ')"
-        ></div>
-        <svg-icon
-          icon="zd-down-pointer"
-          :name="menuIsOpen ? 'Up arrow' : 'Down arrow'"
-          :class="menuIsOpen ? 'open' : 'close'"
-        />
+          :aria-activedescendant="menuIsOpen ? ('v-dd-option-' + selectedIndex) : false" />
+        <div v-show="!menuIsOpen" class="c-txt u-truncate"
+          v-html="selectedOptions.map(option => option.label).join(', ')"></div>
+        <svg-icon icon="zd-down-pointer" :name="menuIsOpen ? 'Up arrow' : 'Down arrow'"
+          :class="menuIsOpen ? 'open' : 'close'" />
       </div>
     </div>
-    <ul
-      ref="menu"
-      id="v-dd-options-menu"
-      :class="compact ? 'compact' : ''"
-      v-show="menuIsOpen"
-      role="listbox"
-      aria-labelledby="v-dd-label"
-      :aria-multiselectable="!!multiple"
-    >
+    <ul ref="menu" id="v-dd-options-menu" :class="compact ? 'compact' : ''" v-show="menuIsOpen" role="listbox"
+      aria-labelledby="v-dd-label" :aria-multiselectable="!!multiple">
       <li class="v-dd-option no-data" v-if="!currentOptions?.length" role="option">
-        <span>No options found.</span>
+        <span>{{ noSearchResultsText }}</span>
       </li>
-      <li
-        v-if="selectedParent"
-        id="v-dd-option-0"
-        :class="'v-dd-option parent-option' + (selectedIndex === 0 ? ' active' : '')"
-        @click="goToPreviousOptions()"
-        role="option"
-      >
-        <svg-icon
-          icon="zd-down-pointer"
-          name="Left arrow"
-          iconDescription="Click to go back to previous menu"
-          color="#1f73b7"
-        />
+      <li v-if="selectedParent" id="v-dd-option-0"
+        :class="'v-dd-option parent-option' + (selectedIndex === 0 ? ' active' : '')" @click="goToPreviousOptions()"
+        role="option">
+        <svg-icon icon="zd-down-pointer" name="Left arrow" iconDescription="Click to go back to previous menu"
+          color="#1f73b7" />
         <span class="u-truncate label">{{ selectedParent.label }}</span>
       </li>
-      <li
-        v-for="(option, index) in currentOptions" :key="option.label"
+      <li v-for="(option, index) in currentOptions" :key="option.label"
         :id="'v-dd-option-' + (selectedParent ? index + 1 : index)"
         :class="'v-dd-option' + (selectedIndex === (selectedParent ? index + 1 : index) ? ' active' : '')"
-        @click="selectOption(index)"
-        role="option"
+        @click="selectOption(index)" role="option"
         :aria-selected="selectedIndex === (selectedParent ? index + 1 : index) ? true : false"
-        :disabled="option.disabled"
-      >
-        <svg-icon
-          icon="zd-contains"
-          name="Contains"
-          color="#1f73b7"
-          v-if="option.children?.length && hasSelectedOptions(option.children)"
-        />
-        <svg-icon
-          icon="zd-check"
-          name="Selected"
-          color="#1f73b7"
-          v-if="!option.children?.length && isOptionSelected(option)"
-        />
+        :disabled="option.disabled || (maxSelectableCount && selectedOptions?.length >= maxSelectableCount && !option.children?.length && !isOptionSelected(option))">
+        <svg-icon icon="zd-contains" name="Contains" color="#1f73b7"
+          v-if="option.children?.length && hasSelectedOptions(option.children)" />
+        <svg-icon icon="zd-check" name="Selected" color="#1f73b7"
+          v-if="!option.children?.length && isOptionSelected(option)" />
         <span class="u-truncate">{{ option.label }}</span>
-        <svg-icon
-          icon="zd-down-pointer"
-          name="Right arrow"
-          iconDescription="Click to open sub-menu options"
-          v-if="option.children?.length"
-        />
+        <svg-icon icon="zd-down-pointer" name="Right arrow" iconDescription="Click to open sub-menu options"
+          v-if="option.children?.length" />
       </li>
     </ul>
   </div>
@@ -140,9 +92,19 @@ export default {
       default: false,
       required: false,
     },
+    maxSelectableCount: {
+      type: Number,
+      default: 0,
+      required: false,
+    },
     compact: {
       type: Boolean,
       default: false,
+      required: false,
+    },
+    noSearchResultsText: {
+      type: String,
+      default: 'No options found',
       required: false,
     },
   },
@@ -168,8 +130,10 @@ export default {
     menuIsOpen() {
       if (this.menuIsOpen) {
         document.addEventListener('click', this.closeDropdownMenuOnBlur);
+        this.$emit('open', this.$refs.dropdown, this.$refs.menu);
       } else {
         document.removeEventListener('click', this.closeDropdownMenuOnBlur);
+        this.$emit('close', this.$refs.dropdown, this.$refs.menu);
       }
     },
 
@@ -177,11 +141,23 @@ export default {
       this.handleSearchInputChange();
     },
 
-    selectedOptions() {
-      this.$emit(
-        'input',
-        this.selectedOptions.map(({ __identifier, __selected, ...option }) => option),
-      );
+    selectedOptions: {
+      handler(newOptions, oldOptions) {
+        console.log('selectedOptions', newOptions, oldOptions);
+        const oldOptionIdentifiers = oldOptions.map(option => option.__identifier);
+        const newOptionIdentifiers = newOptions.map(option => option.__identifier);
+        if (
+          newOptions.length !== oldOptions.length ||
+          !newOptionIdentifiers.every(identifier => oldOptionIdentifiers.includes(identifier))
+        ) {
+          // sync v-model
+          this.$emit(
+            'input',
+            this.selectedOptions.map(({ __identifier, __selected, ...option }) => option),
+          );
+        }
+      },
+      deep: true,
     },
 
     options: {
@@ -205,9 +181,7 @@ export default {
   },
 
   methods: {
-    /**
-     * Check if all options under parent can be selected - [LATER]
-     */
+    // TODO: Check if all options under parent can be selected - [LATER]
     constructCompData() {
       try {
         const options = JSON.parse(JSON.stringify(this.options));
@@ -336,14 +310,19 @@ export default {
             const matchedIndex = this.selectedOptions.findIndex(
               selectedOption => selectedOption.__identifier === option.__identifier,
             );
-            if (matchedIndex > -1) this.selectedOptions.splice(matchedIndex, 1);
+            if (matchedIndex > -1) {
+              this.selectedOptions = [
+                ...this.selectedOptions.slice(0, matchedIndex),
+                ...this.selectedOptions.slice(matchedIndex + 1),
+              ];
+            }
           } else {
             this.selectedOptions = [];
           }
           this.currentOptions[index].__selected = false;
         } else {
           if (this.multiple) {
-            this.selectedOptions.push(option);
+            this.selectedOptions = [...this.selectedOptions, option];
           } else {
             this.selectedOptions = [option];
             this.closeDropdownMenu();
@@ -353,7 +332,7 @@ export default {
       }
     },
 
-    handleKeyUp(event) {
+    handleKeyDown(event) {
       const { key } = event;
       if (key === 'Escape') {
         this.closeDropdownMenu();
@@ -407,6 +386,4 @@ export default {
 };
 </script>
 
-<style src="./Dropdown.css" scoped>
-
-</style>
+<style src="./Dropdown.css" scoped></style>
