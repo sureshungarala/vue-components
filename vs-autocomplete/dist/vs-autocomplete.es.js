@@ -1,4 +1,4 @@
-(function(){"use strict";try{if(typeof document<"u"){var d=document.createElement("style");d.id="vs-autocomplete",d.appendChild(document.createTextNode(".v-tree-dropdown[data-v-0382dccc]{--primary-color: #1f73b7;--background-color: #1f73b714;--hint-color: #828485;--border: 1px solid #d8dcde;--v-dropdown-width: 300px;--max-width: 10000000px;--box-shadow: rgb(31 115 183 / 35%) 0px 0px 0px 3px;--bezier-curve: .1s cubic-bezier(0, 0, .95, 1.03);--animation-delay: .2s;position:relative;width:var(--v-dropdown-width);max-width:var(--max-width);outline:none}.v-dd[data-v-0382dccc]{display:flex;flex-direction:column}#v-dd-label[data-v-0382dccc],.v-dd-option>.label[data-v-0382dccc]{font-weight:600;text-align:left}#v-dd-label[data-v-0382dccc],#v-dd-label+.v-dd-label-hint[data-v-0382dccc]{line-height:1.45}.v-tree-dropdown #v-dd-label+.v-dd-label-hint[data-v-0382dccc]{color:var(--hint-color)}.v-dd:hover .v-dd-search[data-v-0382dccc]{border-color:var(--primary-color)}.margin-0-auto[data-v-0382dccc]{margin:0 auto}.c-btn__icon[data-v-0382dccc]{width:16px;height:16px;margin-top:-2px;vertical-align:middle}.u-truncate[data-v-0382dccc]{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.v-dd-search[data-v-0382dccc]{position:relative;display:flex;align-items:center;justify-content:space-between;border:var(--border);padding:.75rem;margin-top:.5rem;border-radius:4px;cursor:pointer;outline:none;z-index:1}.v-dd-search.compact[data-v-0382dccc]{padding:.5rem .75rem;margin-top:.25rem}.v-dd-search[data-v-0382dccc]:active,.v-dd-search[data-v-0382dccc]:focus,.v-dd-search[data-v-0382dccc]:focus-within{border-color:var(--primary-color);box-shadow:var(--box-shadow);transition:border-color .2s ease-in-out,box-shadow .2s ease-in-out}.v-dd-search>svg[data-v-0382dccc]{position:absolute}.v-dd-search>svg[aria-labelledby=zd-search][data-v-0382dccc]{left:1rem}.v-dd-search>svg[aria-labelledby=zd-down-pointer][data-v-0382dccc]{right:1rem}.v-dd-search>svg[aria-labelledby=zd-down-pointer].open[data-v-0382dccc]{transform:rotate(180deg);transition:transform .2s ease-in-out}.v-dd-search>svg[aria-labelledby=zd-down-pointer].close[data-v-0382dccc]{transform:rotate(0);transition:transform .2s ease-in-out}.v-dd-search>input[data-v-0382dccc],.v-dd-search>div[data-v-0382dccc]{height:1.25rem;line-height:1.25rem;flex-grow:1;padding:0 2rem}.v-dd-input[data-v-0382dccc]{border:none;outline:none}.v-dd-input.hide[data-v-0382dccc]{position:absolute;width:0px;height:1px;padding:0}ul#v-dd-options-menu[data-v-0382dccc]{position:absolute;display:flex;flex-direction:column;top:calc(100% + 5px);left:0;width:100%;max-height:500px;border:var(--border);border-radius:4px;background-color:#fff;z-index:1;padding:.25rem 0;margin:0;max-height:350px;overflow-y:auto;box-shadow:#17494d26 0 20px 30px;animation:v-dd-menu-open-0382dccc var(--bezier-curve) 0s 1 normal;transition:display var(--bezier-curve)}.v-dd-option[data-v-0382dccc]{position:relative;display:flex;align-items:center;justify-content:space-between;cursor:pointer;padding:.5rem 1.25rem}#v-dd-options-menu.compact>li[data-v-0382dccc]{padding:.5rem 1.25rem}#v-dd-options-menu>li.parent-option[data-v-0382dccc]{border-bottom:var(--border);padding:.5rem .75rem}#v-dd-options-menu.compact>li.parent-option[data-v-0382dccc]{padding:.35rem .75rem}li.v-dd-option>svg[aria-labelledby=zd-check][data-v-0382dccc],li.v-dd-option>svg[aria-labelledby=zd-contains][data-v-0382dccc]{position:absolute}.v-dd-option>span[data-v-0382dccc]{padding:0 2rem;flex-grow:1;text-align:left}.v-dd-option.no-data[data-v-0382dccc],.v-dd-option[disabled=disabled][data-v-0382dccc]{-webkit-user-select:none;user-select:none;pointer-events:none;opacity:.7;cursor:not-allowed}.v-dd-option>svg[aria-labelledby=zd-down-pointer][data-v-0382dccc]{position:absolute;right:1rem;transform:rotate(-90deg)}.v-dd-option[data-v-0382dccc]:hover,.v-dd-option[data-v-0382dccc]:focus,.v-dd-option.active[data-v-0382dccc]{background-color:var(--background-color)}.v-dd-option.parent-option>svg[data-v-0382dccc]{left:.75rem;transform:rotate(90deg)}@keyframes v-dd-menu-open-0382dccc{0%{transform:translateY(2px)}to{transform:translateY(0)}}")),document.head.appendChild(d)}}catch(a){console.error("vite-plugin-css-injected-by-js",a)}})();
+(function(){"use strict";try{if(typeof document<"u"){var a=document.createElement("style");a.id="vs-autocomplete",a.appendChild(document.createTextNode(".v-tree-dropdown[data-v-ae216d09]{--primary-color: #1f73b7;--background-color: #1f73b714;--hint-color: #828485;--border: 1px solid #d8dcde;--v-dropdown-width: 300px;--max-width: 10000000px;--box-shadow: rgb(31 115 183 / 35%) 0px 0px 0px 3px;--bezier-curve: .1s cubic-bezier(0, 0, .95, 1.03);--animation-delay: .2s;position:relative;width:var(--v-dropdown-width);max-width:var(--max-width);outline:none}.v-dd[data-v-ae216d09]{display:flex;flex-direction:column}#v-dd-label[data-v-ae216d09],.v-dd-option>.label[data-v-ae216d09]{font-weight:600;text-align:left}#v-dd-label[data-v-ae216d09],#v-dd-label+.v-dd-label-hint[data-v-ae216d09]{line-height:1.45}.v-tree-dropdown #v-dd-label+.v-dd-label-hint[data-v-ae216d09]{color:var(--hint-color)}.v-dd:hover .v-dd-search[data-v-ae216d09]{border-color:var(--primary-color)}.margin-0-auto[data-v-ae216d09]{margin:0 auto}.c-btn__icon[data-v-ae216d09]{width:16px;height:16px;margin-top:-2px;vertical-align:middle}.u-truncate[data-v-ae216d09]{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.v-dd-search[data-v-ae216d09]{position:relative;display:flex;align-items:center;justify-content:space-between;border:var(--border);padding:.75rem;margin-top:.5rem;border-radius:4px;cursor:pointer;outline:none;z-index:1}.v-dd-search.compact[data-v-ae216d09]{padding:.5rem .75rem;margin-top:.25rem}.v-dd-search[data-v-ae216d09]:active,.v-dd-search[data-v-ae216d09]:focus,.v-dd-search[data-v-ae216d09]:focus-within{border-color:var(--primary-color);box-shadow:var(--box-shadow);transition:border-color .2s ease-in-out,box-shadow .2s ease-in-out}.v-dd-search>svg[data-v-ae216d09]{position:absolute}.v-dd-search>svg[aria-labelledby=zd-search][data-v-ae216d09]{left:1rem}.v-dd-search>svg[aria-labelledby=zd-down-pointer][data-v-ae216d09]{right:1rem}.v-dd-search>svg[aria-labelledby=zd-down-pointer].open[data-v-ae216d09]{transform:rotate(180deg);transition:transform .2s ease-in-out}.v-dd-search>svg[aria-labelledby=zd-down-pointer].close[data-v-ae216d09]{transform:rotate(0);transition:transform .2s ease-in-out}.v-dd-search>input[data-v-ae216d09],.v-dd-search>div[data-v-ae216d09]{height:1.25rem;line-height:1.25rem;flex-grow:1;padding:0 2rem}.v-dd-input[data-v-ae216d09]{border:none;outline:none}.v-dd-input.hide[data-v-ae216d09]{position:absolute;width:0px;height:1px;padding:0}ul#v-dd-options-menu[data-v-ae216d09]{position:absolute;display:flex;flex-direction:column;top:calc(100% + 5px);left:0;width:100%;max-height:500px;border:var(--border);border-radius:4px;background-color:#fff;z-index:1;padding:.25rem 0;margin:0;max-height:350px;overflow-y:auto;box-shadow:#17494d26 0 20px 30px;animation:v-dd-menu-open-ae216d09 var(--bezier-curve) 0s 1 normal;transition:display var(--bezier-curve)}.v-dd-option[data-v-ae216d09]{position:relative;display:flex;align-items:center;justify-content:space-between;cursor:pointer;padding:.5rem 1.25rem}#v-dd-options-menu.compact>li[data-v-ae216d09]{padding:.5rem 1.25rem}#v-dd-options-menu>li.parent-option[data-v-ae216d09]{border-bottom:var(--border);padding:.5rem .75rem}#v-dd-options-menu.compact>li.parent-option[data-v-ae216d09]{padding:.35rem .75rem}li.v-dd-option>svg[aria-labelledby=zd-check][data-v-ae216d09],li.v-dd-option>svg[aria-labelledby=zd-contains][data-v-ae216d09]{position:absolute}.v-dd-option>span[data-v-ae216d09]{padding:0 2rem;flex-grow:1;text-align:left}.v-dd-option.no-data[data-v-ae216d09],.v-dd-option[disabled=disabled][data-v-ae216d09]{-webkit-user-select:none;user-select:none;pointer-events:none;opacity:.7;cursor:not-allowed}.v-dd-option>svg[aria-labelledby=zd-down-pointer][data-v-ae216d09]{position:absolute;right:1rem;transform:rotate(-90deg)}.v-dd-option[data-v-ae216d09]:hover,.v-dd-option[data-v-ae216d09]:focus,.v-dd-option.active[data-v-ae216d09]{background-color:var(--background-color)}.v-dd-option.parent-option>svg[data-v-ae216d09]{left:.75rem;transform:rotate(90deg)}@keyframes v-dd-menu-open-ae216d09{0%{transform:translateY(2px)}to{transform:translateY(0)}}")),document.head.appendChild(a)}}catch(d){console.error("vite-plugin-css-injected-by-js",d)}})();
 import { openBlock as d, createElementBlock as p, createElementVNode as c, toDisplayString as u, resolveComponent as P, normalizeClass as h, createVNode as I, withDirectives as _, vModelText as M, vShow as S, createCommentVNode as O, Fragment as C, renderList as D, createBlock as g } from "vue";
 const x = (e, t) => {
   const s = e.__vccOpts || e;
@@ -37,30 +37,30 @@ const x = (e, t) => {
       }
     };
   }
-}, L = T, z = ["color", "role", "aria-labelledby", "aria-hidden"], A = ["id"], B = ["innerHTML"];
-function V(e, t, s, o, n, l) {
+}, L = T, z = ["color", "role", "aria-labelledby"], B = ["id"], V = ["innerHTML"];
+function A(e, t, s, o, n, l) {
   return d(), p("svg", {
     xmlns: "http://www.w3.org/2000/svg",
     color: e.color,
     role: e.role,
     "aria-labelledby": e.icon,
     focusable: "false",
-    "aria-hidden": !e.focusable,
+    "aria-hidden": "true",
     class: "c-btn__icon"
   }, [
     c("title", {
       id: e.name || e.icon
-    }, u(e.name || e.icon) + " Icon", 9, A),
+    }, u(e.name || e.icon) + " Icon", 9, B),
     c("desc", null, u(e.iconDescription || e.name), 1),
     (d(), p("svg", {
       width: "16",
       height: "16",
       viewBox: "0 0 16 16",
       innerHTML: e.paths[e.icon]
-    }, null, 8, B))
+    }, null, 8, V))
   ], 8, z);
 }
-const q = /* @__PURE__ */ x(L, [["render", V]]);
+const q = /* @__PURE__ */ x(L, [["render", A]]);
 const E = {
   components: {
     SvgIcon: q
@@ -71,11 +71,6 @@ const E = {
       required: !1
     },
     options: {
-      type: Array,
-      default: [],
-      required: !0
-    },
-    value: {
       type: Array,
       default: [],
       required: !0
@@ -417,7 +412,7 @@ function X(e, t, s, o, n, l) {
     ])
   ], 512);
 }
-const Y = /* @__PURE__ */ x(E, [["render", X], ["__scopeId", "data-v-0382dccc"]]), Z = {
+const Y = /* @__PURE__ */ x(E, [["render", X], ["__scopeId", "data-v-ae216d09"]]), Z = {
   install(e, t) {
     e.component("VsAutocomplete", Y);
   }

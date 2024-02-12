@@ -72,11 +72,6 @@ export default {
       default: [],
       required: true,
     },
-    value: {
-      type: Array,
-      default: [],
-      required: true,
-    },
     multiple: {
       type: Boolean,
       default: false,
