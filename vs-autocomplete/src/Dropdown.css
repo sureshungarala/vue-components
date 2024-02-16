@@ -29,6 +29,7 @@
 #v-dd-label,
 #v-dd-label + .v-dd-label-hint {
   line-height: 1.45;
+  text-align: left;
 }
 
 .v-tree-dropdown #v-dd-label + .v-dd-label-hint {
