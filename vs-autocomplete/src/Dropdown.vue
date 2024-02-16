@@ -9,6 +9,9 @@
       <label for="v-dd-search__input" id="v-dd-label">
         {{ label }}
       </label>
+      <div class="v-dd-label-hint" aria-labelledby="v-dd-label" v-if="labelHint">
+        {{ labelHint }}
+      </div>
       <div :class="'v-dd-search' + (menuIsOpen ? ' active' : '') + (compact ? ' compact' : '')"
         @click="toggleDropdownMenu" aria-haspopup="listbox" :aria-expanded="'' + menuIsOpen" aria-owns="v-dd-options-menu"
         aria-labelledby="v-dd-label">
@@ -19,7 +22,8 @@
           :aria-controls="menuIsOpen ? 'v-dd-options-menu' : false"
           :aria-activedescendant="menuIsOpen ? ('v-dd-option-' + selectedIndex) : false" />
         <div v-show="!menuIsOpen" class="c-txt u-truncate"
-          v-html="selectedOptions.map(option => option.label).join(', ')"></div>
+          v-html="selectedOptions.map(option => option.label).join(', ')">
+        </div>
         <svg-icon icon="zd-down-pointer" :name="menuIsOpen ? 'Up arrow' : 'Down arrow'"
           :class="menuIsOpen ? 'open' : 'close'" />
       </div>
@@ -41,7 +45,7 @@
         :class="'v-dd-option' + (selectedIndex === (selectedParent ? index + 1 : index) ? ' active' : '')"
         @click="selectOption(index)" role="option"
         :aria-selected="selectedIndex === (selectedParent ? index + 1 : index) ? true : false"
-        :disabled="option.disabled || (maxSelectableCount && selectedOptions?.length >= maxSelectableCount && !option.children?.length && !isOptionSelected(option))">
+        :disabled="(option.disabled || (maxSelectableCount && selectedOptions?.length >= maxSelectableCount && !option.children?.length && !isOptionSelected(option))) ? 'disabled' : null">
         <svg-icon icon="zd-contains" name="Contains" color="#1f73b7"
           v-if="option.children?.length && hasSelectedOptions(option.children)" />
         <svg-icon icon="zd-check" name="Selected" color="#1f73b7"
@@ -102,7 +106,14 @@ export default {
       default: 'No options found',
       required: false,
     },
+    labelHint: {
+      type: String,
+      default: '',
+      required: false,
+    },
   },
+
+  emits: ['input', 'update:modelValue', 'open', 'close'],
 
   data() {
     return {
@@ -138,18 +149,23 @@ export default {
 
     selectedOptions: {
       handler(newOptions, oldOptions) {
-        console.log('selectedOptions', newOptions, oldOptions);
         const oldOptionIdentifiers = oldOptions.map(option => option.__identifier);
         const newOptionIdentifiers = newOptions.map(option => option.__identifier);
         if (
           newOptions.length !== oldOptions.length ||
           !newOptionIdentifiers.every(identifier => oldOptionIdentifiers.includes(identifier))
         ) {
-          // sync v-model
-          this.$emit(
-            'input',
-            this.selectedOptions.map(({ __identifier, __selected, ...option }) => option),
-          );
+          try {
+            // sync v-model on v2 & v3
+            ['input', 'update:modelValue'].forEach(eventName => {
+              this.$emit(
+                eventName,
+                this.selectedOptions.map(({ __identifier, __selected, ...option }) => option),
+              )
+            });
+          } catch (error) {
+            console.log('Unknown Event ', error);
+          }
         }
       },
       deep: true,

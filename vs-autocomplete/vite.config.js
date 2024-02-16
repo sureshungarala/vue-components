@@ -1,5 +1,5 @@
 import { defineConfig } from 'vite';
-import vue from '@vitejs/plugin-vue';
+import vue from '@vitejs/plugin-vue2';
 import cssInjectedByJsPlugin from 'vite-plugin-css-injected-by-js';
 import path from 'path';
 
@@ -12,6 +12,9 @@ export default defineConfig({
       topExecutionPriority: true,
     }),
   ],
+  optimizeDeps: {
+    exclude: ['vue-demi'],
+  },
   build: {
     lib: {
       entry: path.resolve(__dirname, 'src/index.js'),

@@ -1,11 +1,34 @@
-(function(){"use strict";try{if(typeof document<"u"){var a=document.createElement("style");a.id="vs-autocomplete",a.appendChild(document.createTextNode(".v-tree-dropdown[data-v-ae216d09]{--primary-color: #1f73b7;--background-color: #1f73b714;--hint-color: #828485;--border: 1px solid #d8dcde;--v-dropdown-width: 300px;--max-width: 10000000px;--box-shadow: rgb(31 115 183 / 35%) 0px 0px 0px 3px;--bezier-curve: .1s cubic-bezier(0, 0, .95, 1.03);--animation-delay: .2s;position:relative;width:var(--v-dropdown-width);max-width:var(--max-width);outline:none}.v-dd[data-v-ae216d09]{display:flex;flex-direction:column}#v-dd-label[data-v-ae216d09],.v-dd-option>.label[data-v-ae216d09]{font-weight:600;text-align:left}#v-dd-label[data-v-ae216d09],#v-dd-label+.v-dd-label-hint[data-v-ae216d09]{line-height:1.45}.v-tree-dropdown #v-dd-label+.v-dd-label-hint[data-v-ae216d09]{color:var(--hint-color)}.v-dd:hover .v-dd-search[data-v-ae216d09]{border-color:var(--primary-color)}.margin-0-auto[data-v-ae216d09]{margin:0 auto}.c-btn__icon[data-v-ae216d09]{width:16px;height:16px;margin-top:-2px;vertical-align:middle}.u-truncate[data-v-ae216d09]{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.v-dd-search[data-v-ae216d09]{position:relative;display:flex;align-items:center;justify-content:space-between;border:var(--border);padding:.75rem;margin-top:.5rem;border-radius:4px;cursor:pointer;outline:none;z-index:1}.v-dd-search.compact[data-v-ae216d09]{padding:.5rem .75rem;margin-top:.25rem}.v-dd-search[data-v-ae216d09]:active,.v-dd-search[data-v-ae216d09]:focus,.v-dd-search[data-v-ae216d09]:focus-within{border-color:var(--primary-color);box-shadow:var(--box-shadow);transition:border-color .2s ease-in-out,box-shadow .2s ease-in-out}.v-dd-search>svg[data-v-ae216d09]{position:absolute}.v-dd-search>svg[aria-labelledby=zd-search][data-v-ae216d09]{left:1rem}.v-dd-search>svg[aria-labelledby=zd-down-pointer][data-v-ae216d09]{right:1rem}.v-dd-search>svg[aria-labelledby=zd-down-pointer].open[data-v-ae216d09]{transform:rotate(180deg);transition:transform .2s ease-in-out}.v-dd-search>svg[aria-labelledby=zd-down-pointer].close[data-v-ae216d09]{transform:rotate(0);transition:transform .2s ease-in-out}.v-dd-search>input[data-v-ae216d09],.v-dd-search>div[data-v-ae216d09]{height:1.25rem;line-height:1.25rem;flex-grow:1;padding:0 2rem}.v-dd-input[data-v-ae216d09]{border:none;outline:none}.v-dd-input.hide[data-v-ae216d09]{position:absolute;width:0px;height:1px;padding:0}ul#v-dd-options-menu[data-v-ae216d09]{position:absolute;display:flex;flex-direction:column;top:calc(100% + 5px);left:0;width:100%;max-height:500px;border:var(--border);border-radius:4px;background-color:#fff;z-index:1;padding:.25rem 0;margin:0;max-height:350px;overflow-y:auto;box-shadow:#17494d26 0 20px 30px;animation:v-dd-menu-open-ae216d09 var(--bezier-curve) 0s 1 normal;transition:display var(--bezier-curve)}.v-dd-option[data-v-ae216d09]{position:relative;display:flex;align-items:center;justify-content:space-between;cursor:pointer;padding:.5rem 1.25rem}#v-dd-options-menu.compact>li[data-v-ae216d09]{padding:.5rem 1.25rem}#v-dd-options-menu>li.parent-option[data-v-ae216d09]{border-bottom:var(--border);padding:.5rem .75rem}#v-dd-options-menu.compact>li.parent-option[data-v-ae216d09]{padding:.35rem .75rem}li.v-dd-option>svg[aria-labelledby=zd-check][data-v-ae216d09],li.v-dd-option>svg[aria-labelledby=zd-contains][data-v-ae216d09]{position:absolute}.v-dd-option>span[data-v-ae216d09]{padding:0 2rem;flex-grow:1;text-align:left}.v-dd-option.no-data[data-v-ae216d09],.v-dd-option[disabled=disabled][data-v-ae216d09]{-webkit-user-select:none;user-select:none;pointer-events:none;opacity:.7;cursor:not-allowed}.v-dd-option>svg[aria-labelledby=zd-down-pointer][data-v-ae216d09]{position:absolute;right:1rem;transform:rotate(-90deg)}.v-dd-option[data-v-ae216d09]:hover,.v-dd-option[data-v-ae216d09]:focus,.v-dd-option.active[data-v-ae216d09]{background-color:var(--background-color)}.v-dd-option.parent-option>svg[data-v-ae216d09]{left:.75rem;transform:rotate(90deg)}@keyframes v-dd-menu-open-ae216d09{0%{transform:translateY(2px)}to{transform:translateY(0)}}")),document.head.appendChild(a)}}catch(d){console.error("vite-plugin-css-injected-by-js",d)}})();
-import { openBlock as d, createElementBlock as p, createElementVNode as c, toDisplayString as u, resolveComponent as P, normalizeClass as h, createVNode as I, withDirectives as _, vModelText as M, vShow as S, createCommentVNode as O, Fragment as C, renderList as D, createBlock as g } from "vue";
-const x = (e, t) => {
-  const s = e.__vccOpts || e;
-  for (const [o, n] of t)
-    s[o] = n;
-  return s;
-}, T = {
+(function(){"use strict";try{if(typeof document<"u"){var a=document.createElement("style");a.id="vs-autocomplete",a.appendChild(document.createTextNode(".v-tree-dropdown[data-v-ac458dbc]{--primary-color: #1f73b7;--background-color: #1f73b714;--hint-color: #828485;--border: 1px solid #d8dcde;--v-dropdown-width: 300px;--max-width: 10000000px;--box-shadow: rgb(31 115 183 / 35%) 0px 0px 0px 3px;--bezier-curve: .1s cubic-bezier(0, 0, .95, 1.03);--animation-delay: .2s;position:relative;width:var(--v-dropdown-width);max-width:var(--max-width);outline:none}.v-dd[data-v-ac458dbc]{display:flex;flex-direction:column}#v-dd-label[data-v-ac458dbc],.v-dd-option>.label[data-v-ac458dbc]{font-weight:600;text-align:left}#v-dd-label[data-v-ac458dbc],#v-dd-label+.v-dd-label-hint[data-v-ac458dbc]{line-height:1.45}.v-tree-dropdown #v-dd-label+.v-dd-label-hint[data-v-ac458dbc]{color:var(--hint-color)}.v-dd:hover .v-dd-search[data-v-ac458dbc]{border-color:var(--primary-color)}.margin-0-auto[data-v-ac458dbc]{margin:0 auto}.c-btn__icon[data-v-ac458dbc]{width:16px;height:16px;margin-top:-2px;vertical-align:middle}.u-truncate[data-v-ac458dbc]{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.v-dd-search[data-v-ac458dbc]{position:relative;display:flex;align-items:center;justify-content:space-between;border:var(--border);padding:.75rem;margin-top:.5rem;border-radius:4px;cursor:pointer;outline:none;z-index:1}.v-dd-search.compact[data-v-ac458dbc]{padding:.5rem .75rem;margin-top:.25rem}.v-dd-search[data-v-ac458dbc]:active,.v-dd-search[data-v-ac458dbc]:focus,.v-dd-search[data-v-ac458dbc]:focus-within{border-color:var(--primary-color);box-shadow:var(--box-shadow);transition:border-color .2s ease-in-out,box-shadow .2s ease-in-out}.v-dd-search>svg[data-v-ac458dbc]{position:absolute}.v-dd-search>svg[aria-labelledby=zd-search][data-v-ac458dbc]{left:1rem}.v-dd-search>svg[aria-labelledby=zd-down-pointer][data-v-ac458dbc]{right:1rem}.v-dd-search>svg[aria-labelledby=zd-down-pointer].open[data-v-ac458dbc]{transform:rotate(180deg);transition:transform .2s ease-in-out}.v-dd-search>svg[aria-labelledby=zd-down-pointer].close[data-v-ac458dbc]{transform:rotate(0);transition:transform .2s ease-in-out}.v-dd-search>input[data-v-ac458dbc],.v-dd-search>div[data-v-ac458dbc]{height:1.25rem;line-height:1.25rem;flex-grow:1;padding:0 2rem}.v-dd-input[data-v-ac458dbc]{border:none;outline:none}.v-dd-input.hide[data-v-ac458dbc]{position:absolute;width:0px;height:1px;padding:0}ul#v-dd-options-menu[data-v-ac458dbc]{position:absolute;display:flex;flex-direction:column;top:calc(100% + 5px);left:0;width:100%;max-height:500px;border:var(--border);border-radius:4px;background-color:#fff;z-index:1;padding:.25rem 0;margin:0;max-height:350px;overflow-y:auto;box-shadow:#17494d26 0 20px 30px;animation:v-dd-menu-open-ac458dbc var(--bezier-curve) 0s 1 normal;transition:display var(--bezier-curve)}.v-dd-option[data-v-ac458dbc]{position:relative;display:flex;align-items:center;justify-content:space-between;cursor:pointer;padding:.5rem 1.25rem}#v-dd-options-menu.compact>li[data-v-ac458dbc]{padding:.5rem 1.25rem}#v-dd-options-menu>li.parent-option[data-v-ac458dbc]{border-bottom:var(--border);padding:.5rem .75rem}#v-dd-options-menu.compact>li.parent-option[data-v-ac458dbc]{padding:.35rem .75rem}li.v-dd-option>svg[aria-labelledby=zd-check][data-v-ac458dbc],li.v-dd-option>svg[aria-labelledby=zd-contains][data-v-ac458dbc]{position:absolute}.v-dd-option>span[data-v-ac458dbc]{padding:0 2rem;flex-grow:1;text-align:left}.v-dd-option.no-data[data-v-ac458dbc],.v-dd-option[disabled=disabled][data-v-ac458dbc]{-webkit-user-select:none;user-select:none;pointer-events:none;opacity:.7;cursor:not-allowed}.v-dd-option>svg[aria-labelledby=zd-down-pointer][data-v-ac458dbc]{position:absolute;right:1rem;transform:rotate(-90deg)}.v-dd-option[data-v-ac458dbc]:hover,.v-dd-option[data-v-ac458dbc]:focus,.v-dd-option.active[data-v-ac458dbc]{background-color:var(--background-color)}.v-dd-option.parent-option>svg[data-v-ac458dbc]{left:.75rem;transform:rotate(90deg)}@keyframes v-dd-menu-open-ac458dbc{0%{transform:translateY(2px)}to{transform:translateY(0)}}")),document.head.appendChild(a)}}catch(d){console.error("vite-plugin-css-injected-by-js",d)}})();
+function _(s, e, t, i, n, r, a, c) {
+  var o = typeof s == "function" ? s.options : s;
+  e && (o.render = e, o.staticRenderFns = t, o._compiled = !0), i && (o.functional = !0), r && (o._scopeId = "data-v-" + r);
+  var l;
+  if (a ? (l = function(d) {
+    d = d || // cached call
+    this.$vnode && this.$vnode.ssrContext || // stateful
+    this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext, !d && typeof __VUE_SSR_CONTEXT__ < "u" && (d = __VUE_SSR_CONTEXT__), n && n.call(this, d), d && d._registeredComponents && d._registeredComponents.add(a);
+  }, o._ssrRegister = l) : n && (l = c ? function() {
+    n.call(
+      this,
+      (o.functional ? this.parent : this).$root.$options.shadowRoot
+    );
+  } : n), l)
+    if (o.functional) {
+      o._injectStyles = l;
+      var h = o.render;
+      o.render = function(O, f) {
+        return l.call(f), h(O, f);
+      };
+    } else {
+      var u = o.beforeCreate;
+      o.beforeCreate = u ? [].concat(u, l) : [l];
+    }
+  return {
+    exports: s,
+    options: o
+  };
+}
+const m = {
   props: {
     icon: {
       type: String,
@@ -37,33 +60,24 @@ const x = (e, t) => {
       }
     };
   }
-}, L = T, z = ["color", "role", "aria-labelledby"], B = ["id"], V = ["innerHTML"];
-function A(e, t, s, o, n, l) {
-  return d(), p("svg", {
-    xmlns: "http://www.w3.org/2000/svg",
-    color: e.color,
-    role: e.role,
-    "aria-labelledby": e.icon,
-    focusable: "false",
-    "aria-hidden": "true",
-    class: "c-btn__icon"
-  }, [
-    c("title", {
-      id: e.name || e.icon
-    }, u(e.name || e.icon) + " Icon", 9, B),
-    c("desc", null, u(e.iconDescription || e.name), 1),
-    (d(), p("svg", {
-      width: "16",
-      height: "16",
-      viewBox: "0 0 16 16",
-      innerHTML: e.paths[e.icon]
-    }, null, 8, V))
-  ], 8, z);
-}
-const q = /* @__PURE__ */ x(L, [["render", A]]);
-const E = {
+}, v = m;
+var I = function() {
+  var e = this, t = e._self._c;
+  return e._self._setupProxy, t("svg", { staticClass: "c-btn__icon", attrs: { xmlns: "http://www.w3.org/2000/svg", color: e.color, role: e.role, "aria-labelledby": e.icon, focusable: "false", "aria-hidden": "true" } }, [t("title", { attrs: { id: e.name || e.icon } }, [e._v(e._s(e.name || e.icon) + " Icon")]), t("desc", [e._v(e._s(e.iconDescription || e.name))]), t("svg", { attrs: { width: "16", height: "16", viewBox: "0 0 16 16" }, domProps: { innerHTML: e._s(e.paths[e.icon]) } })]);
+}, g = [], b = /* @__PURE__ */ _(
+  v,
+  I,
+  g,
+  !1,
+  null,
+  null,
+  null,
+  null
+);
+const w = b.exports;
+const x = {
   components: {
-    SvgIcon: q
+    SvgIcon: w
   },
   props: {
     label: {
@@ -104,8 +118,14 @@ const E = {
       type: String,
       default: "No options found",
       required: !1
+    },
+    labelHint: {
+      type: String,
+      default: "",
+      required: !1
     }
   },
+  emits: ["input", "update:modelValue", "open", "close"],
   data() {
     return {
       ddOptions: [],
@@ -138,13 +158,19 @@ const E = {
       this.handleSearchInputChange();
     },
     selectedOptions: {
-      handler(e, t) {
-        console.log("selectedOptions", e, t);
-        const s = t.map((n) => n.__identifier), o = e.map((n) => n.__identifier);
-        (e.length !== t.length || !o.every((n) => s.includes(n))) && this.$emit(
-          "input",
-          this.selectedOptions.map(({ __identifier: n, __selected: l, ...r }) => r)
-        );
+      handler(s, e) {
+        const t = e.map((n) => n.__identifier), i = s.map((n) => n.__identifier);
+        if (s.length !== e.length || !i.every((n) => t.includes(n)))
+          try {
+            ["input", "update:modelValue"].forEach((n) => {
+              this.$emit(
+                n,
+                this.selectedOptions.map(({ __identifier: r, __selected: a, ...c }) => c)
+              );
+            });
+          } catch (n) {
+            console.log("Unknown Event ", n);
+          }
       },
       deep: !0
     },
@@ -165,12 +191,12 @@ const E = {
     // TODO: Check if all options under parent can be selected - [LATER]
     constructCompData() {
       try {
-        const e = JSON.parse(JSON.stringify(this.options)), { formattedOptions: t, selectedOptions: s } = this.parseInputOptions(e);
-        if (this.ddOptions = t, this.selectedOptions = s, this.searchInput) {
-          const o = this.filterMatchingOptions(this.searchInput, this.ddOptions);
-          this.currentOptions = o, this.filteredOptions = o;
+        const s = JSON.parse(JSON.stringify(this.options)), { formattedOptions: e, selectedOptions: t } = this.parseInputOptions(s);
+        if (this.ddOptions = e, this.selectedOptions = t, this.searchInput) {
+          const i = this.filterMatchingOptions(this.searchInput, this.ddOptions);
+          this.currentOptions = i, this.filteredOptions = i;
         } else
-          this.currentOptions = t, this.filteredOptions = t;
+          this.currentOptions = e, this.filteredOptions = e;
       } catch {
         console.error("[vs-autocomplete]: Options must be a valid JSON Array");
       }
@@ -179,247 +205,149 @@ const E = {
       this.searchInput ? this.currentOptions = this.filterMatchingOptions(this.searchInput, this.ddOptions) : this.currentOptions = this.ddOptions, this.filteredOptions = this.currentOptions, this.selectedParent = null;
     },
     focusSearchInput() {
-      var e;
-      (e = this.$refs.searchInput) == null || e.focus();
+      var s;
+      (s = this.$refs.searchInput) == null || s.focus();
     },
-    toggleDropdownMenu(e) {
-      e.stopPropagation(), this.menuIsOpen = !this.menuIsOpen, this.focusSearchInput();
+    toggleDropdownMenu(s) {
+      s.stopPropagation(), this.menuIsOpen = !this.menuIsOpen, this.focusSearchInput();
     },
     closeDropdownMenu() {
+      var s;
+      this.menuIsOpen = !1, (s = this.searchInput) != null && s.trim().length || (this.searchInput = "", this.selectedParent = null, this.filteredOptions = this.ddOptions, this.currentOptions = this.ddOptions, this.selectedIndex = -1);
+    },
+    keepMenuOpen(s) {
+      s == null || s.stopPropagation(), this.menuIsOpen || (this.menuIsOpen = !0), this.focusSearchInput();
+    },
+    closeDropdownMenuOnBlur(s) {
       var e;
-      this.menuIsOpen = !1, (e = this.searchInput) != null && e.trim().length || (this.searchInput = "", this.selectedParent = null, this.filteredOptions = this.ddOptions, this.currentOptions = this.ddOptions, this.selectedIndex = -1);
+      (e = s.path || s.composedPath()) != null && e.includes(this.$refs.dropdown) || this.closeDropdownMenu();
     },
-    keepMenuOpen(e) {
-      e == null || e.stopPropagation(), this.menuIsOpen || (this.menuIsOpen = !0), this.focusSearchInput();
+    parseInputOptions(s = [], e = [], t = []) {
+      return s.forEach((i) => {
+        var r;
+        const n = [...e, i.label];
+        i.__identifier = n.join("__"), (r = i.children) != null && r.length ? this.parseInputOptions(i.children, n, t) : i.selected && t.push(i);
+      }), { formattedOptions: s, selectedOptions: t };
     },
-    closeDropdownMenuOnBlur(e) {
-      var t;
-      (t = e.path || e.composedPath()) != null && t.includes(this.$refs.dropdown) || this.closeDropdownMenu();
+    isOptionSelected(s) {
+      return this.selectedOptions.findIndex((e) => e.__identifier === s.__identifier) > -1;
     },
-    parseInputOptions(e = [], t = [], s = []) {
-      return e.forEach((o) => {
-        var l;
-        const n = [...t, o.label];
-        o.__identifier = n.join("__"), (l = o.children) != null && l.length ? this.parseInputOptions(o.children, n, s) : o.selected && s.push(o);
-      }), { formattedOptions: e, selectedOptions: s };
-    },
-    isOptionSelected(e) {
-      return this.selectedOptions.findIndex((t) => t.__identifier === e.__identifier) > -1;
-    },
-    hasSelectedOptions(e) {
-      return e.some(
-        (t) => {
-          var s;
-          return (s = t.children) != null && s.length ? this.hasSelectedOptions(t.children) : this.isOptionSelected(t);
+    hasSelectedOptions(s) {
+      return s.some(
+        (e) => {
+          var t;
+          return (t = e.children) != null && t.length ? this.hasSelectedOptions(e.children) : this.isOptionSelected(e);
         }
       );
     },
-    goToPreviousOptions(e = null, t = this.filteredOptions) {
-      var s;
-      for (const o of t)
-        if ((s = o.children) != null && s.length) {
-          if (o.__identifier === this.selectedParent.__identifier && o.children.length === this.currentOptions.length) {
-            this.currentOptions = t, this.selectedParent = e;
+    goToPreviousOptions(s = null, e = this.filteredOptions) {
+      var t;
+      for (const i of e)
+        if ((t = i.children) != null && t.length) {
+          if (i.__identifier === this.selectedParent.__identifier && i.children.length === this.currentOptions.length) {
+            this.currentOptions = e, this.selectedParent = s;
             return;
           }
-          this.goToPreviousOptions(o, o.children);
+          this.goToPreviousOptions(i, i.children);
         }
     },
-    filterMatchingOptions(e, t) {
-      var o;
-      let s = [];
-      for (const n of t)
-        if (n.label.toLowerCase().includes(e.toLowerCase()))
-          s.push(n);
-        else if ((o = n.children) != null && o.length) {
-          const l = this.filterMatchingOptions(e, n.children);
-          l.length && s.push({ ...n, children: l });
+    filterMatchingOptions(s, e) {
+      var i;
+      let t = [];
+      for (const n of e)
+        if (n.label.toLowerCase().includes(s.toLowerCase()))
+          t.push(n);
+        else if ((i = n.children) != null && i.length) {
+          const r = this.filterMatchingOptions(s, n.children);
+          r.length && t.push({ ...n, children: r });
         }
-      return s;
+      return t;
     },
-    selectOption(e) {
-      var s;
-      const t = this.currentOptions[e];
-      if ((s = t.children) != null && s.length)
-        this.selectedParent = t, this.currentOptions = t.children;
-      else if (t.__selected || this.isOptionSelected(t, this.selectedParent)) {
+    selectOption(s) {
+      var t;
+      const e = this.currentOptions[s];
+      if ((t = e.children) != null && t.length)
+        this.selectedParent = e, this.currentOptions = e.children;
+      else if (e.__selected || this.isOptionSelected(e, this.selectedParent)) {
         if (this.multiple) {
-          const o = this.selectedOptions.findIndex(
-            (n) => n.__identifier === t.__identifier
+          const i = this.selectedOptions.findIndex(
+            (n) => n.__identifier === e.__identifier
           );
-          o > -1 && (this.selectedOptions = [
-            ...this.selectedOptions.slice(0, o),
-            ...this.selectedOptions.slice(o + 1)
+          i > -1 && (this.selectedOptions = [
+            ...this.selectedOptions.slice(0, i),
+            ...this.selectedOptions.slice(i + 1)
           ]);
         } else
           this.selectedOptions = [];
-        this.currentOptions[e].__selected = !1;
+        this.currentOptions[s].__selected = !1;
       } else
-        this.multiple ? this.selectedOptions = [...this.selectedOptions, t] : (this.selectedOptions = [t], this.closeDropdownMenu()), this.currentOptions[e].__selected = !0;
+        this.multiple ? this.selectedOptions = [...this.selectedOptions, e] : (this.selectedOptions = [e], this.closeDropdownMenu()), this.currentOptions[s].__selected = !0;
     },
-    handleKeyDown(e) {
-      var s, o, n, l, r, f;
-      const { key: t } = e;
-      if (t === "Escape")
+    handleKeyDown(s) {
+      var t, i, n, r, a, c;
+      const { key: e } = s;
+      if (e === "Escape")
         this.closeDropdownMenu();
-      else if (t === "Enter" || t.length === 1) {
-        if (this.menuIsOpen || this.keepMenuOpen(e), t === "Enter") {
+      else if (e === "Enter" || e.length === 1) {
+        if (this.menuIsOpen || this.keepMenuOpen(s), e === "Enter") {
           if (this.selectedParent && this.selectedIndex === 0)
             this.goToPreviousOptions(), this.selectedIndex = 0;
           else if (this.selectedIndex !== -1) {
-            const i = this.selectedParent ? this.selectedIndex - 1 : this.selectedIndex;
-            if (!((s = this.currentOptions[i]) != null && s.disabled)) {
-              const a = (o = this.selectedParent) == null ? void 0 : o.label;
-              this.selectOption(i), a !== ((n = this.selectedParent) == null ? void 0 : n.label) && (this.selectedParent ? this.selectedIndex = 1 : this.selectedIndex = 0);
+            const o = this.selectedParent ? this.selectedIndex - 1 : this.selectedIndex;
+            if (!((t = this.currentOptions[o]) != null && t.disabled)) {
+              const l = (i = this.selectedParent) == null ? void 0 : i.label;
+              this.selectOption(o), l !== ((n = this.selectedParent) == null ? void 0 : n.label) && (this.selectedParent ? this.selectedIndex = 1 : this.selectedIndex = 0);
             }
           }
         }
-      } else if (t === "ArrowUp")
+      } else if (e === "ArrowUp")
         if (this.selectedIndex === 0) {
-          const i = this.currentOptions.length;
-          this.selectedIndex = this.selectedParent ? i : i - 1;
+          const o = this.currentOptions.length;
+          this.selectedIndex = this.selectedParent ? o : o - 1;
         } else
           this.selectedIndex--;
-      else if (t === "ArrowRight") {
-        const i = this.selectedParent ? this.selectedIndex - 1 : this.selectedIndex;
-        !((l = this.currentOptions[i]) != null && l.disabled) && ((f = (r = this.currentOptions[i]) == null ? void 0 : r.children) != null && f.length) && (this.selectOption(i), this.selectedParent && (this.selectedIndex = 1));
-      } else if (t === "ArrowDown") {
-        const i = this.currentOptions.length;
-        this.selectedIndex === (this.selectedParent ? i : i - 1) ? this.selectedIndex = 0 : this.selectedIndex++;
+      else if (e === "ArrowRight") {
+        const o = this.selectedParent ? this.selectedIndex - 1 : this.selectedIndex;
+        !((r = this.currentOptions[o]) != null && r.disabled) && ((c = (a = this.currentOptions[o]) == null ? void 0 : a.children) != null && c.length) && (this.selectOption(o), this.selectedParent && (this.selectedIndex = 1));
+      } else if (e === "ArrowDown") {
+        const o = this.currentOptions.length;
+        this.selectedIndex === (this.selectedParent ? o : o - 1) ? this.selectedIndex = 0 : this.selectedIndex++;
       } else
-        t === "ArrowLeft" && this.selectedParent && (this.goToPreviousOptions(), this.selectedIndex = 0);
+        e === "ArrowLeft" && this.selectedParent && (this.goToPreviousOptions(), this.selectedIndex = 0);
     }
   }
-}, N = {
-  class: "v-tree-dropdown",
-  ref: "dropdown"
-}, R = { class: "v-dd" }, K = {
-  for: "v-dd-search__input",
-  id: "v-dd-label"
-}, H = ["aria-expanded"], j = ["aria-controls", "aria-activedescendant"], J = ["innerHTML"], U = ["aria-multiselectable"], F = {
-  key: 0,
-  class: "v-dd-option no-data",
-  role: "option"
-}, G = { class: "u-truncate label" }, Q = ["id", "onClick", "aria-selected", "disabled"], W = { class: "u-truncate" };
-function X(e, t, s, o, n, l) {
-  var f;
-  const r = P("svg-icon");
-  return d(), p("div", N, [
-    c("div", R, [
-      c("label", K, u(s.label), 1),
-      c("div", {
-        class: h("v-dd-search" + (n.menuIsOpen ? " active" : "") + (s.compact ? " compact" : "")),
-        onClick: t[3] || (t[3] = (...i) => l.toggleDropdownMenu && l.toggleDropdownMenu(...i)),
-        "aria-haspopup": "listbox",
-        "aria-expanded": "" + n.menuIsOpen,
-        "aria-owns": "v-dd-options-menu",
-        "aria-labelledby": "v-dd-label"
-      }, [
-        I(r, {
-          icon: "zd-search",
-          name: "Search"
-        }),
-        _(c("input", {
-          ref: "searchInput",
-          type: "text",
-          autocomplete: "new-password",
-          id: "v-dd-search__input",
-          class: h("c-txt v-dd-input" + (n.menuIsOpen ? "" : " hide")),
-          "onUpdate:modelValue": t[0] || (t[0] = (i) => n.searchInput = i),
-          onClick: t[1] || (t[1] = (...i) => l.keepMenuOpen && l.keepMenuOpen(...i)),
-          onKeydown: t[2] || (t[2] = (...i) => l.handleKeyDown && l.handleKeyDown(...i)),
-          role: "combobox",
-          "aria-labelledby": "v-dd-label",
-          "aria-autocomplete": "list",
-          "aria-controls": n.menuIsOpen ? "v-dd-options-menu" : !1,
-          "aria-activedescendant": n.menuIsOpen ? "v-dd-option-" + n.selectedIndex : !1
-        }, null, 42, j), [
-          [M, n.searchInput]
-        ]),
-        _(c("div", {
-          class: "c-txt u-truncate",
-          innerHTML: n.selectedOptions.map((i) => i.label).join(", ")
-        }, null, 8, J), [
-          [S, !n.menuIsOpen]
-        ]),
-        I(r, {
-          icon: "zd-down-pointer",
-          name: n.menuIsOpen ? "Up arrow" : "Down arrow",
-          class: h(n.menuIsOpen ? "open" : "close")
-        }, null, 8, ["name", "class"])
-      ], 10, H)
-    ]),
-    _(c("ul", {
-      ref: "menu",
-      id: "v-dd-options-menu",
-      class: h(s.compact ? "compact" : ""),
-      role: "listbox",
-      "aria-labelledby": "v-dd-label",
-      "aria-multiselectable": !!s.multiple
-    }, [
-      (f = n.currentOptions) != null && f.length ? O("", !0) : (d(), p("li", F, [
-        c("span", null, u(s.noSearchResultsText), 1)
-      ])),
-      n.selectedParent ? (d(), p("li", {
-        key: 1,
-        id: "v-dd-option-0",
-        class: h("v-dd-option parent-option" + (n.selectedIndex === 0 ? " active" : "")),
-        onClick: t[4] || (t[4] = (i) => l.goToPreviousOptions()),
-        role: "option"
-      }, [
-        I(r, {
-          icon: "zd-down-pointer",
-          name: "Left arrow",
-          iconDescription: "Click to go back to previous menu",
-          color: "#1f73b7"
-        }),
-        c("span", G, u(n.selectedParent.label), 1)
-      ], 2)) : O("", !0),
-      (d(!0), p(C, null, D(n.currentOptions, (i, a) => {
-        var b, v, w, y, k;
-        return d(), p("li", {
-          key: i.label,
-          id: "v-dd-option-" + (n.selectedParent ? a + 1 : a),
-          class: h("v-dd-option" + (n.selectedIndex === (n.selectedParent ? a + 1 : a) ? " active" : "")),
-          onClick: ($) => l.selectOption(a),
-          role: "option",
-          "aria-selected": n.selectedIndex === (n.selectedParent ? a + 1 : a),
-          disabled: i.disabled || s.maxSelectableCount && ((b = n.selectedOptions) == null ? void 0 : b.length) >= s.maxSelectableCount && !((v = i.children) != null && v.length) && !l.isOptionSelected(i)
-        }, [
-          (w = i.children) != null && w.length && l.hasSelectedOptions(i.children) ? (d(), g(r, {
-            key: 0,
-            icon: "zd-contains",
-            name: "Contains",
-            color: "#1f73b7"
-          })) : O("", !0),
-          !((y = i.children) != null && y.length) && l.isOptionSelected(i) ? (d(), g(r, {
-            key: 1,
-            icon: "zd-check",
-            name: "Selected",
-            color: "#1f73b7"
-          })) : O("", !0),
-          c("span", W, u(i.label), 1),
-          (k = i.children) != null && k.length ? (d(), g(r, {
-            key: 2,
-            icon: "zd-down-pointer",
-            name: "Right arrow",
-            iconDescription: "Click to open sub-menu options"
-          })) : O("", !0)
-        ], 10, Q);
-      }), 128))
-    ], 10, U), [
-      [S, n.menuIsOpen]
-    ])
-  ], 512);
-}
-const Y = /* @__PURE__ */ x(E, [["render", X], ["__scopeId", "data-v-ae216d09"]]), Z = {
-  install(e, t) {
-    e.component("VsAutocomplete", Y);
+};
+var y = function() {
+  var i;
+  var e = this, t = e._self._c;
+  return t("div", { ref: "dropdown", staticClass: "v-tree-dropdown" }, [t("div", { staticClass: "v-dd" }, [t("label", { attrs: { for: "v-dd-search__input", id: "v-dd-label" } }, [e._v(" " + e._s(e.label) + " ")]), e.labelHint ? t("div", { staticClass: "v-dd-label-hint", attrs: { "aria-labelledby": "v-dd-label" } }, [e._v(" " + e._s(e.labelHint) + " ")]) : e._e(), t("div", { class: "v-dd-search" + (e.menuIsOpen ? " active" : "") + (e.compact ? " compact" : ""), attrs: { "aria-haspopup": "listbox", "aria-expanded": "" + e.menuIsOpen, "aria-owns": "v-dd-options-menu", "aria-labelledby": "v-dd-label" }, on: { click: e.toggleDropdownMenu } }, [t("svg-icon", { attrs: { icon: "zd-search", name: "Search" } }), t("input", { directives: [{ name: "model", rawName: "v-model", value: e.searchInput, expression: "searchInput" }], ref: "searchInput", class: "c-txt v-dd-input" + (e.menuIsOpen ? "" : " hide"), attrs: { type: "text", autocomplete: "new-password", id: "v-dd-search__input", role: "combobox", "aria-labelledby": "v-dd-label", "aria-autocomplete": "list", "aria-controls": e.menuIsOpen ? "v-dd-options-menu" : !1, "aria-activedescendant": e.menuIsOpen ? "v-dd-option-" + e.selectedIndex : !1 }, domProps: { value: e.searchInput }, on: { click: e.keepMenuOpen, keydown: e.handleKeyDown, input: function(n) {
+    n.target.composing || (e.searchInput = n.target.value);
+  } } }), t("div", { directives: [{ name: "show", rawName: "v-show", value: !e.menuIsOpen, expression: "!menuIsOpen" }], staticClass: "c-txt u-truncate", domProps: { innerHTML: e._s(e.selectedOptions.map((n) => n.label).join(", ")) } }), t("svg-icon", { class: e.menuIsOpen ? "open" : "close", attrs: { icon: "zd-down-pointer", name: e.menuIsOpen ? "Up arrow" : "Down arrow" } })], 1)]), t("ul", { directives: [{ name: "show", rawName: "v-show", value: e.menuIsOpen, expression: "menuIsOpen" }], ref: "menu", class: e.compact ? "compact" : "", attrs: { id: "v-dd-options-menu", role: "listbox", "aria-labelledby": "v-dd-label", "aria-multiselectable": !!e.multiple } }, [(i = e.currentOptions) != null && i.length ? e._e() : t("li", { staticClass: "v-dd-option no-data", attrs: { role: "option" } }, [t("span", [e._v(e._s(e.noSearchResultsText))])]), e.selectedParent ? t("li", { class: "v-dd-option parent-option" + (e.selectedIndex === 0 ? " active" : ""), attrs: { id: "v-dd-option-0", role: "option" }, on: { click: function(n) {
+    return e.goToPreviousOptions();
+  } } }, [t("svg-icon", { attrs: { icon: "zd-down-pointer", name: "Left arrow", iconDescription: "Click to go back to previous menu", color: "#1f73b7" } }), t("span", { staticClass: "u-truncate label" }, [e._v(e._s(e.selectedParent.label))])], 1) : e._e(), e._l(e.currentOptions, function(n, r) {
+    var a, c, o, l, h;
+    return t("li", { key: n.label, class: "v-dd-option" + (e.selectedIndex === (e.selectedParent ? r + 1 : r) ? " active" : ""), attrs: { id: "v-dd-option-" + (e.selectedParent ? r + 1 : r), role: "option", "aria-selected": e.selectedIndex === (e.selectedParent ? r + 1 : r), disabled: n.disabled || e.maxSelectableCount && ((a = e.selectedOptions) == null ? void 0 : a.length) >= e.maxSelectableCount && !((c = n.children) != null && c.length) && !e.isOptionSelected(n) ? "disabled" : null }, on: { click: function(u) {
+      return e.selectOption(r);
+    } } }, [(o = n.children) != null && o.length && e.hasSelectedOptions(n.children) ? t("svg-icon", { attrs: { icon: "zd-contains", name: "Contains", color: "#1f73b7" } }) : e._e(), !((l = n.children) != null && l.length) && e.isOptionSelected(n) ? t("svg-icon", { attrs: { icon: "zd-check", name: "Selected", color: "#1f73b7" } }) : e._e(), t("span", { staticClass: "u-truncate" }, [e._v(e._s(n.label))]), (h = n.children) != null && h.length ? t("svg-icon", { attrs: { icon: "zd-down-pointer", name: "Right arrow", iconDescription: "Click to open sub-menu options" } }) : e._e()], 1);
+  })], 2)]);
+}, S = [], P = /* @__PURE__ */ _(
+  x,
+  y,
+  S,
+  !1,
+  null,
+  "ac458dbc",
+  null,
+  null
+);
+const C = P.exports, k = {
+  install(s, e) {
+    s.component("VsAutocomplete", C);
   }
 };
-let m = null;
-typeof window < "u" ? m = window.Vue : typeof global < "u" && (m = global.Vue);
-m && m.use && m.use(Z);
+let p = null;
+typeof window < "u" ? p = window.Vue : typeof global < "u" && (p = global.Vue);
+p && p.use && p.use(k);
 export {
-  Y as default
+  C as default
 };
