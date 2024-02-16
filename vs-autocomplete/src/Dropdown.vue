@@ -59,9 +59,10 @@
 </template>
 
 <script>
+import { defineComponent } from 'vue';
 import SvgIcon from './shared/SvgIcon.vue';
 
-export default {
+export default defineComponent({
   components: {
     SvgIcon,
   },
@@ -113,7 +114,7 @@ export default {
     },
   },
 
-  emits: ['input', 'update:modelValue', 'open', 'close'],
+  emits: ['update:modelValue', 'open', 'close'],
 
   data() {
     return {
@@ -157,12 +158,10 @@ export default {
         ) {
           try {
             // sync v-model on v2 & v3
-            ['input', 'update:modelValue'].forEach(eventName => {
-              this.$emit(
-                eventName,
-                this.selectedOptions.map(({ __identifier, __selected, ...option }) => option),
-              )
-            });
+            this.$emit(
+              'update:modelValue',
+              this.selectedOptions.map(({ __identifier, __selected, ...option }) => option),
+            )
           } catch (error) {
             console.log('Unknown Event ', error);
           }
@@ -394,7 +393,7 @@ export default {
       }
     },
   },
-};
+});
 </script>
 
 <style src="./Dropdown.css" scoped></style>

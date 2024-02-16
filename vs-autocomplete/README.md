@@ -1,15 +1,15 @@
-This branch is for component in Vue 2. For Vue 3, please use the [main branch](https://github.com/sureshUngarala/vue-components/tree/main/vs-autocomplete).
-
 ## Vs Autocomplete Dropdown
 
-Nested-Autocomplete-Multiselect-Dropdown for Vue 3, refer GitHub branch [v2](https://github.com/sureshungarala/vue-components/tree/v2/vs-autocomplete) for Vue 2
+Nested-Autocomplete-Multiselect-Dropdown for Vue 3, refer GitHub branch [v2](https://github.com/sureshungarala/vue-components/tree/v2/vs-autocomplete) for usage and installation in Vue 2
 <img src="https://img.shields.io/npm/dt/vs-autocomplete" /> <img src="https://img.shields.io/jsdelivr/npm/hy/vs-autocomplete" />
 
 - Ability to single/multi-select
 - Ability to select same option from different groups/parents
 - A11y compliant
 
-#### :film_projector: [Demo](https://codesandbox.io/s/vs-autocomplete-vue2-9zfyf1)
+#### :film_projector: [Demo](https://codesandbox.io/s/vs-autocomplete-vue3-4v1bkr) for Vue3.
+
+#### :film_projector: [Demo](https://codesandbox.io/s/vs-autocomplete-vue2-9zfyf1) for Vue2.
 
 #### :rocket: Usage
 
@@ -35,24 +35,24 @@ Nested-Autocomplete-Multiselect-Dropdown for Vue 3, refer GitHub branch [v2](htt
 ##### npm
 
 ```bash
- npm install vs-autocomplete@1.6.4
+ npm install vs-autocomplete@latest
 ```
 
 ##### yarn
 
 ```bash
- yarn add vs-autocomplete@1.6.4
+ yarn add vs-autocomplete@latest
 ```
 
 ##### UMD
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/vs-autocomplete@1.6.4/dist/vs-autocomplete.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vs-autocomplete@latest/dist/vs-autocomplete.umd.min.js"></script>
 OR
-<script src="https://unpkg.com/vs-autocomplete@1.6.4/dist/vs-autocomplete.umd.js"></script>
+<script src="https://unpkg.com/vs-autocomplete@latest/dist/vs-autocomplete.umd.js"></script>
 ```
 
-In Vue 2, UMD component is auto-registered globally.
+In [Vue 2](https://github.com/sureshungarala/vue-components/tree/v2/vs-autocomplete#npm), UMD component is auto-registered globally.
 
 In Vue 3, you need to either register the component globally by calling
 
