@@ -16,7 +16,7 @@
         @click="toggleDropdownMenu" aria-haspopup="listbox" :aria-expanded="'' + menuIsOpen" aria-owns="v-dd-options-menu"
         aria-labelledby="v-dd-label">
         <svg-icon icon="zd-search" name="Search" />
-        <input ref="searchInput" type="text" autocomplete="new-password" id="v-dd-search__input"
+        <input ref="searchInput" type="text" autocomplete="off" id="v-dd-search__input"
           :class="'c-txt v-dd-input' + (!menuIsOpen ? ' hide' : '')" v-model="searchInput" @click="keepMenuOpen"
           @keydown="handleKeyDown" role="combobox" aria-labelledby="v-dd-label" aria-autocomplete="list"
           :aria-controls="menuIsOpen ? 'v-dd-options-menu' : false"

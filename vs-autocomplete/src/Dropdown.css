@@ -107,6 +107,7 @@
 
 .v-dd-search > input,
 .v-dd-search > div {
+  font-size: 1em;
   height: 1.25rem;
   line-height: 1.25rem;
   flex-grow: 1;

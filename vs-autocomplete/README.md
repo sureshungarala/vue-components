@@ -2,7 +2,7 @@ This branch is for component in Vue 2. For Vue 3, please use the [main branch](h
 
 ## Vs Autocomplete Dropdown
 
-Nested-Autocomplete-Multiselect-Dropdown for Vue 3, refer GitHub branch `v2` for Vue 2
+Nested-Autocomplete-Multiselect-Dropdown for Vue 3, refer GitHub branch [v2](https://github.com/sureshungarala/vue-components/tree/v2/vs-autocomplete) for Vue 2
 <img src="https://img.shields.io/npm/dt/vs-autocomplete" /> <img src="https://img.shields.io/jsdelivr/npm/hy/vs-autocomplete" />
 
 - Ability to single/multi-select
@@ -35,24 +35,24 @@ Nested-Autocomplete-Multiselect-Dropdown for Vue 3, refer GitHub branch `v2` for
 ##### npm
 
 ```bash
- npm install vs-autocomplete@1.5.1
+ npm install vs-autocomplete@1.6.2
 ```
 
 ##### yarn
 
 ```bash
- yarn add vs-autocomplete@1.5.1
+ yarn add vs-autocomplete@1.6.2
 ```
 
 ##### UMD
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/vs-autocomplete@1.5.1/dist/vs-autocomplete.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vs-autocomplete@1.6.2/dist/vs-autocomplete.umd.min.js"></script>
 OR
-<script src="https://unpkg.com/vs-autocomplete@1.5.1/dist/vs-autocomplete.umd.js"></script>
+<script src="https://unpkg.com/vs-autocomplete@1.6.2/dist/vs-autocomplete.umd.js"></script>
 ```
 
-In Vue 2, component is auto-registered globally.
+In Vue 2, UMD component is auto-registered globally.
 
 In Vue 3, you need to either register the component globally by calling
 
