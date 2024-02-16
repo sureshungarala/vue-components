@@ -35,21 +35,21 @@ Nested-Autocomplete-Multiselect-Dropdown for Vue 3, refer GitHub branch [v2](htt
 ##### npm
 
 ```bash
- npm install vs-autocomplete@1.6.3
+ npm install vs-autocomplete@1.6.4
 ```
 
 ##### yarn
 
 ```bash
- yarn add vs-autocomplete@1.6.3
+ yarn add vs-autocomplete@1.6.4
 ```
 
 ##### UMD
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/vs-autocomplete@1.6.3/dist/vs-autocomplete.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vs-autocomplete@1.6.4/dist/vs-autocomplete.umd.min.js"></script>
 OR
-<script src="https://unpkg.com/vs-autocomplete@1.6.3/dist/vs-autocomplete.umd.js"></script>
+<script src="https://unpkg.com/vs-autocomplete@1.6.4/dist/vs-autocomplete.umd.js"></script>
 ```
 
 In Vue 2, UMD component is auto-registered globally.
@@ -110,6 +110,21 @@ components: {
 | `disabled` | Boolean         | `false`  | Whether the option is disabled   |
 | `selected` | Boolean         | `false`  | Whether the option is selected   |
 | `children` | Array<`option`> | `false`  | Nested options                   |
+
+<br>
+
+##### :nail_care: CSS Variables for Styling
+
+| Variable Name        | Description                                            |
+| -------------------- | ------------------------------------------------------ |
+| `--primary-color `   | Primary border color on the combobox                   |
+| `--background-color` | Background color of the option when focused or hovered |
+| `--hint-color`       | Hint text color                                        |
+| `--v-dropdown-width` | Width of the combobox                                  |
+| `--max-width`        | Max width of the combobox                              |
+| `--box-shadow`       | Box shadow of the combobox                             |
+| `--bezier-curve`     | Menu toggle transition                                 |
+| `--animation-delay`  | Transition delay                                       |
 
 <br>
 

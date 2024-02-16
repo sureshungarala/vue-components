@@ -5,7 +5,8 @@
   --border: 1px solid #d8dcde;
   --v-dropdown-width: 300px;
   --max-width: 10000000px;
-  --box-shadow: rgb(31 115 183 / 35%) 0px 0px 0px 3px;
+  --box-shadow: rgb(255, 255, 255) 0px 0px 0px 1px,
+    rgb(31, 115, 183) 0px 0px 0px 3px;
   --bezier-curve: 0.1s cubic-bezier(0, 0, 0.95, 1.03);
   --animation-delay: 0.2s;
 
@@ -81,7 +82,8 @@
 .v-dd-search:focus-within {
   border-color: var(--primary-color);
   box-shadow: var(--box-shadow);
-  transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  transition: border-color var(--animation-delay) ease-in-out,
+    box-shadow var(--animation-delay) ease-in-out;
 }
 
 .v-dd-search > svg {
@@ -97,12 +99,12 @@
 
 .v-dd-search > svg[aria-labelledby='zd-down-pointer'].open {
   transform: rotate(180deg);
-  transition: transform 0.2s ease-in-out;
+  transition: transform var(--animation-delay) ease-in-out;
 }
 
 .v-dd-search > svg[aria-labelledby='zd-down-pointer'].close {
   transform: rotate(0deg);
-  transition: transform 0.2s ease-in-out;
+  transition: transform var(--animation-delay) ease-in-out;
 }
 
 .v-dd-search > input,
