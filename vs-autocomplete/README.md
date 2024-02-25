@@ -20,6 +20,7 @@ Nested-Autocomplete-Multiselect-Dropdown for Vue 3, refer GitHub branch [v2](htt
   :multiple="true"
   :maxSelectableCount="4"
   :searchInputText="searchInputText"
+  :searchOptionMatcher="optionMatcher"
   :keepMenuOpenOnRender="false"
   :compact="false"
   noSearchResultsText="No results found"
@@ -76,17 +77,18 @@ components: {
 
 #### :gear: Props
 
-| Name                   | Type            | Default            | Required | Description                                      |
-| ---------------------- | --------------- | ------------------ | -------- | ------------------------------------------------ |
-| `options`              | Array<`option`> | `[]`               | `true`   | Options to be displayed in the dropdown          |
-| `label`                | String          | -                  | `false`  | Label of the option                              |
-| `multiple`             | Boolean         | `false`            | `false`  | Whether to allow multiple selection              |
-| `searchInputText`      | String          | `''`               | `false`  | Search input text to filter options              |
-| `keepMenuOpenOnRender` | Boolean         | `false`            | `false`  | Whether to keep the menu open on render          |
-| `compact`              | Boolean         | `false`            | `false`  | Whether to render the dropdown in compact mode   |
-| `maxSelectableCount`   | Number          | `0`                | `false`  | Maximum number of options that can be selected   |
-| `noSearchResultsText`  | String          | `No results found` | `false`  | Text to display when no search results are found |
-| `labelHint`            | String          | -                  | `false`  | Hint text to display below the label             |
+| Name                   | Type                                 | Default            | Required | Description                                                                                                                                                                                 |
+| ---------------------- | ------------------------------------ | ------------------ | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `options`              | Array<`option`>                      | `[]`               | `true`   | Options to be displayed in the dropdown                                                                                                                                                     |
+| `label`                | String                               | -                  | `false`  | Label of the option                                                                                                                                                                         |
+| `multiple`             | Boolean                              | `false`            | `false`  | Whether to allow multiple selection                                                                                                                                                         |
+| `searchInputText`      | String                               | `''`               | `false`  | Search input text to filter options                                                                                                                                                         |
+| `keepMenuOpenOnRender` | Boolean                              | `false`            | `false`  | Whether to keep the menu open on render                                                                                                                                                     |
+| `compact`              | Boolean                              | `false`            | `false`  | Whether to render the dropdown in compact mode                                                                                                                                              |
+| `maxSelectableCount`   | Number                               | `0`                | `false`  | Maximum number of options that can be selected                                                                                                                                              |
+| `noSearchResultsText`  | String                               | `No results found` | `false`  | Text to display when no search results are found                                                                                                                                            |
+| `labelHint`            | String                               | -                  | `false`  | Hint text to display below the label                                                                                                                                                        |
+| `searchOptionMatcher`  | (searchInputText, option) => boolean | () => {}           | `false`  | Custom search option matcher function compares `searchInputText` against each option. If defined, it must return a boolean indicating match; otherwise, defaults to matching option labels. |
 
 <br>
 

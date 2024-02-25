@@ -1,7 +1,7 @@
 {
   "name": "vs-autocomplete",
   "private": false,
-  "version": "1.6.5",
+  "version": "1.6.7",
   "type": "module",
   "files": [
     "dist"

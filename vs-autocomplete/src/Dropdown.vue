@@ -87,6 +87,11 @@ export default defineComponent({
       default: '',
       required: false,
     },
+    searchOptionMatcher: {
+      type: Function,
+      default: () => { },
+      required: false
+    },
     keepMenuOpenOnRender: {
       type: Boolean,
       default: false,
@@ -157,7 +162,6 @@ export default defineComponent({
           !newOptionIdentifiers.every(identifier => oldOptionIdentifiers.includes(identifier))
         ) {
           try {
-            // sync v-model on v2 & v3
             this.$emit(
               'update:modelValue',
               this.selectedOptions.map(({ __identifier, __selected, ...option }) => option),
@@ -296,7 +300,9 @@ export default defineComponent({
     filterMatchingOptions(searchInput, options) {
       let matchedOptions = [];
       for (const option of options) {
-        if (option.label.toLowerCase().includes(searchInput.toLowerCase())) {
+        const { __identifier, __selected, ...rawOption } = option;
+        const optionMatched = this.searchOptionMatcher(searchInput, rawOption);
+        if (typeof optionMatched === 'boolean' ? optionMatched : option.label.toLowerCase().includes(searchInput.toLowerCase())) {
           matchedOptions.push(option);
         } else if (option.children?.length) {
           const matchedSubOptions = this.filterMatchingOptions(searchInput, option.children);
@@ -315,7 +321,8 @@ export default defineComponent({
         this.currentOptions = option.children;
       } else {
         if (option.__selected || this.isOptionSelected(option, this.selectedParent)) {
-          // this __selected is transient for current displayed options(`currentOptions`). Not to be confused with `selected` prop for `option` type.
+          // this __selected is transient for current displayed options(`currentOptions`). 
+          // Not to be confused with `selected` prop for `option` type.
           if (this.multiple) {
             const matchedIndex = this.selectedOptions.findIndex(
               selectedOption => selectedOption.__identifier === option.__identifier,
