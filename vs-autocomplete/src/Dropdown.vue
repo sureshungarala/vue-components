@@ -86,6 +86,11 @@ export default {
       default: '',
       required: false,
     },
+    searchOptionMatcher: {
+      type: Function,
+      default: () => { },
+      required: false
+    },
     keepMenuOpenOnRender: {
       type: Boolean,
       default: false,
@@ -156,13 +161,10 @@ export default {
           !newOptionIdentifiers.every(identifier => oldOptionIdentifiers.includes(identifier))
         ) {
           try {
-            // sync v-model on v2 & v3
-            ['input', 'update:modelValue'].forEach(eventName => {
-              this.$emit(
-                eventName,
-                this.selectedOptions.map(({ __identifier, __selected, ...option }) => option),
-              )
-            });
+            this.$emit(
+              'input',
+              this.selectedOptions.map(({ __identifier, __selected, ...option }) => option),
+            );
           } catch (error) {
             console.log('Unknown Event ', error);
           }
@@ -297,7 +299,9 @@ export default {
     filterMatchingOptions(searchInput, options) {
       let matchedOptions = [];
       for (const option of options) {
-        if (option.label.toLowerCase().includes(searchInput.toLowerCase())) {
+        const { __identifier, __selected, ...rawOption } = option;
+        const optionMatched = this.searchOptionMatcher(searchInput, rawOption);
+        if (typeof optionMatched === 'boolean' ? optionMatched : option.label.toLowerCase().includes(searchInput.toLowerCase())) {
           matchedOptions.push(option);
         } else if (option.children?.length) {
           const matchedSubOptions = this.filterMatchingOptions(searchInput, option.children);
