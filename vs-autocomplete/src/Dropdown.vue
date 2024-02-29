@@ -262,6 +262,9 @@ export default defineComponent({
     parseInputOptions(options = [], keys = [], selectedOptions = []) {
       options.forEach(option => {
         const newKeys = [...keys, option.label];
+        if (typeof option.value !== 'undefined') {
+          newKeys.push(option.value);
+        }
         option.__identifier = newKeys.join('__');
         if (option.children?.length) {
           this.parseInputOptions(option.children, newKeys, selectedOptions);
