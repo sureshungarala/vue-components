@@ -13,13 +13,13 @@
         {{ labelHint }}
       </div>
       <div :class="'v-dd-search' + (menuIsOpen ? ' active' : '') + (compact ? ' compact' : '')"
-        @click="toggleDropdownMenu" aria-haspopup="listbox" :aria-expanded="'' + menuIsOpen" aria-owns="v-dd-options-menu"
-        :aria-labelledby="'v-dd-label' + uniqueId">
+        @click="toggleDropdownMenu" aria-haspopup="listbox" :aria-expanded="'' + menuIsOpen"
+        :aria-owns="'v-dd-options-menu' + uniqueId" :aria-labelledby="'v-dd-label' + uniqueId">
         <svg-icon icon="zd-search" name="Search" />
         <input ref="searchInput" type="text" autocomplete="off" :id="'v-dd-search__input' + uniqueId"
           :class="'c-txt v-dd-input' + (!menuIsOpen ? ' hide' : '')" v-model="searchInput" @click="keepMenuOpen"
           @keydown="handleKeyDown" role="combobox" :aria-labelledby="'v-dd-label' + uniqueId" aria-autocomplete="list"
-          :aria-controls="menuIsOpen ? 'v-dd-options-menu' : false"
+          :aria-controls="menuIsOpen ? 'v-dd-options-menu' + uniqueId : false"
           :aria-activedescendant="menuIsOpen ? ('v-dd-option-' + selectedIndex) : false" />
         <div v-show="!menuIsOpen" class="c-txt u-truncate"
           v-html="selectedOptions.map(option => option.label).join(', ')">

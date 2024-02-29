@@ -36,21 +36,21 @@ Nested-Autocomplete-Multiselect-Dropdown for Vue 3, refer GitHub branch [v2](htt
 ##### npm
 
 ```bash
- npm install vs-autocomplete@1.6.10
+ npm install vs-autocomplete@1.6.12
 ```
 
 ##### yarn
 
 ```bash
- yarn add vs-autocomplete@1.6.10
+ yarn add vs-autocomplete@1.6.12
 ```
 
 ##### UMD
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/vs-autocomplete@1.6.10/dist/vs-autocomplete.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vs-autocomplete@1.6.12/dist/vs-autocomplete.umd.min.js"></script>
 OR
-<script src="https://unpkg.com/vs-autocomplete@1.6.10/dist/vs-autocomplete.umd.js"></script>
+<script src="https://unpkg.com/vs-autocomplete@1.6.12/dist/vs-autocomplete.umd.js"></script>
 ```
 
 In Vue 2, UMD component is auto-registered globally.
