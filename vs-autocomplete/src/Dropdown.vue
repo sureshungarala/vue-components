@@ -6,19 +6,19 @@
 <template>
   <div class="v-tree-dropdown" ref="dropdown">
     <div class="v-dd">
-      <label for="v-dd-search__input" id="v-dd-label">
+      <label :for="'v-dd-search__input' + uniqueId" :id="'v-dd-label' + uniqueId">
         {{ label }}
       </label>
-      <div class="v-dd-label-hint" aria-labelledby="v-dd-label" v-if="labelHint">
+      <div class="v-dd-label-hint" :aria-labelledby="'v-dd-label' + uniqueId" v-if="labelHint">
         {{ labelHint }}
       </div>
       <div :class="'v-dd-search' + (menuIsOpen ? ' active' : '') + (compact ? ' compact' : '')"
         @click="toggleDropdownMenu" aria-haspopup="listbox" :aria-expanded="'' + menuIsOpen" aria-owns="v-dd-options-menu"
-        aria-labelledby="v-dd-label">
+        :aria-labelledby="'v-dd-label' + uniqueId">
         <svg-icon icon="zd-search" name="Search" />
-        <input ref="searchInput" type="text" autocomplete="off" id="v-dd-search__input"
+        <input ref="searchInput" type="text" autocomplete="off" :id="'v-dd-search__input' + uniqueId"
           :class="'c-txt v-dd-input' + (!menuIsOpen ? ' hide' : '')" v-model="searchInput" @click="keepMenuOpen"
-          @keydown="handleKeyDown" role="combobox" aria-labelledby="v-dd-label" aria-autocomplete="list"
+          @keydown="handleKeyDown" role="combobox" :aria-labelledby="'v-dd-label' + uniqueId" aria-autocomplete="list"
           :aria-controls="menuIsOpen ? 'v-dd-options-menu' : false"
           :aria-activedescendant="menuIsOpen ? ('v-dd-option-' + selectedIndex) : false" />
         <div v-show="!menuIsOpen" class="c-txt u-truncate"
@@ -28,20 +28,20 @@
           :class="menuIsOpen ? 'open' : 'close'" />
       </div>
     </div>
-    <ul ref="menu" id="v-dd-options-menu" :class="compact ? 'compact' : ''" v-show="menuIsOpen" role="listbox"
-      aria-labelledby="v-dd-label" :aria-multiselectable="!!multiple">
+    <ul ref="menu" :id="'v-dd-options-menu' + uniqueId" :class="compact ? 'compact' : ''" v-show="menuIsOpen"
+      role="listbox" :aria-labelledby="'v-dd-label' + uniqueId" :aria-multiselectable="!!multiple">
       <li class="v-dd-option no-data" v-if="!currentOptions?.length" role="option">
         <span>{{ noSearchResultsText }}</span>
       </li>
-      <li v-if="selectedParent" id="v-dd-option-0"
+      <li v-if="selectedParent" :id="'v-dd-option-0' + uniqueId"
         :class="'v-dd-option parent-option' + (selectedIndex === 0 ? ' active' : '')" @click="goToPreviousOptions()"
         role="option">
         <svg-icon icon="zd-down-pointer" name="Left arrow" iconDescription="Click to go back to previous menu"
           color="#1f73b7" />
         <span class="u-truncate label">{{ selectedParent.label }}</span>
       </li>
-      <li v-for="(option, index) in currentOptions" :key="option.label"
-        :id="'v-dd-option-' + (selectedParent ? index + 1 : index)"
+      <li v-for="(option, index) in currentOptions" :key="option.label + '__' + (option.value ?? index)"
+        :id="'v-dd-option-' + (selectedParent ? index + 1 : index) + uniqueId"
         :class="'v-dd-option' + (selectedIndex === (selectedParent ? index + 1 : index) ? ' active' : '')"
         @click="selectOption(index)" role="option"
         :aria-selected="selectedIndex === (selectedParent ? index + 1 : index) ? true : false"
@@ -134,6 +134,7 @@ export default {
       selectedIndex: -1, // Index of the selected option
       selectedIndices: [],
       currentIndex: -1, // Index of the current prog focussed option
+      uniqueId: Math.random().toString(36).substring(2, 8)
     };
   },
 
