@@ -7,7 +7,7 @@ Nested-Autocomplete-Multiselect-Dropdown for Vue 3, refer GitHub branch [v2](htt
 - Ability to select same option from different groups/parents
 - A11y compliant
 
-#### :film_projector: [Demo](https://codesandbox.io/s/vs-autocomplete-vue3-4v1bkr) for Vue3.
+#### :film_projector: [Demo](https://codesandbox.io/s/vs-autocomplete-vue3-n4f3lq) for Vue3.
 
 #### :film_projector: [Demo](https://codesandbox.io/s/vs-autocomplete-vue2-9zfyf1) for Vue2.
 
