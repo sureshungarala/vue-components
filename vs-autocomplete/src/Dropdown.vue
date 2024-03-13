@@ -364,6 +364,7 @@ export default defineComponent({
       } else if (key === 'Enter' || key.length === 1) {
         if (!this.menuIsOpen) this.keepMenuOpen(event);
         if (key === 'Enter') {
+          if (this.maxSelectableCount && this.selectedOptions?.length >= this.maxSelectableCount) return;
           if (this.selectedParent && this.selectedIndex === 0) {
             this.goToPreviousOptions();
             this.selectedIndex = 0;
