@@ -324,7 +324,8 @@ export default {
         this.currentOptions = option.children;
       } else {
         if (option.__selected || this.isOptionSelected(option, this.selectedParent)) {
-          // this __selected is transient for current displayed options(`currentOptions`). Not to be confused with `selected` prop for `option` type.
+          // this __selected is transient for current displayed options(`currentOptions`). 
+          // Not to be confused with `selected` prop for `option` type.
           if (this.multiple) {
             const matchedIndex = this.selectedOptions.findIndex(
               selectedOption => selectedOption.__identifier === option.__identifier,
@@ -362,6 +363,7 @@ export default {
       } else if (key === 'Enter' || key.length === 1) {
         if (!this.menuIsOpen) this.keepMenuOpen(event);
         if (key === 'Enter') {
+          if (this.maxSelectableCount && this.selectedOptions?.length >= this.maxSelectableCount) return;
           if (this.selectedParent && this.selectedIndex === 0) {
             this.goToPreviousOptions();
             this.selectedIndex = 0;

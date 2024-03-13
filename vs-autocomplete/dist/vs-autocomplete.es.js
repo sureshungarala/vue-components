@@ -1,27 +1,27 @@
-(function(){"use strict";try{if(typeof document<"u"){var a=document.createElement("style");a.id="vs-autocomplete",a.appendChild(document.createTextNode(".v-tree-dropdown[data-v-a5a0feae]{--primary-color: #1f73b7;--background-color: #1f73b714;--hint-color: #828485;--border: 1px solid #d8dcde;--v-dropdown-width: 300px;--max-width: 10000000px;--box-shadow: rgb(255, 255, 255) 0px 0px 0px 1px, rgb(31, 115, 183) 0px 0px 0px 3px;--bezier-curve: .1s cubic-bezier(0, 0, .95, 1.03);--animation-delay: .2s;position:relative;width:var(--v-dropdown-width);max-width:var(--max-width);outline:none}.v-dd[data-v-a5a0feae]{display:flex;flex-direction:column}.v-dd>label[data-v-a5a0feae],.v-dd-option>.label[data-v-a5a0feae]{font-weight:600;text-align:left}.v-dd>label[data-v-a5a0feae],.v-dd>label+.v-dd-label-hint[data-v-a5a0feae]{line-height:1.45;text-align:left}.v-tree-dropdown .v-dd>label+.v-dd-label-hint[data-v-a5a0feae]{color:var(--hint-color)}.v-dd:hover .v-dd-search[data-v-a5a0feae]{border-color:var(--primary-color)}.c-btn__icon[data-v-a5a0feae]{width:16px;height:16px;margin-top:-2px;vertical-align:middle}.u-truncate[data-v-a5a0feae]{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.v-dd-search[data-v-a5a0feae]{position:relative;display:flex;align-items:center;justify-content:space-between;border:var(--border);padding:.75rem;margin-top:.5rem;border-radius:4px;cursor:pointer;outline:none;z-index:1}.v-dd-search.compact[data-v-a5a0feae]{padding:.5rem .75rem;margin-top:.25rem}.v-dd-search[data-v-a5a0feae]:active,.v-dd-search[data-v-a5a0feae]:focus,.v-dd-search[data-v-a5a0feae]:focus-within{border-color:var(--primary-color);box-shadow:var(--box-shadow);transition:border-color var(--animation-delay) ease-in-out,box-shadow var(--animation-delay) ease-in-out}.v-dd-search>svg[data-v-a5a0feae]{position:absolute}.v-dd-search>svg[aria-labelledby=zd-search][data-v-a5a0feae]{left:1rem}.v-dd-search>svg[aria-labelledby=zd-down-pointer][data-v-a5a0feae]{right:1rem}.v-dd-search>svg[aria-labelledby=zd-down-pointer].open[data-v-a5a0feae]{transform:rotate(180deg);transition:transform var(--animation-delay) ease-in-out}.v-dd-search>svg[aria-labelledby=zd-down-pointer].close[data-v-a5a0feae]{transform:rotate(0);transition:transform var(--animation-delay) ease-in-out}.v-dd-search>input[data-v-a5a0feae],.v-dd-search>div[data-v-a5a0feae]{font-size:1em;height:1.25rem;line-height:1.25rem;flex-grow:1;padding:0 2rem}.v-dd-input[data-v-a5a0feae]{border:none;outline:none}.v-dd-input.hide[data-v-a5a0feae]{position:absolute;width:0px;height:1px;padding:0}.v-dd+ul[data-v-a5a0feae]{position:absolute;display:flex;flex-direction:column;top:calc(100% + 5px);left:0;width:100%;max-height:500px;border:var(--border);border-radius:4px;background-color:#fff;z-index:1;padding:.25rem 0;margin:0;max-height:350px;overflow-y:auto;box-shadow:#17494d26 0 20px 30px;animation:v-dd-menu-open-a5a0feae var(--bezier-curve) 0s 1 normal;transition:display var(--bezier-curve)}.v-dd-option[data-v-a5a0feae]{position:relative;display:flex;align-items:center;justify-content:space-between;cursor:pointer;padding:.5rem 1.25rem}.v-dd+ul.compact>li[data-v-a5a0feae]{padding:.5rem 1.25rem}.v-dd+ul>li.parent-option[data-v-a5a0feae]{border-bottom:var(--border);padding:.5rem .75rem}.v-dd+ul.compact>li.parent-option[data-v-a5a0feae]{padding:.35rem .75rem}li.v-dd-option>svg[aria-labelledby=zd-check][data-v-a5a0feae],li.v-dd-option>svg[aria-labelledby=zd-contains][data-v-a5a0feae]{position:absolute}.v-dd-option>span[data-v-a5a0feae]{padding:0 2rem;flex-grow:1;text-align:left}.v-dd-option.no-data[data-v-a5a0feae],.v-dd-option[disabled=disabled][data-v-a5a0feae]{-webkit-user-select:none;user-select:none;pointer-events:none;opacity:.7;cursor:not-allowed}.v-dd-option>svg[aria-labelledby=zd-down-pointer][data-v-a5a0feae]{position:absolute;right:1rem;transform:rotate(-90deg)}.v-dd-option[data-v-a5a0feae]:hover,.v-dd-option[data-v-a5a0feae]:focus,.v-dd-option.active[data-v-a5a0feae]{background-color:var(--background-color)}.v-dd-option.parent-option>svg[data-v-a5a0feae]{left:.75rem;transform:rotate(90deg)}@keyframes v-dd-menu-open-a5a0feae{0%{transform:translateY(2px)}to{transform:translateY(0)}}")),document.head.appendChild(a)}}catch(e){console.error("vite-plugin-css-injected-by-js",e)}})();
-function _(s, e, t, i, n, o, a, d) {
+(function(){"use strict";try{if(typeof document<"u"){var a=document.createElement("style");a.id="vs-autocomplete",a.appendChild(document.createTextNode(".v-tree-dropdown[data-v-a62f7223]{--primary-color: #1f73b7;--background-color: #1f73b714;--hint-color: #828485;--border: 1px solid #d8dcde;--v-dropdown-width: 300px;--max-width: 10000000px;--box-shadow: rgb(255, 255, 255) 0px 0px 0px 1px, rgb(31, 115, 183) 0px 0px 0px 3px;--bezier-curve: .1s cubic-bezier(0, 0, .95, 1.03);--animation-delay: .2s;position:relative;width:var(--v-dropdown-width);max-width:var(--max-width);outline:none}.v-dd[data-v-a62f7223]{display:flex;flex-direction:column}.v-dd>label[data-v-a62f7223],.v-dd-option>.label[data-v-a62f7223]{font-weight:600;text-align:left}.v-dd>label[data-v-a62f7223],.v-dd>label+.v-dd-label-hint[data-v-a62f7223]{line-height:1.45;text-align:left}.v-tree-dropdown .v-dd>label+.v-dd-label-hint[data-v-a62f7223]{color:var(--hint-color)}.v-dd:hover .v-dd-search[data-v-a62f7223]{border-color:var(--primary-color)}.c-btn__icon[data-v-a62f7223]{width:16px;height:16px;margin-top:-2px;vertical-align:middle}.u-truncate[data-v-a62f7223]{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.v-dd-search[data-v-a62f7223]{position:relative;display:flex;align-items:center;justify-content:space-between;border:var(--border);padding:.75rem;margin-top:.5rem;border-radius:4px;cursor:pointer;outline:none;z-index:1}.v-dd-search.compact[data-v-a62f7223]{padding:.5rem .75rem;margin-top:.25rem}.v-dd-search[data-v-a62f7223]:active,.v-dd-search[data-v-a62f7223]:focus,.v-dd-search[data-v-a62f7223]:focus-within{border-color:var(--primary-color);box-shadow:var(--box-shadow);transition:border-color var(--animation-delay) ease-in-out,box-shadow var(--animation-delay) ease-in-out}.v-dd-search>svg[data-v-a62f7223]{position:absolute}.v-dd-search>svg[aria-labelledby=zd-search][data-v-a62f7223]{left:1rem}.v-dd-search>svg[aria-labelledby=zd-down-pointer][data-v-a62f7223]{right:1rem}.v-dd-search>svg[aria-labelledby=zd-down-pointer].open[data-v-a62f7223]{transform:rotate(180deg);transition:transform var(--animation-delay) ease-in-out}.v-dd-search>svg[aria-labelledby=zd-down-pointer].close[data-v-a62f7223]{transform:rotate(0);transition:transform var(--animation-delay) ease-in-out}.v-dd-search>input[data-v-a62f7223],.v-dd-search>div[data-v-a62f7223]{font-size:1em;height:1.25rem;line-height:1.25rem;flex-grow:1;padding:0 2rem}.v-dd-input[data-v-a62f7223]{border:none;outline:none}.v-dd-input.hide[data-v-a62f7223]{position:absolute;width:0px;height:1px;padding:0}.v-dd+ul[data-v-a62f7223]{position:absolute;display:flex;flex-direction:column;top:calc(100% + 5px);left:0;width:100%;max-height:500px;border:var(--border);border-radius:4px;background-color:#fff;z-index:1;padding:.25rem 0;margin:0;max-height:350px;overflow-y:auto;box-shadow:#17494d26 0 20px 30px;animation:v-dd-menu-open-a62f7223 var(--bezier-curve) 0s 1 normal;transition:display var(--bezier-curve)}.v-dd-option[data-v-a62f7223]{position:relative;display:flex;align-items:center;justify-content:space-between;cursor:pointer;padding:.5rem 1.25rem}.v-dd+ul.compact>li[data-v-a62f7223]{padding:.5rem 1.25rem}.v-dd+ul>li.parent-option[data-v-a62f7223]{border-bottom:var(--border);padding:.5rem .75rem}.v-dd+ul.compact>li.parent-option[data-v-a62f7223]{padding:.35rem .75rem}li.v-dd-option>svg[aria-labelledby=zd-check][data-v-a62f7223],li.v-dd-option>svg[aria-labelledby=zd-contains][data-v-a62f7223]{position:absolute}.v-dd-option>span[data-v-a62f7223]{padding:0 2rem;flex-grow:1;text-align:left}.v-dd-option.no-data[data-v-a62f7223],.v-dd-option[disabled=disabled][data-v-a62f7223]{-webkit-user-select:none;user-select:none;pointer-events:none;opacity:.7;cursor:not-allowed}.v-dd-option>svg[aria-labelledby=zd-down-pointer][data-v-a62f7223]{position:absolute;right:1rem;transform:rotate(-90deg)}.v-dd-option[data-v-a62f7223]:hover,.v-dd-option[data-v-a62f7223]:focus,.v-dd-option.active[data-v-a62f7223]{background-color:var(--background-color)}.v-dd-option.parent-option>svg[data-v-a62f7223]{left:.75rem;transform:rotate(90deg)}@keyframes v-dd-menu-open-a62f7223{0%{transform:translateY(2px)}to{transform:translateY(0)}}")),document.head.appendChild(a)}}catch(d){console.error("vite-plugin-css-injected-by-js",d)}})();
+function _(s, e, t, i, n, l, a, c) {
   var r = typeof s == "function" ? s.options : s;
-  e && (r.render = e, r.staticRenderFns = t, r._compiled = !0), i && (r.functional = !0), o && (r._scopeId = "data-v-" + o);
-  var l;
-  if (a ? (l = function(c) {
-    c = c || // cached call
+  e && (r.render = e, r.staticRenderFns = t, r._compiled = !0), i && (r.functional = !0), l && (r._scopeId = "data-v-" + l);
+  var o;
+  if (a ? (o = function(d) {
+    d = d || // cached call
     this.$vnode && this.$vnode.ssrContext || // stateful
-    this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext, !c && typeof __VUE_SSR_CONTEXT__ < "u" && (c = __VUE_SSR_CONTEXT__), n && n.call(this, c), c && c._registeredComponents && c._registeredComponents.add(a);
-  }, r._ssrRegister = l) : n && (l = d ? function() {
+    this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext, !d && typeof __VUE_SSR_CONTEXT__ < "u" && (d = __VUE_SSR_CONTEXT__), n && n.call(this, d), d && d._registeredComponents && d._registeredComponents.add(a);
+  }, r._ssrRegister = o) : n && (o = c ? function() {
     n.call(
       this,
       (r.functional ? this.parent : this).$root.$options.shadowRoot
     );
-  } : n), l)
+  } : n), o)
     if (r.functional) {
-      r._injectStyles = l;
-      var u = r.render;
+      r._injectStyles = o;
+      var p = r.render;
       r.render = function(O, f) {
-        return l.call(f), u(O, f);
+        return o.call(f), p(O, f);
       };
     } else {
       var h = r.beforeCreate;
-      r.beforeCreate = h ? [].concat(h, l) : [l];
+      r.beforeCreate = h ? [].concat(h, o) : [o];
     }
   return {
     exports: s,
@@ -75,7 +75,7 @@ var I = function() {
   null
 );
 const w = b.exports;
-const y = {
+const x = {
   components: {
     SvgIcon: w
   },
@@ -171,7 +171,7 @@ const y = {
           try {
             this.$emit(
               "input",
-              this.selectedOptions.map(({ __identifier: n, __selected: o, ...a }) => a)
+              this.selectedOptions.map(({ __identifier: n, __selected: l, ...a }) => a)
             );
           } catch (n) {
             console.log("Unknown Event ", n);
@@ -229,9 +229,9 @@ const y = {
     },
     parseInputOptions(s = [], e = [], t = []) {
       return s.forEach((i) => {
-        var o;
+        var l;
         const n = [...e, i.label];
-        typeof i.value < "u" && n.push(i.value), i.__identifier = n.join("__"), (o = i.children) != null && o.length ? this.parseInputOptions(i.children, n, t) : i.selected && t.push(i);
+        typeof i.value < "u" && n.push(i.value), i.__identifier = n.join("__"), (l = i.children) != null && l.length ? this.parseInputOptions(i.children, n, t) : i.selected && t.push(i);
       }), { formattedOptions: s, selectedOptions: t };
     },
     isOptionSelected(s) {
@@ -260,12 +260,12 @@ const y = {
       var i;
       let t = [];
       for (const n of e) {
-        const { __identifier: o, __selected: a, ...d } = n, r = this.searchOptionMatcher(s, d);
+        const { __identifier: l, __selected: a, ...c } = n, r = this.searchOptionMatcher(s, c);
         if (typeof r == "boolean" ? r : n.label.toLowerCase().includes(s.toLowerCase()))
           t.push(n);
         else if ((i = n.children) != null && i.length) {
-          const l = this.filterMatchingOptions(s, n.children);
-          l.length && t.push({ ...n, children: l });
+          const o = this.filterMatchingOptions(s, n.children);
+          o.length && t.push({ ...n, children: o });
         }
       }
       return t;
@@ -300,70 +300,72 @@ const y = {
       }
     },
     handleKeyDown(s) {
-      var t, i, n, o, a, d;
+      var t, i, n, l, a, c, r;
       const { key: e } = s;
       if (e === "Escape")
         this.closeDropdownMenu();
       else if (e === "Enter" || e.length === 1) {
         if (this.menuIsOpen || this.keepMenuOpen(s), e === "Enter") {
+          if (this.maxSelectableCount && ((t = this.selectedOptions) == null ? void 0 : t.length) >= this.maxSelectableCount)
+            return;
           if (this.selectedParent && this.selectedIndex === 0)
             this.goToPreviousOptions(), this.selectedIndex = 0;
           else if (this.selectedIndex !== -1) {
-            const r = this.selectedParent ? this.selectedIndex - 1 : this.selectedIndex;
-            if (!((t = this.currentOptions[r]) != null && t.disabled)) {
-              const l = (i = this.selectedParent) == null ? void 0 : i.label;
-              this.selectOption(r), l !== ((n = this.selectedParent) == null ? void 0 : n.label) && (this.selectedParent ? this.selectedIndex = 1 : this.selectedIndex = 0);
+            const o = this.selectedParent ? this.selectedIndex - 1 : this.selectedIndex;
+            if (!((i = this.currentOptions[o]) != null && i.disabled)) {
+              const p = (n = this.selectedParent) == null ? void 0 : n.label;
+              this.selectOption(o), p !== ((l = this.selectedParent) == null ? void 0 : l.label) && (this.selectedParent ? this.selectedIndex = 1 : this.selectedIndex = 0);
             }
           }
         }
       } else if (e === "ArrowUp")
         if (this.selectedIndex === 0) {
-          const r = this.currentOptions.length;
-          this.selectedIndex = this.selectedParent ? r : r - 1;
+          const o = this.currentOptions.length;
+          this.selectedIndex = this.selectedParent ? o : o - 1;
         } else
           this.selectedIndex--;
       else if (e === "ArrowRight") {
-        const r = this.selectedParent ? this.selectedIndex - 1 : this.selectedIndex;
-        !((o = this.currentOptions[r]) != null && o.disabled) && ((d = (a = this.currentOptions[r]) == null ? void 0 : a.children) != null && d.length) && (this.selectOption(r), this.selectedParent && (this.selectedIndex = 1));
+        const o = this.selectedParent ? this.selectedIndex - 1 : this.selectedIndex;
+        !((a = this.currentOptions[o]) != null && a.disabled) && ((r = (c = this.currentOptions[o]) == null ? void 0 : c.children) != null && r.length) && (this.selectOption(o), this.selectedParent && (this.selectedIndex = 1));
       } else if (e === "ArrowDown") {
-        const r = this.currentOptions.length;
-        this.selectedIndex === (this.selectedParent ? r : r - 1) ? this.selectedIndex = 0 : this.selectedIndex++;
+        const o = this.currentOptions.length;
+        this.selectedIndex === (this.selectedParent ? o : o - 1) ? this.selectedIndex = 0 : this.selectedIndex++;
       } else
         e === "ArrowLeft" && this.selectedParent && (this.goToPreviousOptions(), this.selectedIndex = 0);
     }
   }
 };
-var x = function() {
+var S = function() {
   var i;
   var e = this, t = e._self._c;
   return t("div", { ref: "dropdown", staticClass: "v-tree-dropdown" }, [t("div", { staticClass: "v-dd" }, [t("label", { attrs: { for: "v-dd-search__input" + e.uniqueId, id: "v-dd-label" + e.uniqueId } }, [e._v(" " + e._s(e.label) + " ")]), e.labelHint ? t("div", { staticClass: "v-dd-label-hint", attrs: { "aria-labelledby": "v-dd-label" + e.uniqueId } }, [e._v(" " + e._s(e.labelHint) + " ")]) : e._e(), t("div", { class: "v-dd-search" + (e.menuIsOpen ? " active" : "") + (e.compact ? " compact" : ""), attrs: { "aria-haspopup": "listbox", "aria-expanded": "" + e.menuIsOpen, "aria-owns": "v-dd-options-menu" + e.uniqueId, "aria-labelledby": "v-dd-label" + e.uniqueId }, on: { click: e.toggleDropdownMenu } }, [t("svg-icon", { attrs: { icon: "zd-search", name: "Search" } }), t("input", { directives: [{ name: "model", rawName: "v-model", value: e.searchInput, expression: "searchInput" }], ref: "searchInput", class: "c-txt v-dd-input" + (e.menuIsOpen ? "" : " hide"), attrs: { type: "text", autocomplete: "off", id: "v-dd-search__input" + e.uniqueId, role: "combobox", "aria-labelledby": "v-dd-label" + e.uniqueId, "aria-autocomplete": "list", "aria-controls": e.menuIsOpen ? "v-dd-options-menu" + e.uniqueId : !1, "aria-activedescendant": e.menuIsOpen ? "v-dd-option-" + e.selectedIndex : !1 }, domProps: { value: e.searchInput }, on: { click: e.keepMenuOpen, keydown: e.handleKeyDown, input: function(n) {
     n.target.composing || (e.searchInput = n.target.value);
   } } }), t("div", { directives: [{ name: "show", rawName: "v-show", value: !e.menuIsOpen, expression: "!menuIsOpen" }], staticClass: "c-txt u-truncate", domProps: { innerHTML: e._s(e.selectedOptions.map((n) => n.label).join(", ")) } }), t("svg-icon", { class: e.menuIsOpen ? "open" : "close", attrs: { icon: "zd-down-pointer", name: e.menuIsOpen ? "Up arrow" : "Down arrow" } })], 1)]), t("ul", { directives: [{ name: "show", rawName: "v-show", value: e.menuIsOpen, expression: "menuIsOpen" }], ref: "menu", class: e.compact ? "compact" : "", attrs: { id: "v-dd-options-menu" + e.uniqueId, role: "listbox", "aria-labelledby": "v-dd-label" + e.uniqueId, "aria-multiselectable": !!e.multiple } }, [(i = e.currentOptions) != null && i.length ? e._e() : t("li", { staticClass: "v-dd-option no-data", attrs: { role: "option" } }, [t("span", [e._v(e._s(e.noSearchResultsText))])]), e.selectedParent ? t("li", { class: "v-dd-option parent-option" + (e.selectedIndex === 0 ? " active" : ""), attrs: { id: "v-dd-option-0" + e.uniqueId, role: "option" }, on: { click: function(n) {
     return e.goToPreviousOptions();
-  } } }, [t("svg-icon", { attrs: { icon: "zd-down-pointer", name: "Left arrow", iconDescription: "Click to go back to previous menu", color: "#1f73b7" } }), t("span", { staticClass: "u-truncate label" }, [e._v(e._s(e.selectedParent.label))])], 1) : e._e(), e._l(e.currentOptions, function(n, o) {
-    var a, d, r, l, u;
-    return t("li", { key: n.label + "__" + (n.value ?? o), class: "v-dd-option" + (e.selectedIndex === (e.selectedParent ? o + 1 : o) ? " active" : ""), attrs: { id: "v-dd-option-" + (e.selectedParent ? o + 1 : o) + e.uniqueId, role: "option", "aria-selected": e.selectedIndex === (e.selectedParent ? o + 1 : o), disabled: n.disabled || e.maxSelectableCount && ((a = e.selectedOptions) == null ? void 0 : a.length) >= e.maxSelectableCount && !((d = n.children) != null && d.length) && !e.isOptionSelected(n) ? "disabled" : null }, on: { click: function(h) {
-      return e.selectOption(o);
-    } } }, [(r = n.children) != null && r.length && e.hasSelectedOptions(n.children) ? t("svg-icon", { attrs: { icon: "zd-contains", name: "Contains", color: "#1f73b7" } }) : e._e(), !((l = n.children) != null && l.length) && e.isOptionSelected(n) ? t("svg-icon", { attrs: { icon: "zd-check", name: "Selected", color: "#1f73b7" } }) : e._e(), t("span", { staticClass: "u-truncate" }, [e._v(e._s(n.label))]), (u = n.children) != null && u.length ? t("svg-icon", { attrs: { icon: "zd-down-pointer", name: "Right arrow", iconDescription: "Click to open sub-menu options" } }) : e._e()], 1);
+  } } }, [t("svg-icon", { attrs: { icon: "zd-down-pointer", name: "Left arrow", iconDescription: "Click to go back to previous menu", color: "#1f73b7" } }), t("span", { staticClass: "u-truncate label" }, [e._v(e._s(e.selectedParent.label))])], 1) : e._e(), e._l(e.currentOptions, function(n, l) {
+    var a, c, r, o, p;
+    return t("li", { key: n.label + "__" + (n.value ?? l), class: "v-dd-option" + (e.selectedIndex === (e.selectedParent ? l + 1 : l) ? " active" : ""), attrs: { id: "v-dd-option-" + (e.selectedParent ? l + 1 : l) + e.uniqueId, role: "option", "aria-selected": e.selectedIndex === (e.selectedParent ? l + 1 : l), disabled: n.disabled || e.maxSelectableCount && ((a = e.selectedOptions) == null ? void 0 : a.length) >= e.maxSelectableCount && !((c = n.children) != null && c.length) && !e.isOptionSelected(n) ? "disabled" : null }, on: { click: function(h) {
+      return e.selectOption(l);
+    } } }, [(r = n.children) != null && r.length && e.hasSelectedOptions(n.children) ? t("svg-icon", { attrs: { icon: "zd-contains", name: "Contains", color: "#1f73b7" } }) : e._e(), !((o = n.children) != null && o.length) && e.isOptionSelected(n) ? t("svg-icon", { attrs: { icon: "zd-check", name: "Selected", color: "#1f73b7" } }) : e._e(), t("span", { staticClass: "u-truncate" }, [e._v(e._s(n.label))]), (p = n.children) != null && p.length ? t("svg-icon", { attrs: { icon: "zd-down-pointer", name: "Right arrow", iconDescription: "Click to open sub-menu options" } }) : e._e()], 1);
   })], 2)]);
-}, S = [], P = /* @__PURE__ */ _(
-  y,
+}, y = [], C = /* @__PURE__ */ _(
   x,
   S,
+  y,
   !1,
   null,
-  "a5a0feae",
+  "a62f7223",
   null,
   null
 );
-const C = P.exports, k = {
+const P = C.exports, k = {
   install(s, e) {
-    s.component("VsAutocomplete", C);
+    s.component("VsAutocomplete", P);
   }
 };
-let p = null;
-typeof window < "u" ? p = window.Vue : typeof global < "u" && (p = global.Vue);
-p && p.use && p.use(k);
+let u = null;
+typeof window < "u" ? u = window.Vue : typeof global < "u" && (u = global.Vue);
+u && u.use && u.use(k);
 export {
-  C as default
+  P as default
 };
