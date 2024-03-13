@@ -343,6 +343,10 @@ export default {
           if (this.multiple) {
             this.selectedOptions = [...this.selectedOptions, option];
           } else {
+            const prevSelectedOptionIndex = this.currentOptions.findIndex(
+              option => option.__selected === true,
+            );
+            if (prevSelectedOptionIndex > -1) this.currentOptions[prevSelectedOptionIndex].__selected = false;
             this.selectedOptions = [option];
             this.closeDropdownMenu();
           }
