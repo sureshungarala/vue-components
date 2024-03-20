@@ -287,6 +287,7 @@ export default {
     showPreviousOptions() {
       this.goToPreviousOptions();
       this.selectedIndex = this.selectedParent ? 1 : 0;
+      this.focusSearchInput();
     },
 
     goToPreviousOptions(parent = null, options = this.filteredOptions) {
