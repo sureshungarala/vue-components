@@ -34,7 +34,7 @@
         <span>{{ noSearchResultsText }}</span>
       </li>
       <li v-if="selectedParent" :id="'v-dd-option-0' + uniqueId"
-        :class="'v-dd-option parent-option' + (selectedIndex === 0 ? ' active' : '')" @click="goToPreviousOptions()"
+        :class="'v-dd-option parent-option' + (selectedIndex === 0 ? ' active' : '')" @click="showPreviousOptions()"
         role="option">
         <svg-icon icon="zd-down-pointer" name="Left arrow" iconDescription="Click to go back to previous menu"
           color="#1f73b7" />
@@ -284,6 +284,11 @@ export default {
       );
     },
 
+    showPreviousOptions() {
+      this.goToPreviousOptions();
+      this.selectedIndex = this.selectedParent ? 1 : 0;
+    },
+
     goToPreviousOptions(parent = null, options = this.filteredOptions) {
       for (const option of options) {
         if (option.children?.length) {
@@ -322,6 +327,8 @@ export default {
       if (option.children?.length) {
         this.selectedParent = option;
         this.currentOptions = option.children;
+        // replace keyboard focussed index with the clicked index
+        this.selectedIndex = 1;
       } else {
         if (option.__selected || this.isOptionSelected(option, this.selectedParent)) {
           // this __selected is transient for current displayed options(`currentOptions`). 
@@ -353,6 +360,9 @@ export default {
           }
           this.currentOptions[index].__selected = true;
         }
+        // replace keyboard focussed index with the clicked index
+        this.selectedIndex = this.selectedParent ? index + 1 : index;
+        this.focusSearchInput();
       }
     },
 
@@ -365,8 +375,7 @@ export default {
         if (key === 'Enter') {
           if (this.maxSelectableCount && this.selectedOptions?.length >= this.maxSelectableCount) return;
           if (this.selectedParent && this.selectedIndex === 0) {
-            this.goToPreviousOptions();
-            this.selectedIndex = 0;
+            this.showPreviousOptions();
           } else if (this.selectedIndex !== -1) {
             // initial dropdown open state
             const index = this.selectedParent ? this.selectedIndex - 1 : this.selectedIndex;
@@ -387,6 +396,11 @@ export default {
         } else {
           this.selectedIndex--;
         }
+        const selectedOption = this.$refs.menu.querySelector(`#v-dd-option-${this.selectedIndex}${this.uniqueId}`);
+        selectedOption?.scrollIntoView({
+          behavior: 'smooth',
+          block: 'nearest',
+        });
       } else if (key === 'ArrowRight') {
         const index = this.selectedParent ? this.selectedIndex - 1 : this.selectedIndex;
         if (!this.currentOptions[index]?.disabled && this.currentOptions[index]?.children?.length) {
@@ -400,10 +414,14 @@ export default {
         } else {
           this.selectedIndex++;
         }
+        const selectedOption = this.$refs.menu.querySelector(`#v-dd-option-${this.selectedIndex}${this.uniqueId}`);
+        selectedOption?.scrollIntoView({
+          behavior: 'smooth',
+          block: 'nearest',
+        });
       } else if (key === 'ArrowLeft') {
         if (this.selectedParent) {
-          this.goToPreviousOptions();
-          this.selectedIndex = 0;
+          this.showPreviousOptions();
         }
       }
     },
