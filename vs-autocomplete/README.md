@@ -18,6 +18,7 @@ Nested-Autocomplete-Multiselect-Dropdown for Vue 3, refer GitHub branch [v2](htt
   label="Select option(s)"
   :options="options"
   :multiple="true"
+  placeholder="Search options"
   :maxSelectableCount="4"
   :searchInputText="searchInputText"
   :searchOptionMatcher="optionMatcher"
@@ -82,6 +83,7 @@ components: {
 | `options`              | Array<`option`>                      | `[]`               | `true`   | Options to be displayed in the dropdown                                                                                                                                                     |
 | `label`                | String                               | -                  | `false`  | Label of the option                                                                                                                                                                         |
 | `multiple`             | Boolean                              | `false`            | `false`  | Whether to allow multiple selection                                                                                                                                                         |
+| `placeholder`          | String                               | `''`               | `false`  | Placeholder text to display when no option is selected                                                                                                                                      |
 | `searchInputText`      | String                               | `''`               | `false`  | Search input text to filter options                                                                                                                                                         |
 | `keepMenuOpenOnRender` | Boolean                              | `false`            | `false`  | Whether to keep the menu open on render                                                                                                                                                     |
 | `compact`              | Boolean                              | `false`            | `false`  | Whether to render the dropdown in compact mode                                                                                                                                              |
@@ -104,14 +106,14 @@ components: {
 
 ##### :nut_and_bolt: Type `option`
 
-| Name       | Type            | Required | Description                      |
-| ---------- | --------------- | -------- | -------------------------------- |
-| `label`    | String          | `true`   | Label of the option              |
-| `id`       | Any             | `false`  | Unique identifier for the option |
-| `value`    | Any             | `false`  | Value of the option              |
-| `disabled` | Boolean         | `false`  | Whether the option is disabled   |
-| `selected` | Boolean         | `false`  | Whether the option is selected   |
-| `children` | Array<`option`> | `false`  | Nested options                   |
+| Name       | Type            | Required | Description                              |
+| ---------- | --------------- | -------- | ---------------------------------------- |
+| `label`    | String          | `true`   | Label of the option                      |
+| `id`       | Any             | `false`  | Unique identifier for the option         |
+| `value`    | Any             | `false`  | Value of the option                      |
+| `disabled` | Boolean         | `false`  | Whether the option is disabled           |
+| `selected` | Boolean         | `false`  | Whether the option is selected initially |
+| `children` | Array<`option`> | `false`  | Nested options                           |
 
 <br>
 

@@ -16,13 +16,14 @@
         @click="toggleDropdownMenu" aria-haspopup="listbox" :aria-expanded="'' + menuIsOpen"
         :aria-owns="'v-dd-options-menu' + uniqueId" :aria-labelledby="'v-dd-label' + uniqueId">
         <svg-icon icon="zd-search" name="Search" />
-        <input ref="searchInput" type="text" autocomplete="off" :id="'v-dd-search__input' + uniqueId"
-          :class="'c-txt v-dd-input' + (!menuIsOpen ? ' hide' : '')" v-model="searchInput" @click="keepMenuOpen"
-          @keydown="handleKeyDown" role="combobox" :aria-labelledby="'v-dd-label' + uniqueId" aria-autocomplete="list"
+        <input ref="searchInput" type="text" :placeholder="placeholder" autocomplete="off"
+          :id="'v-dd-search__input' + uniqueId" :class="'c-txt v-dd-input' + (!menuIsOpen ? ' hide' : '')"
+          v-model="searchInput" @click="keepMenuOpen" @keydown="handleKeyDown" role="combobox"
+          :aria-labelledby="'v-dd-label' + uniqueId" aria-autocomplete="list"
           :aria-controls="menuIsOpen ? 'v-dd-options-menu' + uniqueId : false"
           :aria-activedescendant="menuIsOpen ? ('v-dd-option-' + selectedIndex) : false" />
-        <div v-show="!menuIsOpen" class="c-txt u-truncate"
-          v-html="selectedOptions.map(option => option.label).join(', ')">
+        <div v-show="!menuIsOpen" :class="'c-txt u-truncate' + (selectedOptions?.length ? '' : ' placeholder')"
+          v-html="selectedOptions?.length ? selectedOptions.map(option => option.label).join(', ') : placeholder">
         </div>
         <svg-icon icon="zd-down-pointer" :name="menuIsOpen ? 'Up arrow' : 'Down arrow'"
           :class="menuIsOpen ? 'open' : 'close'" />
@@ -68,6 +69,11 @@ export default defineComponent({
   },
 
   props: {
+    // v-model
+    modelValue: {
+      type: Array,
+      default: [],
+    },
     label: {
       type: String,
       required: false,
@@ -80,6 +86,11 @@ export default defineComponent({
     multiple: {
       type: Boolean,
       default: false,
+      required: false,
+    },
+    placeholder: {
+      type: String,
+      default: '',
       required: false,
     },
     searchInputText: {
@@ -127,7 +138,7 @@ export default defineComponent({
       searchInput: this.searchInputText, // The value of the search input
       menuIsOpen: false, // true if the dropdown menu is open
       selectedParent: null, // Parent option of the current displayed options
-      selectedOptions: [], // All selected options
+      selectedOptions: this.modelValue, // All selected options
       currentOptions: [], // Current options to display
       filteredOptions: [], // All options filtered by the search input
 
@@ -140,6 +151,43 @@ export default defineComponent({
   },
 
   watch: {
+    modelValue: {
+      handler(newOptions = []) {
+        if (this.areArraysEqual(this.selectedOptions, newOptions)) return;
+        if (!newOptions.length) {
+          // Reset the selected options if the value is empty
+          this.selectedOptions = [];
+        } else {
+          const [newlySelectedOptions, deselectedOptions] = this.findDifferenceInArrays(newOptions, this.selectedOptions);
+          let updatedSelectedOptions = typeof structuredClone === 'function' ? structuredClone(this.selectedOptions) : JSON.parse(JSON.stringify(this.selectedOptions));
+          deselectedOptions.forEach(option => {
+            const matchedIndex = updatedSelectedOptions.findIndex(
+              selectedOption => selectedOption.__identifier === option.__identifier,
+            );
+            if (matchedIndex > -1) {
+              updatedSelectedOptions = [
+                ...updatedSelectedOptions.slice(0, matchedIndex),
+                ...updatedSelectedOptions.slice(matchedIndex + 1),
+              ];
+            }
+          });
+          newlySelectedOptions.forEach(option => {
+            const identifier = this.findOptionIdentifier(option, this.ddOptions);
+            if (identifier) {
+              updatedSelectedOptions = [...updatedSelectedOptions, {
+                ...option,
+                __identifier: identifier,
+                __selected: true,
+              }];
+            }
+          });
+          if (!this.areArraysEqual(updatedSelectedOptions, this.selectedOptions))
+            this.selectedOptions = updatedSelectedOptions;
+        }
+      },
+      deep: true,
+    },
+
     menuIsOpen() {
       if (this.menuIsOpen) {
         document.addEventListener('click', this.closeDropdownMenuOnBlur);
@@ -159,8 +207,9 @@ export default defineComponent({
         const oldOptionIdentifiers = oldOptions.map(option => option.__identifier);
         const newOptionIdentifiers = newOptions.map(option => option.__identifier);
         if (
-          newOptions.length !== oldOptions.length ||
-          !newOptionIdentifiers.every(identifier => oldOptionIdentifiers.includes(identifier))
+          (newOptions.length !== oldOptions.length ||
+            !newOptionIdentifiers.every(identifier => oldOptionIdentifiers.includes(identifier)))
+          && !this.areArraysEqual(newOptions, this.modelValue)
         ) {
           try {
             this.$emit(
@@ -168,7 +217,7 @@ export default defineComponent({
               this.selectedOptions.map(({ __identifier, __selected, ...option }) => option),
             )
           } catch (error) {
-            console.log('Unknown Event ', error);
+            console.error('Unknown Event ', error);
           }
         }
       },
@@ -426,6 +475,61 @@ export default defineComponent({
           this.showPreviousOptions();
         }
       }
+    },
+
+    /**
+     * Returns the identifier of the matched option.
+     * @param option Option from v-model. This doesn't have internal keys like __identifier
+     * @param options constructed options
+     */
+    findOptionIdentifier(option, options) {
+      for (const opt of options) {
+        if (opt.children?.length) {
+          const matchedOption = this.findOptionIdentifier(option, opt.children);
+          if (matchedOption) return matchedOption;
+        } else if (this.areObjectsEqual(opt, option)) {
+          return opt.__identifier;
+        }
+      }
+      return null;
+    },
+    /**
+     * check if two objects are equal
+     */
+    areObjectsEqual(obj1, obj2) {
+      if (obj1 === obj2) return true;
+      if (typeof obj1 !== typeof obj2 || obj1 === null || obj2 === null) return false;
+      const keys1 = Object.keys(obj1).filter(key => key !== '__identifier' && key !== '__selected' && key !== 'children');
+      const keys2 = Object.keys(obj2).filter(key => key !== '__identifier' && key !== '__selected' && key !== 'children');
+      if (keys1.length !== keys2.length) return false;
+      for (let key of keys1) {
+        if (!keys2.includes(key) || obj1[key] !== obj2[key]) return false;
+      }
+      return true;
+    },
+    /**
+     * check if two arrays are equal
+     */
+    areArraysEqual(arr1, arr2) {
+      if (arr1 === arr2) return true;
+      if (arr1.length !== arr2.length) return false;
+      const sortedArr1 = [...arr1].sort((a, b) => a.label.localeCompare(b.label));
+      const sortedArr2 = [...arr2].sort((a, b) => a.label.localeCompare(b.label));
+      for (let i = 0; i < sortedArr1.length; i++) {
+        if (!this.areObjectsEqual(sortedArr1[i], sortedArr2[i])) return false;
+      }
+      return true;
+    },
+    /**
+     * Finds the difference between two arrays and returns the elements that are present in arr1 but not in arr2 and vice versa in a tuple.
+     * Have to depend to areArraysEqual method & areObjecteEqual method as objects in arr1(from prop) wouldn't have internal keys like __indentifer to easily validate
+     * @param newValue new value(v-model) prop value
+     * @param selectedOptions current selectedOptions
+     */
+    findDifferenceInArrays(newValue, selectedOptions) {
+      const diff1 = newValue.filter(option => !selectedOptions.some(selectedOption => this.areObjectsEqual(option, selectedOption)));
+      const diff2 = selectedOptions.filter(selectedOption => !newValue.some(option => this.areObjectsEqual(option, selectedOption)));
+      return [diff1, diff2];
     },
   },
 });

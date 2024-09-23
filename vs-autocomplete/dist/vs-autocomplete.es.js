@@ -1,11 +1,11 @@
-(function(){"use strict";try{if(typeof document<"u"){var d=document.createElement("style");d.id="vs-autocomplete",d.appendChild(document.createTextNode(".v-tree-dropdown[data-v-201db00d]{--primary-color: #1f73b7;--background-color: #1f73b714;--hint-color: #828485;--border: 1px solid #d8dcde;--v-dropdown-width: 300px;--max-width: 10000000px;--box-shadow: rgb(255, 255, 255) 0px 0px 0px 1px, rgb(31, 115, 183) 0px 0px 0px 3px;--bezier-curve: .1s cubic-bezier(0, 0, .95, 1.03);--animation-delay: .2s;position:relative;width:var(--v-dropdown-width);max-width:var(--max-width);outline:none}.v-dd[data-v-201db00d]{display:flex;flex-direction:column}.v-dd>label[data-v-201db00d],.v-dd-option>.label[data-v-201db00d]{font-weight:600;text-align:left}.v-dd>label[data-v-201db00d],.v-dd>label+.v-dd-label-hint[data-v-201db00d]{line-height:1.45;text-align:left}.v-tree-dropdown .v-dd>label+.v-dd-label-hint[data-v-201db00d]{color:var(--hint-color)}.v-dd:hover .v-dd-search[data-v-201db00d]{border-color:var(--primary-color)}.c-btn__icon[data-v-201db00d]{width:16px;height:16px;margin-top:-2px;vertical-align:middle}.u-truncate[data-v-201db00d]{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.v-dd-search[data-v-201db00d]{position:relative;display:flex;align-items:center;justify-content:space-between;border:var(--border);padding:.75rem;margin-top:.5rem;border-radius:4px;cursor:pointer;outline:none;z-index:1}.v-dd-search.compact[data-v-201db00d]{padding:.5rem .75rem;margin-top:.25rem}.v-dd-search[data-v-201db00d]:active,.v-dd-search[data-v-201db00d]:focus,.v-dd-search[data-v-201db00d]:focus-within{border-color:var(--primary-color);box-shadow:var(--box-shadow);transition:border-color var(--animation-delay) ease-in-out,box-shadow var(--animation-delay) ease-in-out}.v-dd-search>svg[data-v-201db00d]{position:absolute}.v-dd-search>svg[aria-labelledby=zd-search][data-v-201db00d]{left:1rem}.v-dd-search>svg[aria-labelledby=zd-down-pointer][data-v-201db00d]{right:1rem}.v-dd-search>svg[aria-labelledby=zd-down-pointer].open[data-v-201db00d]{transform:rotate(180deg);transition:transform var(--animation-delay) ease-in-out}.v-dd-search>svg[aria-labelledby=zd-down-pointer].close[data-v-201db00d]{transform:rotate(0);transition:transform var(--animation-delay) ease-in-out}.v-dd-search>input[data-v-201db00d],.v-dd-search>div[data-v-201db00d]{font-size:1em;height:1.25rem;line-height:1.25rem;flex-grow:1;padding:0 2rem}.v-dd-input[data-v-201db00d]{border:none;outline:none}.v-dd-input.hide[data-v-201db00d]{position:absolute;width:0px;height:1px;padding:0}.v-dd+ul[data-v-201db00d]{position:absolute;display:flex;flex-direction:column;top:calc(100% + 5px);left:0;width:100%;max-height:500px;border:var(--border);border-radius:4px;background-color:#fff;z-index:1;padding:.25rem 0;margin:0;max-height:350px;overflow-y:auto;box-shadow:#17494d26 0 20px 30px;animation:v-dd-menu-open-201db00d var(--bezier-curve) 0s 1 normal;transition:display var(--bezier-curve)}.v-dd-option[data-v-201db00d]{position:relative;display:flex;align-items:center;justify-content:space-between;cursor:pointer;padding:.5rem 1.25rem}.v-dd+ul.compact>li[data-v-201db00d]{padding:.5rem 1.25rem}.v-dd+ul>li.parent-option[data-v-201db00d]{border-bottom:var(--border);padding:.5rem .75rem}.v-dd+ul.compact>li.parent-option[data-v-201db00d]{padding:.35rem .75rem}li.v-dd-option>svg[aria-labelledby=zd-check][data-v-201db00d],li.v-dd-option>svg[aria-labelledby=zd-contains][data-v-201db00d]{position:absolute}.v-dd-option>span[data-v-201db00d]{padding:0 2rem;flex-grow:1;text-align:left}.v-dd-option.no-data[data-v-201db00d],.v-dd-option[disabled=disabled][data-v-201db00d]{-webkit-user-select:none;user-select:none;pointer-events:none;opacity:.7;cursor:not-allowed}.v-dd-option>svg[aria-labelledby=zd-down-pointer][data-v-201db00d]{position:absolute;right:1rem;transform:rotate(-90deg)}.v-dd-option[data-v-201db00d]:hover,.v-dd-option[data-v-201db00d]:focus,.v-dd-option.active[data-v-201db00d]{background-color:var(--background-color)}.v-dd-option.parent-option>svg[data-v-201db00d]{left:.75rem;transform:rotate(90deg)}@keyframes v-dd-menu-open-201db00d{0%{transform:translateY(2px)}to{transform:translateY(0)}}")),document.head.appendChild(d)}}catch(a){console.error("vite-plugin-css-injected-by-js",a)}})();
-import { openBlock as a, createElementBlock as h, createElementVNode as c, toDisplayString as f, defineComponent as $, resolveComponent as C, createCommentVNode as O, normalizeClass as m, createVNode as b, withDirectives as g, vModelText as q, vShow as P, Fragment as D, renderList as _, createBlock as v } from "vue";
+(function(){"use strict";try{if(typeof document<"u"){var a=document.createElement("style");a.id="vs-autocomplete",a.appendChild(document.createTextNode(".v-tree-dropdown[data-v-831d23ca]{--primary-color: #1f73b7;--background-color: #1f73b714;--hint-color: #828485;--border: 1px solid #d8dcde;--v-dropdown-width: 300px;--max-width: 10000000px;--box-shadow: rgb(255, 255, 255) 0px 0px 0px 1px, rgb(31, 115, 183) 0px 0px 0px 3px;--bezier-curve: .1s cubic-bezier(0, 0, .95, 1.03);--animation-delay: .2s;position:relative;width:var(--v-dropdown-width);max-width:var(--max-width);outline:none}.v-dd[data-v-831d23ca]{display:flex;flex-direction:column}.v-dd>label[data-v-831d23ca],.v-dd-option>.label[data-v-831d23ca]{font-weight:600;text-align:left}.v-dd>label[data-v-831d23ca],.v-dd>label+.v-dd-label-hint[data-v-831d23ca]{line-height:1.45;text-align:left}.v-tree-dropdown .v-dd>label+.v-dd-label-hint[data-v-831d23ca]{color:var(--hint-color)}.v-dd:hover .v-dd-search[data-v-831d23ca]{border-color:var(--primary-color)}.c-btn__icon[data-v-831d23ca]{width:16px;height:16px;margin-top:-2px;vertical-align:middle}.u-truncate[data-v-831d23ca]{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.v-dd-search[data-v-831d23ca]{position:relative;display:flex;align-items:center;justify-content:space-between;border:var(--border);padding:.75rem;margin-top:.5rem;border-radius:4px;cursor:pointer;outline:none;z-index:1}.v-dd-search.compact[data-v-831d23ca]{padding:.5rem .75rem;margin-top:.25rem}.v-dd-search[data-v-831d23ca]:active,.v-dd-search[data-v-831d23ca]:focus,.v-dd-search[data-v-831d23ca]:focus-within{border-color:var(--primary-color);box-shadow:var(--box-shadow);transition:border-color var(--animation-delay) ease-in-out,box-shadow var(--animation-delay) ease-in-out}.v-dd-search>svg[data-v-831d23ca]{position:absolute}.v-dd-search>svg[aria-labelledby=zd-search][data-v-831d23ca]{left:1rem}.v-dd-search>svg[aria-labelledby=zd-down-pointer][data-v-831d23ca]{right:1rem}.v-dd-search>svg[aria-labelledby=zd-down-pointer].open[data-v-831d23ca]{transform:rotate(180deg);transition:transform var(--animation-delay) ease-in-out}.v-dd-search>svg[aria-labelledby=zd-down-pointer].close[data-v-831d23ca]{transform:rotate(0);transition:transform var(--animation-delay) ease-in-out}.v-dd-search>input[data-v-831d23ca],.v-dd-search>div[data-v-831d23ca]{font-size:1em;height:1.25rem;line-height:1.25rem;flex-grow:1;padding:0 2rem}.v-dd-search>div.placeholder[data-v-831d23ca]{color:#0000008a;text-align:left}.v-dd-input[data-v-831d23ca]{border:none;outline:none}.v-dd-input.hide[data-v-831d23ca]{position:absolute;width:0px;height:1px;padding:0}.v-dd+ul[data-v-831d23ca]{position:absolute;display:flex;flex-direction:column;top:calc(100% + 5px);left:0;width:100%;max-height:500px;border:var(--border);border-radius:4px;background-color:#fff;z-index:1;padding:.25rem 0;margin:0;max-height:350px;overflow-y:auto;box-shadow:#17494d26 0 20px 30px;animation:v-dd-menu-open-831d23ca var(--bezier-curve) 0s 1 normal;transition:display var(--bezier-curve)}.v-dd-option[data-v-831d23ca]{position:relative;display:flex;align-items:center;justify-content:space-between;cursor:pointer;padding:.5rem 1.25rem}.v-dd+ul.compact>li[data-v-831d23ca]{padding:.5rem 1.25rem}.v-dd+ul>li.parent-option[data-v-831d23ca]{border-bottom:var(--border);padding:.5rem .75rem}.v-dd+ul.compact>li.parent-option[data-v-831d23ca]{padding:.35rem .75rem}li.v-dd-option>svg[aria-labelledby=zd-check][data-v-831d23ca],li.v-dd-option>svg[aria-labelledby=zd-contains][data-v-831d23ca]{position:absolute}.v-dd-option>span[data-v-831d23ca]{padding:0 2rem;flex-grow:1;text-align:left}.v-dd-option.no-data[data-v-831d23ca],.v-dd-option[disabled=disabled][data-v-831d23ca]{-webkit-user-select:none;user-select:none;pointer-events:none;opacity:.7;cursor:not-allowed}.v-dd-option>svg[aria-labelledby=zd-down-pointer][data-v-831d23ca]{position:absolute;right:1rem;transform:rotate(-90deg)}.v-dd-option[data-v-831d23ca]:hover,.v-dd-option[data-v-831d23ca]:focus,.v-dd-option.active[data-v-831d23ca]{background-color:var(--background-color)}.v-dd-option.parent-option>svg[data-v-831d23ca]{left:.75rem;transform:rotate(90deg)}@keyframes v-dd-menu-open-831d23ca{0%{transform:translateY(2px)}to{transform:translateY(0)}}")),document.head.appendChild(a)}}catch(d){console.error("vite-plugin-css-injected-by-js",d)}})();
+import { openBlock as a, createElementBlock as p, createElementVNode as c, toDisplayString as m, defineComponent as C, resolveComponent as $, createCommentVNode as I, normalizeClass as O, createVNode as g, withDirectives as y, vModelText as D, vShow as P, Fragment as E, renderList as A, createBlock as v } from "vue";
 const M = (e, t) => {
   const i = e.__vccOpts || e;
-  for (const [n, s] of t)
-    i[n] = s;
+  for (const [s, n] of t)
+    i[s] = n;
   return i;
-}, L = {
+}, V = {
   props: {
     icon: {
       type: String,
@@ -37,9 +37,9 @@ const M = (e, t) => {
       }
     };
   }
-}, T = L, V = ["color", "role", "aria-labelledby"], z = ["id"], B = ["innerHTML"];
-function A(e, t, i, n, s, p) {
-  return a(), h("svg", {
+}, L = V, T = ["color", "role", "aria-labelledby"], z = ["id"], B = ["innerHTML"];
+function N(e, t, i, s, n, o) {
+  return a(), p("svg", {
     xmlns: "http://www.w3.org/2000/svg",
     color: e.color,
     role: e.role,
@@ -50,21 +50,26 @@ function A(e, t, i, n, s, p) {
   }, [
     c("title", {
       id: e.name || e.icon
-    }, f(e.name || e.icon) + " Icon", 9, z),
-    c("desc", null, f(e.iconDescription || e.name), 1),
-    (a(), h("svg", {
+    }, m(e.name || e.icon) + " Icon", 9, z),
+    c("desc", null, m(e.iconDescription || e.name), 1),
+    (a(), p("svg", {
       width: "16",
       height: "16",
       viewBox: "0 0 16 16",
       innerHTML: e.paths[e.icon]
     }, null, 8, B))
-  ], 8, V);
+  ], 8, T);
 }
-const E = /* @__PURE__ */ M(T, [["render", A]]), N = $({
+const H = /* @__PURE__ */ M(L, [["render", N]]), R = C({
   components: {
-    SvgIcon: E
+    SvgIcon: H
   },
   props: {
+    // v-model
+    modelValue: {
+      type: Array,
+      default: []
+    },
     label: {
       type: String,
       required: !1
@@ -77,6 +82,11 @@ const E = /* @__PURE__ */ M(T, [["render", A]]), N = $({
     multiple: {
       type: Boolean,
       default: !1,
+      required: !1
+    },
+    placeholder: {
+      type: String,
+      default: "",
       required: !1
     },
     searchInputText: {
@@ -127,7 +137,7 @@ const E = /* @__PURE__ */ M(T, [["render", A]]), N = $({
       // true if the dropdown menu is open
       selectedParent: null,
       // Parent option of the current displayed options
-      selectedOptions: [],
+      selectedOptions: this.modelValue,
       // All selected options
       currentOptions: [],
       // Current options to display
@@ -143,6 +153,34 @@ const E = /* @__PURE__ */ M(T, [["render", A]]), N = $({
     };
   },
   watch: {
+    modelValue: {
+      handler(e = []) {
+        if (!this.areArraysEqual(this.selectedOptions, e))
+          if (!e.length)
+            this.selectedOptions = [];
+          else {
+            const [t, i] = this.findDifferenceInArrays(e, this.selectedOptions);
+            let s = typeof structuredClone == "function" ? structuredClone(this.selectedOptions) : JSON.parse(JSON.stringify(this.selectedOptions));
+            i.forEach((n) => {
+              const o = s.findIndex(
+                (d) => d.__identifier === n.__identifier
+              );
+              o > -1 && (s = [
+                ...s.slice(0, o),
+                ...s.slice(o + 1)
+              ]);
+            }), t.forEach((n) => {
+              const o = this.findOptionIdentifier(n, this.ddOptions);
+              o && (s = [...s, {
+                ...n,
+                __identifier: o,
+                __selected: !0
+              }]);
+            }), this.areArraysEqual(s, this.selectedOptions) || (this.selectedOptions = s);
+          }
+      },
+      deep: !0
+    },
     menuIsOpen() {
       this.menuIsOpen ? (document.addEventListener("click", this.closeDropdownMenuOnBlur), this.$emit("open", this.$refs.dropdown, this.$refs.menu)) : (document.removeEventListener("click", this.closeDropdownMenuOnBlur), this.$emit("close", this.$refs.dropdown, this.$refs.menu));
     },
@@ -151,15 +189,15 @@ const E = /* @__PURE__ */ M(T, [["render", A]]), N = $({
     },
     selectedOptions: {
       handler(e, t) {
-        const i = t.map((s) => s.__identifier), n = e.map((s) => s.__identifier);
-        if (e.length !== t.length || !n.every((s) => i.includes(s)))
+        const i = t.map((n) => n.__identifier), s = e.map((n) => n.__identifier);
+        if ((e.length !== t.length || !s.every((n) => i.includes(n))) && !this.areArraysEqual(e, this.modelValue))
           try {
             this.$emit(
               "update:modelValue",
-              this.selectedOptions.map(({ __identifier: s, __selected: p, ...r }) => r)
+              this.selectedOptions.map(({ __identifier: n, __selected: o, ...d }) => d)
             );
-          } catch (s) {
-            console.log("Unknown Event ", s);
+          } catch (n) {
+            console.error("Unknown Event ", n);
           }
       },
       deep: !0
@@ -183,8 +221,8 @@ const E = /* @__PURE__ */ M(T, [["render", A]]), N = $({
       try {
         const e = JSON.parse(JSON.stringify(this.options)), { formattedOptions: t, selectedOptions: i } = this.parseInputOptions(e);
         if (this.ddOptions = t, this.selectedOptions = i, this.searchInput) {
-          const n = this.filterMatchingOptions(this.searchInput, this.ddOptions);
-          this.currentOptions = n, this.filteredOptions = n;
+          const s = this.filterMatchingOptions(this.searchInput, this.ddOptions);
+          this.currentOptions = s, this.filteredOptions = s;
         } else
           this.currentOptions = t, this.filteredOptions = t;
       } catch {
@@ -213,10 +251,10 @@ const E = /* @__PURE__ */ M(T, [["render", A]]), N = $({
       (t = e.path || e.composedPath()) != null && t.includes(this.$refs.dropdown) || this.closeDropdownMenu();
     },
     parseInputOptions(e = [], t = [], i = []) {
-      return e.forEach((n) => {
-        var p;
-        const s = [...t, n.label];
-        typeof n.value < "u" && s.push(n.value), n.__identifier = s.join("__"), (p = n.children) != null && p.length ? this.parseInputOptions(n.children, s, i) : n.selected && i.push(n);
+      return e.forEach((s) => {
+        var o;
+        const n = [...t, s.label];
+        typeof s.value < "u" && n.push(s.value), s.__identifier = n.join("__"), (o = s.children) != null && o.length ? this.parseInputOptions(s.children, n, i) : s.selected && i.push(s);
       }), { formattedOptions: e, selectedOptions: i };
     },
     isOptionSelected(e) {
@@ -235,25 +273,25 @@ const E = /* @__PURE__ */ M(T, [["render", A]]), N = $({
     },
     goToPreviousOptions(e = null, t = this.filteredOptions) {
       var i;
-      for (const n of t)
-        if ((i = n.children) != null && i.length) {
-          if (n.__identifier === this.selectedParent.__identifier && n.children.length === this.currentOptions.length) {
+      for (const s of t)
+        if ((i = s.children) != null && i.length) {
+          if (s.__identifier === this.selectedParent.__identifier && s.children.length === this.currentOptions.length) {
             this.currentOptions = t, this.selectedParent = e;
             return;
           }
-          this.goToPreviousOptions(n, n.children);
+          this.goToPreviousOptions(s, s.children);
         }
     },
     filterMatchingOptions(e, t) {
-      var n;
+      var s;
       let i = [];
-      for (const s of t) {
-        const { __identifier: p, __selected: r, ...u } = s, o = this.searchOptionMatcher(e, u);
-        if (typeof o == "boolean" ? o : s.label.toLowerCase().includes(e.toLowerCase()))
-          i.push(s);
-        else if ((n = s.children) != null && n.length) {
-          const l = this.filterMatchingOptions(e, s.children);
-          l.length && i.push({ ...s, children: l });
+      for (const n of t) {
+        const { __identifier: o, __selected: d, ...f } = n, h = this.searchOptionMatcher(e, f);
+        if (typeof h == "boolean" ? h : n.label.toLowerCase().includes(e.toLowerCase()))
+          i.push(n);
+        else if ((s = n.children) != null && s.length) {
+          const r = this.filterMatchingOptions(e, n.children);
+          r.length && i.push({ ...n, children: r });
         }
       }
       return i;
@@ -266,12 +304,12 @@ const E = /* @__PURE__ */ M(T, [["render", A]]), N = $({
       else {
         if (t.__selected || this.isOptionSelected(t, this.selectedParent)) {
           if (this.multiple) {
-            const n = this.selectedOptions.findIndex(
-              (s) => s.__identifier === t.__identifier
+            const s = this.selectedOptions.findIndex(
+              (n) => n.__identifier === t.__identifier
             );
-            n > -1 && (this.selectedOptions = [
-              ...this.selectedOptions.slice(0, n),
-              ...this.selectedOptions.slice(n + 1)
+            s > -1 && (this.selectedOptions = [
+              ...this.selectedOptions.slice(0, s),
+              ...this.selectedOptions.slice(s + 1)
             ]);
           } else
             this.selectedOptions = [];
@@ -280,10 +318,10 @@ const E = /* @__PURE__ */ M(T, [["render", A]]), N = $({
           if (this.multiple)
             this.selectedOptions = [...this.selectedOptions, t];
           else {
-            const n = this.currentOptions.findIndex(
-              (s) => s.__selected === !0
+            const s = this.currentOptions.findIndex(
+              (n) => n.__selected === !0
             );
-            n > -1 && (this.currentOptions[n].__selected = !1), this.selectedOptions = [t], this.closeDropdownMenu();
+            s > -1 && (this.currentOptions[s].__selected = !1), this.selectedOptions = [t], this.closeDropdownMenu();
           }
           this.currentOptions[e].__selected = !0;
         }
@@ -291,7 +329,7 @@ const E = /* @__PURE__ */ M(T, [["render", A]]), N = $({
       }
     },
     handleKeyDown(e) {
-      var i, n, s, p, r, u, o;
+      var i, s, n, o, d, f, h;
       const { key: t } = e;
       if (t === "Escape")
         this.closeDropdownMenu();
@@ -302,174 +340,231 @@ const E = /* @__PURE__ */ M(T, [["render", A]]), N = $({
           if (this.selectedParent && this.selectedIndex === 0)
             this.showPreviousOptions();
           else if (this.selectedIndex !== -1) {
-            const l = this.selectedParent ? this.selectedIndex - 1 : this.selectedIndex;
-            if (!((n = this.currentOptions[l]) != null && n.disabled)) {
-              const d = (s = this.selectedParent) == null ? void 0 : s.label;
-              this.selectOption(l), d !== ((p = this.selectedParent) == null ? void 0 : p.label) && (this.selectedParent ? this.selectedIndex = 1 : this.selectedIndex = 0);
+            const r = this.selectedParent ? this.selectedIndex - 1 : this.selectedIndex;
+            if (!((s = this.currentOptions[r]) != null && s.disabled)) {
+              const l = (n = this.selectedParent) == null ? void 0 : n.label;
+              this.selectOption(r), l !== ((o = this.selectedParent) == null ? void 0 : o.label) && (this.selectedParent ? this.selectedIndex = 1 : this.selectedIndex = 0);
             }
           }
         }
       } else if (t === "ArrowUp") {
         if (this.selectedIndex === 0) {
-          const d = this.currentOptions.length;
-          this.selectedIndex = this.selectedParent ? d : d - 1;
+          const l = this.currentOptions.length;
+          this.selectedIndex = this.selectedParent ? l : l - 1;
         } else
           this.selectedIndex--;
+        const r = this.$refs.menu.querySelector(`#v-dd-option-${this.selectedIndex}${this.uniqueId}`);
+        r == null || r.scrollIntoView({
+          behavior: "smooth",
+          block: "nearest"
+        });
+      } else if (t === "ArrowRight") {
+        const r = this.selectedParent ? this.selectedIndex - 1 : this.selectedIndex;
+        !((d = this.currentOptions[r]) != null && d.disabled) && ((h = (f = this.currentOptions[r]) == null ? void 0 : f.children) != null && h.length) && (this.selectOption(r), this.selectedParent && (this.selectedIndex = 1));
+      } else if (t === "ArrowDown") {
+        const r = this.currentOptions.length;
+        this.selectedIndex === (this.selectedParent ? r : r - 1) ? this.selectedIndex = 0 : this.selectedIndex++;
         const l = this.$refs.menu.querySelector(`#v-dd-option-${this.selectedIndex}${this.uniqueId}`);
         l == null || l.scrollIntoView({
           behavior: "smooth",
           block: "nearest"
         });
-      } else if (t === "ArrowRight") {
-        const l = this.selectedParent ? this.selectedIndex - 1 : this.selectedIndex;
-        !((r = this.currentOptions[l]) != null && r.disabled) && ((o = (u = this.currentOptions[l]) == null ? void 0 : u.children) != null && o.length) && (this.selectOption(l), this.selectedParent && (this.selectedIndex = 1));
-      } else if (t === "ArrowDown") {
-        const l = this.currentOptions.length;
-        this.selectedIndex === (this.selectedParent ? l : l - 1) ? this.selectedIndex = 0 : this.selectedIndex++;
-        const d = this.$refs.menu.querySelector(`#v-dd-option-${this.selectedIndex}${this.uniqueId}`);
-        d == null || d.scrollIntoView({
-          behavior: "smooth",
-          block: "nearest"
-        });
       } else
         t === "ArrowLeft" && this.selectedParent && this.showPreviousOptions();
+    },
+    /**
+     * Returns the identifier of the matched option.
+     * @param option Option from v-model. This doesn't have internal keys like __identifier
+     * @param options constructed options
+     */
+    findOptionIdentifier(e, t) {
+      var i;
+      for (const s of t)
+        if ((i = s.children) != null && i.length) {
+          const n = this.findOptionIdentifier(e, s.children);
+          if (n)
+            return n;
+        } else if (this.areObjectsEqual(s, e))
+          return s.__identifier;
+      return null;
+    },
+    /**
+     * check if two objects are equal
+     */
+    areObjectsEqual(e, t) {
+      if (e === t)
+        return !0;
+      if (typeof e != typeof t || e === null || t === null)
+        return !1;
+      const i = Object.keys(e).filter((n) => n !== "__identifier" && n !== "__selected" && n !== "children"), s = Object.keys(t).filter((n) => n !== "__identifier" && n !== "__selected" && n !== "children");
+      if (i.length !== s.length)
+        return !1;
+      for (let n of i)
+        if (!s.includes(n) || e[n] !== t[n])
+          return !1;
+      return !0;
+    },
+    /**
+     * check if two arrays are equal
+     */
+    areArraysEqual(e, t) {
+      if (e === t)
+        return !0;
+      if (e.length !== t.length)
+        return !1;
+      const i = [...e].sort((n, o) => n.label.localeCompare(o.label)), s = [...t].sort((n, o) => n.label.localeCompare(o.label));
+      for (let n = 0; n < i.length; n++)
+        if (!this.areObjectsEqual(i[n], s[n]))
+          return !1;
+      return !0;
+    },
+    /**
+     * Finds the difference between two arrays and returns the elements that are present in arr1 but not in arr2 and vice versa in a tuple.
+     * Have to depend to areArraysEqual method & areObjecteEqual method as objects in arr1(from prop) wouldn't have internal keys like __indentifer to easily validate
+     * @param newValue new value(v-model) prop value
+     * @param selectedOptions current selectedOptions
+     */
+    findDifferenceInArrays(e, t) {
+      const i = e.filter((n) => !t.some((o) => this.areObjectsEqual(n, o))), s = t.filter((n) => !e.some((o) => this.areObjectsEqual(o, n)));
+      return [i, s];
     }
   }
-}), H = {
+}), J = {
   class: "v-tree-dropdown",
   ref: "dropdown"
-}, R = { class: "v-dd" }, K = ["for", "id"], U = ["aria-labelledby"], j = ["aria-expanded", "aria-owns", "aria-labelledby"], J = ["id", "aria-labelledby", "aria-controls", "aria-activedescendant"], F = ["innerHTML"], G = ["id", "aria-labelledby", "aria-multiselectable"], Q = {
+}, K = { class: "v-dd" }, U = ["for", "id"], j = ["aria-labelledby"], F = ["aria-expanded", "aria-owns", "aria-labelledby"], G = ["placeholder", "id", "aria-labelledby", "aria-controls", "aria-activedescendant"], Q = ["innerHTML"], W = ["id", "aria-labelledby", "aria-multiselectable"], X = {
   key: 0,
   class: "v-dd-option no-data",
   role: "option"
-}, W = ["id"], X = { class: "u-truncate label" }, Y = ["id", "onClick", "aria-selected", "disabled"], Z = { class: "u-truncate" };
-function x(e, t, i, n, s, p) {
-  var u;
-  const r = C("svg-icon");
-  return a(), h("div", H, [
-    c("div", R, [
+}, Y = ["id"], Z = { class: "u-truncate label" }, x = ["id", "onClick", "aria-selected", "disabled"], ee = { class: "u-truncate" };
+function te(e, t, i, s, n, o) {
+  var f, h, r;
+  const d = $("svg-icon");
+  return a(), p("div", J, [
+    c("div", K, [
       c("label", {
         for: "v-dd-search__input" + e.uniqueId,
         id: "v-dd-label" + e.uniqueId
-      }, f(e.label), 9, K),
-      e.labelHint ? (a(), h("div", {
+      }, m(e.label), 9, U),
+      e.labelHint ? (a(), p("div", {
         key: 0,
         class: "v-dd-label-hint",
         "aria-labelledby": "v-dd-label" + e.uniqueId
-      }, f(e.labelHint), 9, U)) : O("", !0),
+      }, m(e.labelHint), 9, j)) : I("", !0),
       c("div", {
-        class: m("v-dd-search" + (e.menuIsOpen ? " active" : "") + (e.compact ? " compact" : "")),
-        onClick: t[3] || (t[3] = (...o) => e.toggleDropdownMenu && e.toggleDropdownMenu(...o)),
+        class: O("v-dd-search" + (e.menuIsOpen ? " active" : "") + (e.compact ? " compact" : "")),
+        onClick: t[3] || (t[3] = (...l) => e.toggleDropdownMenu && e.toggleDropdownMenu(...l)),
         "aria-haspopup": "listbox",
         "aria-expanded": "" + e.menuIsOpen,
         "aria-owns": "v-dd-options-menu" + e.uniqueId,
         "aria-labelledby": "v-dd-label" + e.uniqueId
       }, [
-        b(r, {
+        g(d, {
           icon: "zd-search",
           name: "Search"
         }),
-        g(c("input", {
+        y(c("input", {
           ref: "searchInput",
           type: "text",
+          placeholder: e.placeholder,
           autocomplete: "off",
           id: "v-dd-search__input" + e.uniqueId,
-          class: m("c-txt v-dd-input" + (e.menuIsOpen ? "" : " hide")),
-          "onUpdate:modelValue": t[0] || (t[0] = (o) => e.searchInput = o),
-          onClick: t[1] || (t[1] = (...o) => e.keepMenuOpen && e.keepMenuOpen(...o)),
-          onKeydown: t[2] || (t[2] = (...o) => e.handleKeyDown && e.handleKeyDown(...o)),
+          class: O("c-txt v-dd-input" + (e.menuIsOpen ? "" : " hide")),
+          "onUpdate:modelValue": t[0] || (t[0] = (l) => e.searchInput = l),
+          onClick: t[1] || (t[1] = (...l) => e.keepMenuOpen && e.keepMenuOpen(...l)),
+          onKeydown: t[2] || (t[2] = (...l) => e.handleKeyDown && e.handleKeyDown(...l)),
           role: "combobox",
           "aria-labelledby": "v-dd-label" + e.uniqueId,
           "aria-autocomplete": "list",
           "aria-controls": e.menuIsOpen ? "v-dd-options-menu" + e.uniqueId : !1,
           "aria-activedescendant": e.menuIsOpen ? "v-dd-option-" + e.selectedIndex : !1
-        }, null, 42, J), [
-          [q, e.searchInput]
+        }, null, 42, G), [
+          [D, e.searchInput]
         ]),
-        g(c("div", {
-          class: "c-txt u-truncate",
-          innerHTML: e.selectedOptions.map((o) => o.label).join(", ")
-        }, null, 8, F), [
+        y(c("div", {
+          class: O("c-txt u-truncate" + ((f = e.selectedOptions) != null && f.length ? "" : " placeholder")),
+          innerHTML: (h = e.selectedOptions) != null && h.length ? e.selectedOptions.map((l) => l.label).join(", ") : e.placeholder
+        }, null, 10, Q), [
           [P, !e.menuIsOpen]
         ]),
-        b(r, {
+        g(d, {
           icon: "zd-down-pointer",
           name: e.menuIsOpen ? "Up arrow" : "Down arrow",
-          class: m(e.menuIsOpen ? "open" : "close")
+          class: O(e.menuIsOpen ? "open" : "close")
         }, null, 8, ["name", "class"])
-      ], 10, j)
+      ], 10, F)
     ]),
-    g(c("ul", {
+    y(c("ul", {
       ref: "menu",
       id: "v-dd-options-menu" + e.uniqueId,
-      class: m(e.compact ? "compact" : ""),
+      class: O(e.compact ? "compact" : ""),
       role: "listbox",
       "aria-labelledby": "v-dd-label" + e.uniqueId,
       "aria-multiselectable": !!e.multiple
     }, [
-      (u = e.currentOptions) != null && u.length ? O("", !0) : (a(), h("li", Q, [
-        c("span", null, f(e.noSearchResultsText), 1)
+      (r = e.currentOptions) != null && r.length ? I("", !0) : (a(), p("li", X, [
+        c("span", null, m(e.noSearchResultsText), 1)
       ])),
-      e.selectedParent ? (a(), h("li", {
+      e.selectedParent ? (a(), p("li", {
         key: 1,
         id: "v-dd-option-0" + e.uniqueId,
-        class: m("v-dd-option parent-option" + (e.selectedIndex === 0 ? " active" : "")),
-        onClick: t[4] || (t[4] = (o) => e.showPreviousOptions()),
+        class: O("v-dd-option parent-option" + (e.selectedIndex === 0 ? " active" : "")),
+        onClick: t[4] || (t[4] = (l) => e.showPreviousOptions()),
         role: "option"
       }, [
-        b(r, {
+        g(d, {
           icon: "zd-down-pointer",
           name: "Left arrow",
           iconDescription: "Click to go back to previous menu",
           color: "#1f73b7"
         }),
-        c("span", X, f(e.selectedParent.label), 1)
-      ], 10, W)) : O("", !0),
-      (a(!0), h(D, null, _(e.currentOptions, (o, l) => {
-        var d, w, y, S, k;
-        return a(), h("li", {
-          key: o.label + "__" + (o.value ?? l),
-          id: "v-dd-option-" + (e.selectedParent ? l + 1 : l) + e.uniqueId,
-          class: m("v-dd-option" + (e.selectedIndex === (e.selectedParent ? l + 1 : l) ? " active" : "")),
-          onClick: (ne) => e.selectOption(l),
+        c("span", Z, m(e.selectedParent.label), 1)
+      ], 10, Y)) : I("", !0),
+      (a(!0), p(E, null, A(e.currentOptions, (l, u) => {
+        var w, S, k, _, q;
+        return a(), p("li", {
+          key: l.label + "__" + (l.value ?? u),
+          id: "v-dd-option-" + (e.selectedParent ? u + 1 : u) + e.uniqueId,
+          class: O("v-dd-option" + (e.selectedIndex === (e.selectedParent ? u + 1 : u) ? " active" : "")),
+          onClick: (ie) => e.selectOption(u),
           role: "option",
-          "aria-selected": e.selectedIndex === (e.selectedParent ? l + 1 : l),
-          disabled: o.disabled || e.maxSelectableCount && ((d = e.selectedOptions) == null ? void 0 : d.length) >= e.maxSelectableCount && !((w = o.children) != null && w.length) && !e.isOptionSelected(o) ? "disabled" : null
+          "aria-selected": e.selectedIndex === (e.selectedParent ? u + 1 : u),
+          disabled: l.disabled || e.maxSelectableCount && ((w = e.selectedOptions) == null ? void 0 : w.length) >= e.maxSelectableCount && !((S = l.children) != null && S.length) && !e.isOptionSelected(l) ? "disabled" : null
         }, [
-          (y = o.children) != null && y.length && e.hasSelectedOptions(o.children) ? (a(), v(r, {
+          (k = l.children) != null && k.length && e.hasSelectedOptions(l.children) ? (a(), v(d, {
             key: 0,
             icon: "zd-contains",
             name: "Contains",
             color: "#1f73b7"
-          })) : O("", !0),
-          !((S = o.children) != null && S.length) && e.isOptionSelected(o) ? (a(), v(r, {
+          })) : I("", !0),
+          !((_ = l.children) != null && _.length) && e.isOptionSelected(l) ? (a(), v(d, {
             key: 1,
             icon: "zd-check",
             name: "Selected",
             color: "#1f73b7"
-          })) : O("", !0),
-          c("span", Z, f(o.label), 1),
-          (k = o.children) != null && k.length ? (a(), v(r, {
+          })) : I("", !0),
+          c("span", ee, m(l.label), 1),
+          (q = l.children) != null && q.length ? (a(), v(d, {
             key: 2,
             icon: "zd-down-pointer",
             name: "Right arrow",
             iconDescription: "Click to open sub-menu options"
-          })) : O("", !0)
-        ], 10, Y);
+          })) : I("", !0)
+        ], 10, x);
       }), 128))
-    ], 10, G), [
+    ], 10, W), [
       [P, e.menuIsOpen]
     ])
   ], 512);
 }
-const ee = /* @__PURE__ */ M(N, [["render", x], ["__scopeId", "data-v-201db00d"]]), te = {
+const ne = /* @__PURE__ */ M(R, [["render", te], ["__scopeId", "data-v-831d23ca"]]), se = {
   install(e, t) {
-    e.component("VsAutocomplete", ee);
+    e.component("VsAutocomplete", ne);
   }
 };
-let I = null;
-typeof window < "u" ? I = window.Vue : typeof global < "u" && (I = global.Vue);
-I && I.use && I.use(te);
+let b = null;
+typeof window < "u" ? b = window.Vue : typeof global < "u" && (b = global.Vue);
+b && b.use && b.use(se);
 export {
-  ee as default
+  ne as default
 };
