@@ -114,6 +114,7 @@
 
 .v-dd-search > div.placeholder {
   color: rgba(0, 0, 0, 0.54);
+  text-align: center;
 }
 
 .v-dd-input {
