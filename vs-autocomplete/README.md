@@ -18,6 +18,7 @@ Nested-Autocomplete-Multiselect-Dropdown for Vue 3, refer GitHub branch [v2](htt
   label="Select option(s)"
   :options="options"
   :multiple="true"
+  placeholder="Select option(s)"
   :maxSelectableCount="4"
   :searchInputText="searchInputText"
   :searchOptionMatcher="optionMatcher"
