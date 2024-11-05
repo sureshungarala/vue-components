@@ -178,7 +178,8 @@ li.v-dd-option > svg[aria-labelledby='zd-contains'] {
   position: absolute;
 }
 
-.v-dd-option > span {
+.v-dd-option > span,
+.v-dd-option > div {
   padding: 0 2rem;
   flex-grow: 1;
   text-align: left;

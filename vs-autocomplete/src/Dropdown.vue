@@ -31,30 +31,35 @@
     </div>
     <ul ref="menu" :id="'v-dd-options-menu' + uniqueId" :class="compact ? 'compact' : ''" v-show="menuIsOpen"
       role="listbox" :aria-labelledby="'v-dd-label' + uniqueId" :aria-multiselectable="!!multiple">
-      <li class="v-dd-option no-data" v-if="!currentOptions?.length" role="option">
-        <span>{{ noSearchResultsText }}</span>
+      <li class="v-dd-option" disabled="disabled" v-if="filteringOptionsExternally">
+        <span>Loading...</span>
       </li>
-      <li v-if="selectedParent" :id="'v-dd-option-0' + uniqueId"
-        :class="'v-dd-option parent-option' + (selectedIndex === 0 ? ' active' : '')" @click="showPreviousOptions()"
-        role="option">
-        <svg-icon icon="zd-down-pointer" name="Left arrow" iconDescription="Click to go back to previous menu"
-          color="#1f73b7" />
-        <span class="u-truncate label">{{ selectedParent.label }}</span>
-      </li>
-      <li v-for="(option, index) in currentOptions" :key="option.label + '__' + (option.value ?? index)"
-        :id="'v-dd-option-' + (selectedParent ? index + 1 : index) + uniqueId"
-        :class="'v-dd-option' + (selectedIndex === (selectedParent ? index + 1 : index) ? ' active' : '')"
-        @click="selectOption(index)" role="option"
-        :aria-selected="selectedIndex === (selectedParent ? index + 1 : index) ? true : false"
-        :disabled="(option.disabled || (maxSelectableCount && selectedOptions?.length >= maxSelectableCount && !option.children?.length && !isOptionSelected(option))) ? 'disabled' : null">
-        <svg-icon icon="zd-contains" name="Contains" color="#1f73b7"
-          v-if="option.children?.length && hasSelectedOptions(option.children)" />
-        <svg-icon icon="zd-check" name="Selected" color="#1f73b7"
-          v-if="!option.children?.length && isOptionSelected(option)" />
-        <span class="u-truncate">{{ option.label }}</span>
-        <svg-icon icon="zd-down-pointer" name="Right arrow" iconDescription="Click to open sub-menu options"
-          v-if="option.children?.length" />
-      </li>
+      <template v-else>
+        <li class="v-dd-option no-data" v-if="!currentOptions?.length" role="option">
+          <span>{{ noSearchResultsText }}</span>
+        </li>
+        <li v-if="selectedParent" :id="'v-dd-option-0' + uniqueId"
+          :class="'v-dd-option parent-option' + (selectedIndex === 0 ? ' active' : '')" @click="showPreviousOptions()"
+          role="option">
+          <svg-icon icon="zd-down-pointer" name="Left arrow" iconDescription="Click to go back to previous menu"
+            color="#1f73b7" />
+          <span class="u-truncate label">{{ selectedParent.label }}</span>
+        </li>
+        <li v-for="(option, index) in currentOptions" :key="option.label + '__' + (option.value ?? index)"
+          :id="'v-dd-option-' + (selectedParent ? index + 1 : index) + uniqueId"
+          :class="'v-dd-option' + (selectedIndex === (selectedParent ? index + 1 : index) ? ' active' : '')"
+          @click="selectOption(index)" role="option"
+          :aria-selected="selectedIndex === (selectedParent ? index + 1 : index) ? true : false"
+          :disabled="(option.disabled || (maxSelectableCount && selectedOptions?.length >= maxSelectableCount && !option.children?.length && !isOptionSelected(option))) ? 'disabled' : null">
+          <svg-icon icon="zd-contains" name="Contains" color="#1f73b7"
+            v-if="option.children?.length && hasSelectedOptions(option.children)" />
+          <svg-icon icon="zd-check" name="Selected" color="#1f73b7"
+            v-if="!option.children?.length && isOptionSelected(option)" />
+          <div class="u-truncate" v-html="renderOption(option)"></div>
+          <svg-icon icon="zd-down-pointer" name="Right arrow" iconDescription="Click to open sub-menu options"
+            v-if="option.children?.length" />
+        </li>
+      </template>
     </ul>
   </div>
 </template>
@@ -127,6 +132,16 @@ export default {
       default: '',
       required: false,
     },
+    searchOnInput: {
+      type: Function,
+      default: () => { },
+      required: false,
+    },
+    renderOption: {
+      type: Function,
+      default: (option) => option?.label || '',
+      required: false,
+    }
   },
 
   emits: ['input', 'update:modelValue', 'open', 'close'],
@@ -140,12 +155,14 @@ export default {
       selectedOptions: this.value ?? [], // All selected options
       currentOptions: [], // Current options to display
       filteredOptions: [], // All options filtered by the search input
+      filteringOptionsExternally: false, // true if the options are being filtered externally via searchOnInput prop
 
       /* A11y */
       selectedIndex: -1, // Index of the selected option
       selectedIndices: [],
       currentIndex: -1, // Index of the current prog focussed option
-      uniqueId: Math.random().toString(36).substring(2, 8)
+      uniqueId: Math.random().toString(36).substring(2, 8),
+      debouncedSearchInputChange: this.debounce(this.handleSearchInputChange, 300),
     };
   },
 
@@ -199,7 +216,7 @@ export default {
     },
 
     searchInput() {
-      this.handleSearchInputChange();
+      this.debouncedSearchInputChange();
     },
 
     selectedOptions: {
@@ -245,14 +262,23 @@ export default {
   },
 
   methods: {
+    debounce(fn, wait) {
+      let timeout;
+      return function (...args) {
+        const context = this;
+        clearTimeout(timeout);
+        timeout = setTimeout(() => fn.apply(context, args), wait);
+      };
+    },
+
     // TODO: Check if all options under parent can be selected - [LATER]
-    constructCompData() {
+    constructCompData(ddOptions = this.options) {
       try {
-        const options = JSON.parse(JSON.stringify(this.options));
+        const options = JSON.parse(JSON.stringify(ddOptions));
         const { formattedOptions, selectedOptions } = this.parseInputOptions(options);
         this.ddOptions = formattedOptions;
         this.selectedOptions = selectedOptions;
-        if (this.searchInput) {
+        if (this.searchInput && !this.filteringOptionsExternally) {
           const filteredOptions = this.filterMatchingOptions(this.searchInput, this.ddOptions);
           this.currentOptions = filteredOptions;
           this.filteredOptions = filteredOptions;
@@ -266,13 +292,32 @@ export default {
     },
 
     handleSearchInputChange() {
-      if (this.searchInput) {
-        this.currentOptions = this.filterMatchingOptions(this.searchInput, this.ddOptions);
-      } else {
+      if (!this.searchInput) {
         this.currentOptions = this.ddOptions;
+        this.filteredOptions = this.ddOptions;
+        this.selectedParent = null;
+        return;
       }
-      this.filteredOptions = this.currentOptions;
-      this.selectedParent = null;
+      let validSearchOnInputProp = false;
+      if (typeof this.searchOnInput === 'function') {
+        const result = this.searchOnInput(this.searchInput);
+        if (result && typeof result.then === 'function') {
+          validSearchOnInputProp = true;
+          this.filteringOptionsExternally = true;
+          result.then((options) => {
+            this.constructCompData(options);
+          }).finally(() => {
+            this.filteringOptionsExternally = false;
+          });
+        }
+      }
+      if (!validSearchOnInputProp) {
+        if (this.searchInput) {
+          this.currentOptions = this.filterMatchingOptions(this.searchInput, this.ddOptions);
+        }
+        this.filteredOptions = this.currentOptions;
+        this.selectedParent = null;
+      }
     },
 
     focusSearchInput() {
