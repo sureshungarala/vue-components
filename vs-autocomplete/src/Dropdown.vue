@@ -31,8 +31,8 @@
     </div>
     <ul ref="menu" :id="'v-dd-options-menu' + uniqueId" :class="compact ? 'compact' : ''" v-show="menuIsOpen"
       role="listbox" :aria-labelledby="'v-dd-label' + uniqueId" :aria-multiselectable="!!multiple">
-      <li class="v-dd-option" disabled="disabled" v-if="filteringOptionsExternally">
-        <span>Loading...</span>
+      <li class="v-dd-option" disabled="disabled" v-if="filterDataExternally.filterting">
+        <span>{{ filterDataExternally.optionLabel }}</span>
       </li>
       <template v-else>
         <li class="v-dd-option no-data" v-if="!currentOptions?.length" role="option">
@@ -134,9 +134,13 @@ export default defineComponent({
       required: false,
     },
     searchOnInput: {
-      type: Function,
+      type: [Function, Object],
       default: () => { },
       required: false,
+      validator: (value) => {
+        if (typeof value === 'function' || (typeof value === 'object' && typeof value.handler === 'function')) return true;
+        return false;
+      },
     },
     renderOption: {
       type: Function,
@@ -152,18 +156,25 @@ export default defineComponent({
       ddOptions: [], // options(from prop) with identifier to be everywhere in the component
       searchInput: this.searchInputText, // The value of the search input
       menuIsOpen: false, // true if the dropdown menu is open
-      selectedParent: null, // Parent option of the current displayed options
       selectedOptions: this.modelValue, // All selected options
       currentOptions: [], // Current options to display
       filteredOptions: [], // All options filtered by the search input
-      filteringOptionsExternally: false, // true if the options are being filtered externally via searchOnInput prop
+      selectedParent: null, // Parent option of the current displayed options
+      filterDataExternally: {
+        filterting: false, // true if the options are being filtered externally via searchOnInput prop
+        optionLabel: 'Loading...', // Text to display when options are being filtered externally
+        fireOnInitialMenuOpen: false, // true if the options are to be fetched on initial menu open via searchOnInput prop
+        debounceTime: 300, // Debounce time for search input
+        minSearchLength: 0, // Minimum search input length to start filtering
+      },
+      menuWasOpen: false, // set to true when the menu is opened for the first time
 
       /* A11y */
       selectedIndex: -1, // Index of the selected option
       selectedIndices: [],
       currentIndex: -1, // Index of the current prog focussed option
       uniqueId: Math.random().toString(36).substring(2, 8),
-      debouncedSearchInputChange: this.debounce(this.handleSearchInputChange, 300),
+      debouncedSearchInputChange: this.debounce(this.handleSearchInputChange, this.searchOnInput?.debounceTime ?? 300),
     };
   },
 
@@ -174,33 +185,34 @@ export default defineComponent({
         if (!newOptions.length) {
           // Reset the selected options if the value is empty
           this.selectedOptions = [];
-        } else {
-          const [newlySelectedOptions, deselectedOptions] = this.findDifferenceInArrays(newOptions, this.selectedOptions);
-          let updatedSelectedOptions = typeof structuredClone === 'function' ? structuredClone(this.selectedOptions) : JSON.parse(JSON.stringify(this.selectedOptions));
-          deselectedOptions.forEach(option => {
-            const matchedIndex = updatedSelectedOptions.findIndex(
-              selectedOption => selectedOption.__identifier === option.__identifier,
-            );
-            if (matchedIndex > -1) {
-              updatedSelectedOptions = [
-                ...updatedSelectedOptions.slice(0, matchedIndex),
-                ...updatedSelectedOptions.slice(matchedIndex + 1),
-              ];
-            }
-          });
-          newlySelectedOptions.forEach(option => {
-            const identifier = this.findOptionIdentifier(option, this.ddOptions);
-            if (identifier) {
-              updatedSelectedOptions = [...updatedSelectedOptions, {
-                ...option,
-                __identifier: identifier,
-                __selected: true,
-              }];
-            }
-          });
-          if (!this.areArraysEqual(updatedSelectedOptions, this.selectedOptions))
-            this.selectedOptions = updatedSelectedOptions;
+          return;
         }
+        const [newlySelectedOptions, deselectedOptions] = this.findDifferenceInArrays(newOptions, this.selectedOptions);
+        let updatedSelectedOptions = [...this.selectedOptions];
+        deselectedOptions.forEach(option => {
+          const matchedIndex = updatedSelectedOptions.findIndex(
+            selectedOption => selectedOption.__identifier === option.__identifier,
+          );
+          if (matchedIndex > -1) {
+            updatedSelectedOptions = [
+              ...updatedSelectedOptions.slice(0, matchedIndex),
+              ...updatedSelectedOptions.slice(matchedIndex + 1),
+            ];
+          }
+        });
+        newlySelectedOptions.forEach(option => {
+          const identifier = this.findOptionIdentifier(option, this.ddOptions);
+          if (identifier) {
+            updatedSelectedOptions = [...updatedSelectedOptions, {
+              ...this.cloneOption(option),
+              __identifier: identifier,
+              __selected: true,
+            }];
+          }
+        });
+        const finalSelectedOptions = this.multiple ? updatedSelectedOptions : updatedSelectedOptions.length ? [updatedSelectedOptions[0]] : [];
+        if (!this.areArraysEqual(updatedSelectedOptions, this.selectedOptions))
+          this.selectedOptions = updatedSelectedOptions;
       },
       deep: true,
     },
@@ -208,10 +220,10 @@ export default defineComponent({
     menuIsOpen() {
       if (this.menuIsOpen) {
         document.addEventListener('click', this.closeDropdownMenuOnBlur);
-        this.$emit('open', this.$refs.dropdown, this.$refs.menu);
+        this.$emit('open', this.$refs.dropdown, this.$refs.menu, this.searchInput);
       } else {
         document.removeEventListener('click', this.closeDropdownMenuOnBlur);
-        this.$emit('close', this.$refs.dropdown, this.$refs.menu);
+        this.$emit('close', this.$refs.dropdown, this.$refs.menu, this.searchInput);
       }
     },
 
@@ -234,7 +246,7 @@ export default defineComponent({
               this.selectedOptions.map(({ __identifier, __selected, ...option }) => option),
             )
           } catch (error) {
-            console.error('Unknown Event ', error);
+            console.error('[vs-autocomplete]: Unknown Event ', error);
           }
         }
       },
@@ -256,6 +268,11 @@ export default defineComponent({
 
   created() {
     this.constructCompData();
+    if (typeof this.searchOnInput === 'object') {
+      this.filterDataExternally.optionLabel = this.searchOnInput.loadingOptionLabel || 'Loading...';
+      this.filterDataExternally.fireOnInitialMenuOpen = this.searchOnInput.fireOnInitialMenuOpen || false;
+      this.filterDataExternally.minSearchLength = this.searchOnInput.minSearchLength || 0;
+    }
     if (this.keepMenuOpenOnRender) {
       this.keepMenuOpen();
     }
@@ -271,14 +288,39 @@ export default defineComponent({
       };
     },
 
+    cloneOption(option) {
+      // Shallow clone for basic properties
+      const clone = { ...option };
+      // Only deep clone children
+      if (option.children) {
+        clone.children = option.children.map(child => this.cloneOption(child));
+      }
+      return clone;
+    },
+
     // TODO: Check if all options under parent can be selected - [LATER]
-    constructCompData(ddOptions = this.options) {
+    constructCompData(options = this.options) {
       try {
-        const options = JSON.parse(JSON.stringify(ddOptions));
         const { formattedOptions, selectedOptions } = this.parseInputOptions(options);
+        // prioritize modelValue over selectedOptions(via selected: true in options prop)
+        if (this.modelValue.length) {
+          const modelValueSelections = this.modelValue.map(option => {
+            const identifier = this.findOptionIdentifier(option, formattedOptions);
+            return identifier ? {
+              ...this.cloneOption(option),
+              __identifier: identifier,
+              __selected: true
+            } : null;
+          }).filter(Boolean);
+          this.selectedOptions = this.multiple ? modelValueSelections :
+            modelValueSelections.length ? [modelValueSelections[0]] : [];
+        } else {
+          this.selectedOptions = this.multiple ? selectedOptions :
+            selectedOptions.length ? [selectedOptions[0]] : [];
+        }
         this.ddOptions = formattedOptions;
         this.selectedOptions = selectedOptions;
-        if (this.searchInput && !this.filteringOptionsExternally) {
+        if (this.searchInput && !this.filterDataExternally.filterting) {
           const filteredOptions = this.filterMatchingOptions(this.searchInput, this.ddOptions);
           this.currentOptions = filteredOptions;
           this.filteredOptions = filteredOptions;
@@ -291,6 +333,33 @@ export default defineComponent({
       }
     },
 
+    fetchDataExternally() {
+      let validSearchOnInputProp = false;
+      let caller = typeof this.searchOnInput === 'function' ? this.searchOnInput : typeof this.searchOnInput === 'object' ? this.searchOnInput.handler : null;
+      if (caller && this.searchInput.length >= this.filterDataExternally.minSearchLength) {
+        const result = caller(this.searchInput);
+        if (result && typeof result.then === 'function') {
+          validSearchOnInputProp = true;
+          this.filterDataExternally.filterting = true;
+          result.then((options) => {
+            if (Array.isArray(options)) {
+              this.constructCompData(options);
+            } else {
+              console.error('[vs-autocomplete]: searchOnInput prop must return a Promise<Array> of options');
+            }
+          }).catch((e) => {
+            console.error('[vs-autocomplete]: searchOnInput prop must return a Promise<Array> of options', e);
+            this.currentOptions = this.ddOptions;
+            this.filteredOptions = this.ddOptions;
+            this.selectedParent = null;
+          }).finally(() => {
+            this.filterDataExternally.filterting = false;
+          });
+        }
+      }
+      return validSearchOnInputProp;
+    },
+
     handleSearchInputChange() {
       if (!this.searchInput) {
         this.currentOptions = this.ddOptions;
@@ -298,19 +367,7 @@ export default defineComponent({
         this.selectedParent = null;
         return;
       }
-      let validSearchOnInputProp = false;
-      if (typeof this.searchOnInput === 'function') {
-        const result = this.searchOnInput(this.searchInput);
-        if (result && typeof result.then === 'function') {
-          validSearchOnInputProp = true;
-          this.filteringOptionsExternally = true;
-          result.then((options) => {
-            this.constructCompData(options);
-          }).finally(() => {
-            this.filteringOptionsExternally = false;
-          });
-        }
-      }
+      const validSearchOnInputProp = this.fetchDataExternally();
       if (!validSearchOnInputProp) {
         if (this.searchInput) {
           this.currentOptions = this.filterMatchingOptions(this.searchInput, this.ddOptions);
@@ -326,6 +383,10 @@ export default defineComponent({
 
     toggleDropdownMenu(event) {
       event.stopPropagation();
+      if (!this.menuIsOpen && !this.menuWasOpen && this.filterDataExternally.fireOnInitialMenuOpen) {
+        this.menuWasOpen = true;
+        this.fetchDataExternally();
+      }
       this.menuIsOpen = !this.menuIsOpen;
       this.focusSearchInput();
     },
@@ -344,6 +405,10 @@ export default defineComponent({
     keepMenuOpen(event) {
       event?.stopPropagation();
       if (!this.menuIsOpen) {
+        if (!this.menuWasOpen && this.filterDataExternally.fireOnInitialMenuOpen) {
+          this.menuWasOpen = true;
+          this.fetchDataExternally();
+        }
         this.menuIsOpen = true;
       }
       this.focusSearchInput();
@@ -354,19 +419,24 @@ export default defineComponent({
     },
 
     parseInputOptions(options = [], keys = [], selectedOptions = []) {
+      const formattedOptions = [];
       options.forEach(option => {
-        const newKeys = [...keys, option.label];
-        if (typeof option.value !== 'undefined') {
-          newKeys.push(option.value);
-        }
-        option.__identifier = newKeys.join('__');
-        if (option.children?.length) {
-          this.parseInputOptions(option.children, newKeys, selectedOptions);
-        } else if (option.selected) {
-          selectedOptions.push(option);
+        // Use option' id if available
+        const newKeys = [...keys, option.id ?? option.label];
+        const clonedOption = this.cloneOption(option);
+        clonedOption.__identifier = newKeys.join('__');
+        formattedOptions.push(clonedOption);
+        if (clonedOption.children?.length) {
+          const { formattedOptions: childFormattedOptions } = this.parseInputOptions(clonedOption.children, newKeys, selectedOptions);
+          clonedOption.children = childFormattedOptions;
+        } else if (clonedOption.selected) {
+          selectedOptions.push({
+            ...clonedOption,
+            __selected: true,
+          });
         }
       });
-      return { formattedOptions: options, selectedOptions };
+      return { formattedOptions, selectedOptions };
     },
 
     isOptionSelected(option) {
@@ -425,41 +495,41 @@ export default defineComponent({
         this.currentOptions = option.children;
         // replace keyboard focussed index with the clicked index
         this.selectedIndex = 1;
-      } else {
-        if (option.__selected || this.isOptionSelected(option, this.selectedParent)) {
-          // this __selected is transient for current displayed options(`currentOptions`). 
-          // Not to be confused with `selected` prop for `option` type.
-          if (this.multiple) {
-            const matchedIndex = this.selectedOptions.findIndex(
-              selectedOption => selectedOption.__identifier === option.__identifier,
-            );
-            if (matchedIndex > -1) {
-              this.selectedOptions = [
-                ...this.selectedOptions.slice(0, matchedIndex),
-                ...this.selectedOptions.slice(matchedIndex + 1),
-              ];
-            }
-          } else {
-            this.selectedOptions = [];
-          }
-          this.currentOptions[index].__selected = false;
-        } else {
-          if (this.multiple) {
-            this.selectedOptions = [...this.selectedOptions, option];
-          } else {
-            const prevSelectedOptionIndex = this.currentOptions.findIndex(
-              option => option.__selected === true,
-            );
-            if (prevSelectedOptionIndex > -1) this.currentOptions[prevSelectedOptionIndex].__selected = false;
-            this.selectedOptions = [option];
-            this.closeDropdownMenu();
-          }
-          this.currentOptions[index].__selected = true;
-        }
-        // replace keyboard focussed index with the clicked index
-        this.selectedIndex = this.selectedParent ? index + 1 : index;
-        this.focusSearchInput();
+        return;
       }
+      if (option.__selected || this.isOptionSelected(option, this.selectedParent)) {
+        // this __selected is transient for current displayed options(`currentOptions`). 
+        // Not to be confused with `selected` prop for `option` type.
+        if (this.multiple) {
+          const matchedIndex = this.selectedOptions.findIndex(
+            selectedOption => selectedOption.__identifier === option.__identifier,
+          );
+          if (matchedIndex > -1) {
+            this.selectedOptions = [
+              ...this.selectedOptions.slice(0, matchedIndex),
+              ...this.selectedOptions.slice(matchedIndex + 1),
+            ];
+          }
+        } else {
+          this.selectedOptions = [];
+        }
+        this.currentOptions[index].__selected = false;
+      } else {
+        if (this.multiple) {
+          this.selectedOptions = [...this.selectedOptions, option];
+        } else {
+          const prevSelectedOptionIndex = this.currentOptions.findIndex(
+            option => option.__selected === true,
+          );
+          if (prevSelectedOptionIndex > -1) this.currentOptions[prevSelectedOptionIndex].__selected = false;
+          this.selectedOptions = [option];
+          this.closeDropdownMenu();
+        }
+        this.currentOptions[index].__selected = true;
+      }
+      // replace keyboard focussed index with the clicked index
+      this.selectedIndex = this.selectedParent ? index + 1 : index;
+      this.focusSearchInput();
     },
 
     handleKeyDown(event) {
@@ -469,6 +539,8 @@ export default defineComponent({
       } else if (key === 'Enter' || key.length === 1) {
         if (!this.menuIsOpen) this.keepMenuOpen(event);
         if (key === 'Enter') {
+          event.preventDefault();
+          event.stopPropagation();
           if (this.maxSelectableCount && this.selectedOptions?.length >= this.maxSelectableCount) return;
           if (this.selectedParent && this.selectedIndex === 0) {
             this.showPreviousOptions();
@@ -530,8 +602,8 @@ export default defineComponent({
     findOptionIdentifier(option, options) {
       for (const opt of options) {
         if (opt.children?.length) {
-          const matchedOption = this.findOptionIdentifier(option, opt.children);
-          if (matchedOption) return matchedOption;
+          const matchedOptionIdentifer = this.findOptionIdentifier(option, opt.children);
+          if (matchedOptionIdentifer) return matchedOptionIdentifer;
         } else if (this.areObjectsEqual(opt, option)) {
           return opt.__identifier;
         }
@@ -544,11 +616,21 @@ export default defineComponent({
     areObjectsEqual(obj1, obj2) {
       if (obj1 === obj2) return true;
       if (typeof obj1 !== typeof obj2 || obj1 === null || obj2 === null) return false;
-      const keys1 = Object.keys(obj1).filter(key => key !== '__identifier' && key !== '__selected' && key !== 'children');
-      const keys2 = Object.keys(obj2).filter(key => key !== '__identifier' && key !== '__selected' && key !== 'children');
+      if (Array.isArray(obj1) !== Array.isArray(obj2)) return false;
+      if (Array.isArray(obj1)) {
+        return obj1.length === obj2.length &&
+          obj1.every(item1 => obj2.some(item2 => this.areObjectsEqual(item1, item2)));
+      }
+      const excludedKeys = ['__identifier', '__selected', 'children'];
+      const keys1 = Object.keys(obj1).filter(key => !excludedKeys.includes(key));
+      const keys2 = Object.keys(obj2).filter(key => !excludedKeys.includes(key));
       if (keys1.length !== keys2.length) return false;
       for (let key of keys1) {
-        if (!keys2.includes(key) || obj1[key] !== obj2[key]) return false;
+        if (!keys2.includes(key)) return false
+        else if (typeof obj1[key] === 'object') {
+          if (!this.areObjectsEqual(obj1[key], obj2[key])) return false;
+        }
+        else if (obj1[key] !== obj2[key]) return false;
       }
       return true;
     },
@@ -567,7 +649,7 @@ export default defineComponent({
     },
     /**
      * Finds the difference between two arrays and returns the elements that are present in arr1 but not in arr2 and vice versa in a tuple.
-     * Have to depend to areArraysEqual method & areObjecteEqual method as objects in arr1(from prop) wouldn't have internal keys like __indentifer to easily validate
+     * Have to depend on areArraysEqual method & areObjecteEqual method as objects in arr1(from prop) wouldn't have internal keys like __indentifer to easily validate
      * @param newValue new value(v-model) prop value
      * @param selectedOptions current selectedOptions
      */
